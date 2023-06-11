@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { signOut } from "next-auth/react"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
@@ -44,6 +47,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <ThemeToggle />
+            <button onClick={() => signOut()}>Sign out</button>
           </nav>
         </div>
       </div>
