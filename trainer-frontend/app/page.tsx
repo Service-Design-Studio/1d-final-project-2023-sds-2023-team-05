@@ -1,14 +1,14 @@
 import { getServerSession } from "next-auth/next"
 
-import Card from "./Card"
-import Form from "./Form"
-import { options } from "./options"
+import Form from "../components/LoginForm"
+import Home from "./Home"
+import { options } from "./helpers/auth/authOptions"
 
-export default async function Home() {
+export default async function App() {
   const session = await getServerSession(options)
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      {session ? <Card user={session.user?.name} /> : <Form />}
+    <main className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+      {session ? <Home /> : <Form />}
     </main>
   )
 }
