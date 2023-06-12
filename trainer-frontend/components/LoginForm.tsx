@@ -20,7 +20,6 @@ function Form() {
     >
       <div className="head text-center">
         <h3 className="font-semibold">You must be sign in to join</h3>
-        <small>we are A Team that guides Each other</small>
       </div>
       <button
         onClick={() => signIn("google")}
