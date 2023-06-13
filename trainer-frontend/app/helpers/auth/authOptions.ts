@@ -30,7 +30,12 @@ export const options: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: "/",
+    signIn: "/login",
+  },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return "/"
+    },
   },
   session: {
     strategy: "jwt",
