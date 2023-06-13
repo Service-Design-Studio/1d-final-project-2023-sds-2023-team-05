@@ -34,9 +34,15 @@ export default function AddQuestion() {
         method: "POST",
       }
     )
-    const result = await res.json()
 
-    console.log(result)
+    if (!res.ok) {
+      alert("Error creating question")
+    }
+
+    setAnswer("")
+    setQuestion("")
+
+    window.location.reload()
   }
 
   return (
