@@ -9,6 +9,8 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+import { UserNav } from "./user-nav"
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -47,7 +49,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <ThemeToggle />
-            <button onClick={() => signOut()}>Sign out</button>
+            <UserNav />
           </nav>
         </div>
       </div>

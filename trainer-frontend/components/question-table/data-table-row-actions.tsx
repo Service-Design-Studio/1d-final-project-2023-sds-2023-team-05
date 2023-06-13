@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { Row } from "@tanstack/react-table"
 import { Copy, MoreHorizontal, Pen, Star, Tags, Trash } from "lucide-react"
 
@@ -18,8 +19,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import { labels } from "../data/data"
-import { taskSchema } from "../data/schema"
+import { labels } from "./data/data"
+import { taskSchema } from "./data/schema"
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
@@ -28,7 +29,22 @@ interface DataTableRowActionsProps<TData> {
 export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
+  const router = useRouter()
   const task = taskSchema.parse(row.original)
+
+  const deleteQuestion = async () => {
+    const res = await fetch(
+      `https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs/${task.id}`,
+      {
+        method: "DELETE",
+      }
+    )
+    if (res.ok) {
+      router.refresh()
+    } else {
+      alert("Error deleting question")
+    }
+  }
 
   return (
     <DropdownMenu>
@@ -61,7 +77,7 @@ export function DataTableRowActions<TData>({
             Labels
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            <DropdownMenuRadioGroup value={task.label}>
+            <DropdownMenuRadioGroup value={task.answer}>
               {labels.map((label) => (
                 <DropdownMenuRadioItem key={label.value} value={label.value}>
                   {label.label}
@@ -71,7 +87,7 @@ export function DataTableRowActions<TData>({
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={deleteQuestion}>
           <Trash className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>

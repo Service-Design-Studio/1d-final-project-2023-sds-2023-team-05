@@ -2,12 +2,13 @@ import { promises as fs } from "fs"
 import path from "path"
 import { Metadata } from "next"
 import Image from "next/image"
+import { columns } from "@components/question-table/columns"
+import { DataTable } from "@components/question-table/data-table"
 import { z } from "zod"
 
-import { columns } from "./components/columns"
-import { DataTable } from "./components/data-table"
-import { UserNav } from "./components/user-nav"
-import { taskSchema } from "./data/schema"
+import AddQuestion from "@/components/AddQuestion"
+import { taskSchema } from "@/components/question-table/data/schema"
+import { UserNav } from "@/components/user-nav"
 
 export const metadata: Metadata = {
   title: "Tasks",
@@ -20,7 +21,10 @@ async function getTasks() {
   //   path.join(process.cwd(), "components/tasks/data/tasks.json")
   // )
 
-  const res = await fetch("https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs")
+  const res = await fetch(
+    "https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs",
+    { cache: "no-store" }
+  )
   // const tasks = JSON.parse(data.toString())
   const faqs = await res.json()
   console.log(faqs)
@@ -36,12 +40,8 @@ export default async function TaskPage() {
         <div className="flex items-center justify-between space-y-2">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
-            <p className="text-muted-foreground">
-              Here&apos;s a list of your tasks for this month!
-            </p>
-          </div>
-          <div className="flex items-center space-x-2">
-            <UserNav />
+            <p className="text-muted-foreground">Questions r here</p>
+            <AddQuestion />
           </div>
         </div>
         <DataTable data={tasks} columns={columns} />
