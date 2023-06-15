@@ -1,4 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
+import { cardTheme } from './card'
+import { tabsTheme } from './tabs'
 
 
 const theme = extendTheme({
@@ -14,6 +16,8 @@ const theme = extendTheme({
                 colorScheme: 'blue',
             },
         },
+        Card: cardTheme,
+        Tabs: tabsTheme
     },
 });
 
