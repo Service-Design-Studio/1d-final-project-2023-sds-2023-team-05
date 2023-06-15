@@ -1,4 +1,5 @@
 "use client"
+
 import React from 'react'
 import { Box, Button, ChakraProvider } from '@chakra-ui/react';
 import theme from '../stylesheet/theme';
@@ -7,7 +8,7 @@ import Link from 'next/link'
 
 
 
-function page() {
+function FAQ() {
     return (
         <ChakraProvider theme={theme}>
             <Card>
@@ -26,9 +27,7 @@ function page() {
                             </Heading>
                             View a summary of all your clients over the last month.
                             <Box>
-                                <Link href="/">
-                                    <Button colorScheme="blue">Click me</Button>
-                                </Link>
+                                <Button colorScheme="blue">Click me</Button>
                             </Box>
                         </Box>
                         <Box>
@@ -93,4 +92,4 @@ function page() {
     )
 }
 
-export default page
+export default FAQ
