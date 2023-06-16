@@ -10,6 +10,7 @@ function FAQheader() {
         <div className={styles.faq_background}>
             <h1>FAQ</h1>
             <p>Hi there haoyi</p>
+            <p>Hi Hubert </p>
         </div>
     )
 }
