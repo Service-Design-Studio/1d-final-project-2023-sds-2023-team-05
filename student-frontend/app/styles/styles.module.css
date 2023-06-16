@@ -1,5 +1,36 @@
-.yes {
+/* The styler for the main container, using flex display to store all the subelements */
+.main_flex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* css class for the FAQheader */
+
+.faq_background {
+    height: 10vh;
+    width: 100vw;
     background-color: aliceblue;
     color: black;
-    font-size: xx-large;
+}
+
+/* css for table */
+
+.table_maincss {
+    width: 200px;
+}
+
+.table_maincell {
+    width: 40px;
+    background-color: green;
+}
+
+
+/* Just a testing class */
+.main_button {
+    width: 75px;
+    margin: auto;
+    background-color: aliceblue;
+    color: black;
 }
