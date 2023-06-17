@@ -15,6 +15,15 @@ async function getTasks() {
 function Stoopidtable() {
     const [theadData, setTheadData] = useState([]);
     const [tbodyData, setTbodyData] = useState([]);
+    const [activeRow, setActiveRow] = useState([]);
+
+    const handleRowClick = (rowIndex) => {
+        if (activeRow === rowIndex) {
+            setActiveRow(null); // Toggle off the active state
+        } else {
+            setActiveRow(rowIndex); // Set the clicked row as active
+        }
+    };
 
     useEffect(() => {
         getTasks().then(faqs => {
@@ -26,16 +35,25 @@ function Stoopidtable() {
 
     return (
         <table className={styles.table_mainstyle}>
-            {theadData.map(heading => {
-                return <th key={heading} className={styles.table_maincell}>{heading} </th>
-            })}
-            {tbodyData.map((row, index) => {
-                return <tr key={index}>
-                    {theadData.map((key, index) => {
-                        return <td key={row[key]} className={styles.table_maincell}>{row[key]}</td>
-                    })}
-                </tr>;
-            })}
+            <tbody>
+                {tbodyData.map((row, index) => (
+                    <React.Fragment key={index}>
+                        <tr
+                            className={activeRow === index ? styles.active : ''}
+                            onClick={() => handleRowClick(index)}
+                        >
+                            <td className={styles.table_maincell}>Question: {row.question}</td>
+                        </tr>
+                        {activeRow === index && (
+                            <tr>
+                                <td colSpan={theadData.length} className={styles.table_answer}>
+                                    Answer: {row.answer}
+                                </td>
+                            </tr>
+                        )}
+                    </React.Fragment>
+                ))}
+            </tbody>
         </table>
     )
 }
