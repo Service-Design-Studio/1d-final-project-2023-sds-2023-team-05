@@ -1,13 +1,11 @@
 import React from 'react'
-import styles from '../styles/styles.module.css'
-import Stoopidtable from '../components/stoopidtable'
 import FAQheader from '../components/FAQheader'
-import Buttonexample from '../components/button'
-
+import styles from '../styles/styles.module.css'
 
 function page() {
     return (
         <div className={styles.main_flex}>
+            <p>This is yong liang's page</p>
             <FAQheader></FAQheader>
         </div>
     )
