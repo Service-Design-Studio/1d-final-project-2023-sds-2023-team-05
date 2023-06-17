@@ -9,6 +9,7 @@ function page() {
     return (
         <div className={styles.main_flex}>
             <FAQheader></FAQheader>
+            <Stoopidtable></Stoopidtable>
         </div>
     )
 }
