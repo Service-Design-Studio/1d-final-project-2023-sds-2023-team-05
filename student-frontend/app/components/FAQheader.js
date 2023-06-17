@@ -11,6 +11,7 @@ function FAQheader() {
             <h1>FAQ</h1>
             <p>Hi there haoyi</p>
             <p>Hi Hubert </p>
+            <p>Hi ziyi, hi yingyu </p>
         </div>
     )
 }

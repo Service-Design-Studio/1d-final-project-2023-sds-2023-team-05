@@ -25,14 +25,14 @@ function Stoopidtable() {
     }, []);
 
     return (
-        <table>
+        <table className={styles.table_mainstyle}>
             {theadData.map(heading => {
-                return <th key={heading}>{heading}</th>
+                return <th key={heading} className={styles.table_maincell}>{heading} </th>
             })}
             {tbodyData.map((row, index) => {
-                return <tr key={index} className={styles.table_maincell}>
+                return <tr key={index}>
                     {theadData.map((key, index) => {
-                        return <td key={row[key]}>{row[key]}</td>
+                        return <td key={row[key]} className={styles.table_maincell}>{row[key]}</td>
                     })}
                 </tr>;
             })}
