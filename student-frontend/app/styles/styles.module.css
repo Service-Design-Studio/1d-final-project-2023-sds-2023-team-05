@@ -41,11 +41,18 @@
     font-size: 1vw;
     background-color: green;
     padding-left: 5%;
+}
 
+.searchInput {
+    color: black
 }
 
 .active {
     background-color: green;
+}
+
+.classCodeInput {
+    color: black;
 }
 
 
