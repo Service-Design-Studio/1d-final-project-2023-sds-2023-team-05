@@ -81,4 +81,25 @@ Faq.create!(
       author: q[:author]
     )
 end
-  
+
+
+# Create sessions - title and each gets 2 faqs
+
+sessions = [
+    {
+      title: "Christianity",
+      faqs: [1,4,5,10]
+    },
+    {
+      title: "Islam",
+      faqs: [2,5,6,8]
+    },
+  ]
+
+sessions.each do |s|
+  session = Session.create!(title: s[:title])
+  s[:faqs].each do |faq_id|
+    FaqSession.create!(session_id: session.id, faq_id: faq_id)
+  end
+end
+    

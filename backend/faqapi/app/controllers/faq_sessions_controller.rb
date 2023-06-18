@@ -1,0 +1,2 @@
+class FaqSessionsController < ApplicationController
+end
