@@ -1,19 +1,20 @@
-"use client"
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import styles from '../styles/FAQheader.module.css';
 
-import React, { useEffect, useState } from "react";
-import styles from '../styles/styles.module.css'
+const FAQheader = () => {
+    const router = useRouter();
 
-//Element will still be styled even without the original importing the styles
-
-function FAQheader() {
+    const handleBackButtonClick = () => {
+        router.push('/');
+    };
     return (
-        <div className={styles.faq_background}>
-            <h1>FAQ</h1>
-            <p>Hi there haoyi</p>
-            <p>Hi Hubert </p>
-            <p>Hi ziyi, hi yingyu </p>
+        <div className={styles.header}>
+            <button className={styles.backButton} onClick={handleBackButtonClick}>{'<'}</button>
+            <h1 className={styles.headerText}>FAQ</h1>
+            <div className={styles.placeholderIcon}></div>
         </div>
-    )
-}
+    );
+};
 
-export default FAQheader
+export default FAQheader;

@@ -13,7 +13,8 @@ This is the backend for team 05 faq service. It's built on Ruby on Rails and del
 
 1. Clone the repo and cd into this directory
 2. Install the required gems. `bundle install`
-3. Set up the database, load the schemas and seed the database. `bundle e rails db:setup`
-4. Run `bundle e rails db:migrate` if there are necessary migrations
-5. `rails server` to start the server
+3. go to config and create the file `master.key` and get the master key
+4. Set up the database, load the schemas and seed the database. `bundle e rails db:setup`
+5. Run `bundle e rails db:migrate` if there are necessary migrations
+6. `rails server` to start the server
 
