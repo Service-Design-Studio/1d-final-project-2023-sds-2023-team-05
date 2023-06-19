@@ -9,6 +9,8 @@ import Buttonexample from '../components/button'
 
 function page() {
     const [classCode, setClassCode] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
 
 
     useEffect(() => {
@@ -18,14 +20,21 @@ function page() {
 
         if (code) {
             setClassCode(code);
-            console.log(code)
         }
     }, []);
+
+    useEffect(() => {
+        if (classCode) {
+            setIsLoading(false);
+        }
+    }, [classCode]);
 
     return (
         <div className={styles.main_flex}>
             <FAQheader></FAQheader>
-            <Stoopidtable></Stoopidtable>
+            {!isLoading && (
+                <Stoopidtable classCode={classCode} />
+            )}
         </div>
     )
 }
