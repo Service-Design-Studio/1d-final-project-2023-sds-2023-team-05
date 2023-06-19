@@ -7,9 +7,9 @@ import styles from '../styles/styles.module.css'
 
 
 async function getTasks() {
-    const res = await fetch("https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs", { cache: "no-store" });
-    const faqs = await res.json();
-    return faqs;
+    const res = await fetch("https://faqapi-service-mgn7slqt5a-as.a.run.app/sessions/" + '2', { cache: "no-store" });
+    const data = await res.json();
+    return data.faqs;
 }
 
 function Stoopidtable() {

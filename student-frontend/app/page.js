@@ -23,17 +23,10 @@ export default function Home() {
     }
   };
 
-  const redirectToFirstPage = () => {
-    if (classCode.join("").length === 6) {
-      return (
-        <Link href="/first">Blog Post</Link>
-      );
-    }
-  };
-
   useEffect(() => {
     if (classCode.join("").length === 6) {
-      router.push("/first");
+      const path = "/first?classCode=" + classCode.join("");
+      router.push(path);
     }
   }, [classCode, router]);
 
