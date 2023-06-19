@@ -2,29 +2,29 @@
 .main_flex {
     display: flex;
     width: 100vw;
-    max-width: 100vw;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    color: rgb(35, 35, 35);
+    background-color: white;
+    font-size: 1.5em;
 }
 
-/* css class for the FAQheader */
-
+/* CSS class for the FAQ header */
 .faq_background {
     height: 20vh;
     width: 100%;
-    background-color: aliceblue;
     color: black;
+    background-color: white;
 }
 
-/* css for table */
-
+/* CSS for table */
 .table_maincss {
     width: 200px;
 }
 
 .table_maincell {
-    width: 20%;
+    width: 50%;
     font-size: 1vw;
     padding-left: 5%;
 }
@@ -32,44 +32,50 @@
 .table_mainstyle {
     width: 100%;
     max-width: 100vw;
-    background-color: olive;
+    background-color: rgb(255, 255, 255);
     text-align: left;
 }
 
 .table_answer {
-    width: 20%;
+    width: 50%;
     font-size: 1vw;
-    background-color: green;
-    padding-left: 5%;
+    color: black;
+    background-color: rgb(212, 212, 212);
+    padding-left: 10%;
 }
 
 .searchInput {
-    color: black
+    color: black;
 }
 
 .active {
-    background-color: green;
+    background-color: rgb(255, 255, 255);
 }
 
 .classCodeInput {
     color: black;
+    font-size: 1em;
 }
-
 
 /* Just a testing class */
 .main_button {
     width: 75px;
     margin: auto;
-    background-color: aliceblue;
+    background-color: white;
     color: black;
 }
 
 @media (max-width: 767px) {
     .table_answer {
-        font-size: 3vw;
+        font-size: 4vw;
+        padding: 10px;
+        font-family: "Open Sans", Arial, sans-serif;
     }
 
     .table_maincell {
-        font-size: 3vw;
+        font-size: 5vw;
+        border: 0.5px solid rgb(230, 230, 230);
+        padding: 15px;
+        font-family: "Open Sans", Arial, sans-serif;
     }
 }
