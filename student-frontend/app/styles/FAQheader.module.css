@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background-color: #19408f;
+    background-color: #ffffff;
 }
 
 .backButton {
@@ -16,7 +16,7 @@
 }
 
 .headerText {
-    font-size: 20px;
+    font-size: 50px;
     font-weight: bold;
     margin: 0;
 }
@@ -24,6 +24,6 @@
 .placeholderIcon {
     width: 24px;
     height: 24px;
-    background-color: #ccc;
+    background-color: #ffffff;
     /* Add your icon styles here */
 }
