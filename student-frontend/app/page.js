@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./styles/styles.module.css";
+import styles from "./styles/login.module.css";
 import { useRouter } from "next/navigation";
 
 
@@ -30,24 +30,27 @@ export default function Home() {
   }, [classCode, router]);
 
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${styles.main}`}>
+    <main className={styles.main}>
       {/* Your existing content */}
       {/* ... */}
 
       {/* Login form */}
       <div className={styles.loginContainer}>
-        <h2>Login</h2>
+      <h2 className={styles.title}>Kampung Klass</h2>
+        <div className={styles.subtitle}>Enter your Klass code!</div>
         <div className={styles.classCodeInput}>
-          {classCode.map((digit, index) => (
-            <input
-              key={index}
-              type="text"
-              maxLength={1}
-              value={digit}
-              onChange={(event) => handleClassCodeChange(event, index)}
-              ref={(input) => (inputRefs.current[index] = input)}
-            />
-          ))}
+          <div className={styles.row}>
+            {classCode.map((digit, index) => (
+              <input
+                key={index}
+                type="text"
+                maxLength={1}
+                value={digit}
+                onChange={(event) => handleClassCodeChange(event, index)}
+                ref={(input) => (inputRefs.current[index] = input)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </main>
