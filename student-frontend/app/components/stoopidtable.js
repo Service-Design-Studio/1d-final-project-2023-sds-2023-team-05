@@ -6,18 +6,30 @@ import styles from '../styles/styles.module.css'
 //Element will still be styled even without the original importing the styles
 
 
-async function getTasks() {
-    const res = await fetch("https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs", { cache: "no-store" });
-    const faqs = await res.json();
-    return faqs;
+async function getTasks(ClassCode) {
+    const res = await fetch("https://faqapi-service-mgn7slqt5a-as.a.run.app/sessions/" + ClassCode, { cache: "no-store" });
+    const data = await res.json();
+    return data.faqs;
 }
 
-function Stoopidtable() {
+function mapClassCodeToId(classCode) {
+    // Extract the first digit from the classCode
+    const firstDigit = classCode.substring(0, 1);
+
+    // Map the first digit to the corresponding ID
+    if (firstDigit >= "0" && firstDigit <= "4") {
+        return "1";
+    } else {
+        return "2";
+    }
+}
+
+function Stoopidtable({ classCode }) {
     const [theadData, setTheadData] = useState([]);
     const [tbodyData, setTbodyData] = useState([]);
     const [activeRow, setActiveRow] = useState([]);
     const [searchText, setSearchText] = useState('');
-
+    const ClassCode = mapClassCodeToId(classCode);
 
     const handleRowClick = (rowIndex) => {
         if (activeRow === rowIndex) {
@@ -28,7 +40,7 @@ function Stoopidtable() {
     };
 
     useEffect(() => {
-        getTasks().then(faqs => {
+        getTasks(ClassCode).then(faqs => {
             const tableHeadings = Object.keys(faqs[0]);
             setTheadData(tableHeadings);
             setTbodyData(faqs);

@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
 import styles from "./styles/styles.module.css";
 import { useRouter } from "next/navigation";
 
@@ -23,17 +22,10 @@ export default function Home() {
     }
   };
 
-  const redirectToFirstPage = () => {
-    if (classCode.join("").length === 6) {
-      return (
-        <Link href="/first">Blog Post</Link>
-      );
-    }
-  };
-
   useEffect(() => {
     if (classCode.join("").length === 6) {
-      router.push("/first");
+      const path = "/first?classCode=" + classCode.join("");
+      router.push(path);
     }
   }, [classCode, router]);
 
