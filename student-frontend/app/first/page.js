@@ -7,7 +7,7 @@ import FAQheader from '../components/FAQheader'
 import Buttonexample from '../components/button'
 
 
-function page() {
+function Page() {
     const [classCode, setClassCode] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -39,4 +39,4 @@ function page() {
     )
 }
 
-export default page
+export default Page
