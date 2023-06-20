@@ -1,24 +1,20 @@
-# README
+# Backend FAQAPI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend for team 05 faq service. It's built on Ruby on Rails and delivers RESTful API's to be consumed by our frontends.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+1. Make sure Ruby is installed. You can run `ruby --version` to check if you have an appropriate version installed. Currently, I'm using 2.7.8
+2. Bundler. Check bundler is installed by  `bundler -v`. I'm using 2.1.4
+3. Postgres should be installed. `postgres -V`
+4. Rails. `rails -v`. I'm using 7.0.2.2
 
-* System dependencies
+## Setting up
 
-* Configuration
+1. Clone the repo and cd into this directory
+2. Install the required gems. `bundle install`
+3. go to config and create the file `master.key` and get the master key
+4. Set up the database, load the schemas and seed the database. `bundle e rails db:setup`
+5. Run `bundle e rails db:migrate` if there are necessary migrations
+6. `rails server` to start the server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

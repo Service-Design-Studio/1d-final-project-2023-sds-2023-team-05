@@ -46,6 +46,6 @@ class FaqsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def faq_params
-      params.require(:faq).permit(:question, :answer)
+      params.require(:faq).permit(:question, :answer, :tag, :author)
     end
 end

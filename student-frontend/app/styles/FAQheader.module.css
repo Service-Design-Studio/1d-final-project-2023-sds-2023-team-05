@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.backButton {
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.headerText {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.placeholderIcon {
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    /* Add your icon styles here */
+}
