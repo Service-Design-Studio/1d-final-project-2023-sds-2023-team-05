@@ -18,9 +18,9 @@ function mapClassCodeToId(classCode) {
 
     // Map the first digit to the corresponding ID
     if (firstDigit >= "0" && firstDigit <= "4") {
-        return "1";
+        return "3";
     } else {
-        return "2";
+        return "4";
     }
 }
 
