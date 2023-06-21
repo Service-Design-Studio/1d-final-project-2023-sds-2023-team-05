@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
+
 .main {
     justify-content: center;
     display: flex;
@@ -9,6 +11,8 @@
 .loginContainer {
     background-color: white;
     text-align: center;
+    background-image: url('../Assets/PFC.png');
+
 }
 
 .title {
@@ -18,7 +22,7 @@
     font-weight: bold; 
     font-size: 40px;
     margin-top: 20px;
-    font-family:  'Chalkduster', Arial, sans-serif;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
 }
 
 .subtitle {
