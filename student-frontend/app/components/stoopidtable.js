@@ -69,7 +69,7 @@ function Stoopidtable({ classCode }) {
                                 onClick={() => handleRowClick(index)}
                             >
                                 <td className={styles.table_maincell}>
-                                    <p>
+                                    <p className={styles.table_text}>
                                         Question: {row.question}
                                     </p>
                                     <div className={styles.stoopid_box}>
