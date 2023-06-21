@@ -23,17 +23,21 @@ function mapClassCodeToId(classCode) {
 function Stoopidtable({ classCode }) {
     const [theadData, setTheadData] = useState([]);
     const [tbodyData, setTbodyData] = useState([]);
-    const [activeRow, setActiveRow] = useState([]);
     const [searchText, setSearchText] = useState('');
     const ClassCode = mapClassCodeToId(classCode);
+    const [activeRow, setActiveRow] = useState(null);
+    const [activeMainCell, setActiveMainCell] = useState(null); // Track the clicked maincell
+
 
     const handleRowClick = (rowIndex) => {
         if (activeRow === rowIndex) {
-            setActiveRow(null); // Toggle off the active state
+          setActiveRow(null); // Toggle off the active state
+          setActiveMainCell(null); // Reset the active maincell
         } else {
-            setActiveRow(rowIndex); // Set the clicked row as active
+          setActiveRow(rowIndex); // Set the clicked row as active
+          setActiveMainCell(rowIndex); // Set the clicked maincell as active
         }
-    };
+      };
 
     useEffect(() => {
         getTasks(ClassCode).then(faqs => {
@@ -52,45 +56,47 @@ function Stoopidtable({ classCode }) {
     );
 
     return (
-        <div>
-            <input
-                type="text"
-                value={searchText}
-                onChange={handleSearchChange}
-                placeholder="Search questions..."
-                className={styles.searchInput}
-            />
-            <table className={styles.table_mainstyle}>
-                <tbody>
-                    {filteredData.map((row, index) => (
-                        <React.Fragment key={index}>
-                            <tr
-                                className={activeRow === index ? styles.active : ''}
-                                onClick={() => handleRowClick(index)}
-                            >
-                                <td className={styles.table_maincell}>
-                                    <p className={styles.table_text}>
-                                        <b>Question: {row.question}</b>
-                                    </p>
-                                    <div className={styles.stoopid_box}>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            {activeRow === index && (
-                                <tr>
-                                    <td colSpan={theadData.length} className={styles.table_answer}>
-                                        Answer: {row.answer}
-                                    </td>
-                                </tr>
-                            )}
-                        </React.Fragment>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-
-    )
+    <div>
+      <input
+        type="text"
+        value={searchText}
+        onChange={handleSearchChange}
+        placeholder="Search"
+        className={styles.searchInput}
+      />
+      <table className={styles.table_mainstyle}>
+        <tbody>
+          {filteredData.map((row, index) => (
+            <React.Fragment key={index}>
+              <tr
+                className={activeRow === index ? styles.active : ""}
+                onClick={() => handleRowClick(index)}
+              >
+                <td className={styles.table_maincell}>
+                  <p className={styles.table_text}>
+                    <b>Question: {row.question}</b>
+                  </p>
+                  {/* Render stoopid_box and apply the .flipped class when the current maincell is active */}
+                  <div
+                    className={`${styles.stoopid_box} ${
+                      activeMainCell === index ? styles.flipped : ""
+                    }`}
+                  ></div>
+                </td>
+              </tr>
+              {activeRow === index && (
+                <tr>
+                  <td colSpan={theadData.length} className={styles.table_answer}>
+                    Answer: {row.answer}
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 export default Stoopidtable

@@ -58,16 +58,21 @@
 .searchInput {
     color: rgb(0, 0, 0);
     background-color: rgb(245, 245, 245);
-    padding-left: 10vw;
-    padding-right: 10vw;
-    padding-top: 2vw;
-    padding-bottom: 1vw;
-    text-align: center;
+    border: 0.3vw solid rgb(230, 230, 230);
+    padding-left: 5vw;
+    padding-right: 43vw;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
+    text-align:left;
     border-radius: 10vw;
+    font-size: 4vw;
+    margin-bottom: 5vw;
+
 }
 
 .searchInput::placeholder{
     color:rgb(163, 163, 163)
+
 }
 
 .active {
@@ -100,15 +105,23 @@
 
 @media (max-width: 767px) {
     .table_answer {
-        font-size: 4.5vw;
-        padding: 3vw;
+        font-size: 4vw;
+        padding-left: 9vw;
+        padding-right: 5vw;
+        padding-top: 3vw;
+        padding-bottom: 3vw;
         font-family: "Open Sans", Arial, sans-serif;
     }
 
     .table_maincell {
-        font-size: 4.5vw;
-        border: 0.5px solid rgb(245, 245, 245);
-        padding: 3vw;
+        font-size: 4vw;
+        border-bottom: 0.4vw solid rgb(245, 245, 245);
+        padding: 4vw;
         font-family: "Open Sans", Arial, sans-serif;
     }
 }
+
+
+.flipped {
+    transform: scaleY(-1);
+  }
