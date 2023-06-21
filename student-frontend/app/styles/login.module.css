@@ -13,6 +13,7 @@
 
 .title {
     background-color: white;
+    color: black;
     text-align: center;
     font-weight: bold; 
     font-size: 40px;
@@ -32,6 +33,7 @@
   
 .classCodeInput {
     background-color: white;
+    color: black;
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -49,6 +51,8 @@
 }
 
 .login_row{
-    color:black
+    color:black;
+    background-color: white;
 }
+
   
