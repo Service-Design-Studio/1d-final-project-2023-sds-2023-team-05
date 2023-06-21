@@ -65,6 +65,14 @@
     color: black;
 }
 
+.stoopid_box {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    background-image: url("https://img.freepik.com/free-vector/blue-watercolor-mountains-background_23-2149250282.jpg?size=626&ext=jpg");
+    background-size: contain;
+}
+
 @media (max-width: 767px) {
     .table_answer {
         font-size: 4vw;
