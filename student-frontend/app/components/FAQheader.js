@@ -8,6 +8,7 @@ const FAQheader = () => {
     const handleBackButtonClick = () => {
         router.push('/');
     };
+
     return (
         <div className={styles.header}>
             <button className={styles.backButton} onClick={handleBackButtonClick}>{'<'}</button>

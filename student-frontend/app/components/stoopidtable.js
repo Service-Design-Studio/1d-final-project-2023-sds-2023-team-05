@@ -14,14 +14,10 @@ async function getTasks(ClassCode) {
 
 function mapClassCodeToId(classCode) {
     // Extract the first digit from the classCode
-    const firstDigit = classCode.substring(0, 1);
+    const lastDigit = classCode.slice(-1);
 
     // Map the first digit to the corresponding ID
-    if (firstDigit >= "0" && firstDigit <= "4") {
-        return "3";
-    } else {
-        return "4";
-    }
+    return lastDigit
 }
 
 function Stoopidtable({ classCode }) {
@@ -72,7 +68,14 @@ function Stoopidtable({ classCode }) {
                                 className={activeRow === index ? styles.active : ''}
                                 onClick={() => handleRowClick(index)}
                             >
-                                <td className={styles.table_maincell}>Question: {row.question}</td>
+                                <td className={styles.table_maincell}>
+                                    <p>
+                                        Question: {row.question}
+                                    </p>
+                                    <div className={styles.stoopid_box}>
+
+                                    </div>
+                                </td>
                             </tr>
                             {activeRow === index && (
                                 <tr>

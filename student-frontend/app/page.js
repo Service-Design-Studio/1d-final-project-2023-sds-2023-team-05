@@ -24,8 +24,25 @@ export default function Home() {
 
   useEffect(() => {
     if (classCode.join("").length === 6) {
-      const path = "/first?classCode=" + classCode.join("");
-      router.push(path);
+      const combinedCode = classCode.join(""); // Combine digits into a string
+      const lastDigit = combinedCode.slice(-1);
+
+      if (lastDigit === "1" || lastDigit === "2" || lastDigit === "3" || lastDigit === "4") {
+        const path = "/first?classCode=" + combinedCode;
+        router.push(path);
+      } else {
+        alert("Invalid last digit. Last digit must be 1, 2, 3, or 4.");
+        const parentDiv = document.querySelector(`.${styles.login_row}`); // Use styles.login_row
+
+        if (parentDiv) {
+          const inputElements = parentDiv.querySelectorAll("input");
+          console.log(parentDiv)
+
+          inputElements.forEach((input) => {
+            input.value = "";
+          });
+        }
+      }
     }
   }, [classCode, router]);
 
@@ -36,7 +53,7 @@ export default function Home() {
 
       {/* Login form */}
       <div className={styles.loginContainer}>
-      <h2 className={styles.title}>Kampung Klass</h2>
+        <h2 className={styles.title}>Kampung Klass</h2>
         <div className={styles.subtitle}>Enter your Klass code!</div>
         <div className={styles.classCodeInput}>
           <div className={styles.row}>
