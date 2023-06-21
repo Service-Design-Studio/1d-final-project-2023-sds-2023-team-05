@@ -70,7 +70,7 @@ function Stoopidtable({ classCode }) {
                             >
                                 <td className={styles.table_maincell}>
                                     <p className={styles.table_text}>
-                                        Question: {row.question}
+                                        <b>Question: {row.question}</b>
                                     </p>
                                     <div className={styles.stoopid_box}>
 

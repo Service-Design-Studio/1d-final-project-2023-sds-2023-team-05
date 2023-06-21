@@ -1,4 +1,9 @@
 /* The styler for the main container, using flex display to store all the subelements */
+.mainbody{
+    background-color: white;
+    background: white;
+}
+
 .main_flex {
     display: flex;
     width: 100vw;
@@ -7,7 +12,7 @@
     text-align: center;
     color: rgb(35, 35, 35);
     background-color: white;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 /* CSS class for the FAQ header */
@@ -46,16 +51,23 @@
     width: 50%;
     font-size: 1vw;
     color: black;
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(245, 245, 245);
     padding-left: 10%;
 }
 
 .searchInput {
-    color: green;
+    color: rgb(0, 0, 0);
+    background-color: rgb(245, 245, 245);
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    text-align: center;
+    border-radius: 10vw;
 }
 
 .searchInput::placeholder{
-    color:blue
+    color:rgb(163, 163, 163)
 }
 
 .active {
@@ -76,8 +88,8 @@
 }
 
 .stoopid_box {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-image: url('../Assets/PFC.png');
     background-size: contain;
     float: right;
@@ -88,15 +100,15 @@
 
 @media (max-width: 767px) {
     .table_answer {
-        font-size: 4vw;
-        padding: 10px;
+        font-size: 4.5vw;
+        padding: 3vw;
         font-family: "Open Sans", Arial, sans-serif;
     }
 
     .table_maincell {
-        font-size: 5vw;
-        border: 0.5px solid rgb(230, 230, 230);
-        padding: 15px;
+        font-size: 4.5vw;
+        border: 0.5px solid rgb(245, 245, 245);
+        padding: 3vw;
         font-family: "Open Sans", Arial, sans-serif;
     }
 }
