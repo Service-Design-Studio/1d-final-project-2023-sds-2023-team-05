@@ -10,7 +10,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    color: rgb(35, 35, 35);
+    color: rgb(30, 30, 30);
     background-color: white;
     font-size: 1.3em;
 }
@@ -19,7 +19,7 @@
 .faq_background {
     height: 20vh;
     width: 100%;
-    color: black;
+    color: rgb(30, 30, 30);
     background-color: white;
 }
 
@@ -32,7 +32,7 @@
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    font-size: 1vw;
+    font-size: 4vw;
     padding-left: 5%;
 }
 
@@ -48,15 +48,15 @@
 }
 
 .table_answer {
-    width: 50%;
-    font-size: 1vw;
-    color: black;
+    width: 100%;
+    font-size: 4vw;
+    color: rgb(30, 30, 30);
     background-color: rgb(245, 245, 245);
     padding-left: 10%;
 }
 
 .searchInput {
-    color: rgb(0, 0, 0);
+    color: rgb(30, 30, 30);
     background-color: rgb(245, 245, 245);
     border: 0.3vw solid rgb(230, 230, 230);
     padding-left: 5vw;
@@ -71,7 +71,7 @@
 }
 
 .searchInput::placeholder{
-    color:rgb(163, 163, 163)
+    color:rgb(125, 125, 125)
 
 }
 
@@ -80,7 +80,7 @@
 }
 
 .classCodeInput {
-    color: black;
+    color: rgb(30, 30, 30);
     font-size: 1em;
 }
 
@@ -89,7 +89,7 @@
     width: 75px;
     margin: auto;
     background-color: white;
-    color: black;
+    color: rgb(30, 30, 30);
 }
 
 .stoopid_box {
@@ -114,6 +114,9 @@
     }
 
     .table_maincell {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
         font-size: 4vw;
         border-bottom: 0.4vw solid rgb(245, 245, 245);
         padding: 4vw;
@@ -125,3 +128,23 @@
 .flipped {
     transform: scaleY(-1);
   }
+
+.tag {
+  display: inline-block;
+  padding: 3px 14px;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  margin-bottom: 20px;
+  background-color: rgb(245, 245, 245);
+  color:rgb(125, 125, 125);
+  cursor: pointer;
+  border-radius: 4vw;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.active_tag {
+  background-color: rgb(30, 30, 30);
+  color: white;
+}
+
