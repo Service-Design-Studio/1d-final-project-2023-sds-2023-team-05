@@ -1,7 +1,14 @@
 /* The styler for the main container, using flex display to store all the subelements */
-.mainbody{
+.mainbody {
     background-color: white;
     background: white;
+}
+
+.main_Component_styler {
+    max-width: 700px;
+    width: 96vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .main_flex {
@@ -29,22 +36,24 @@
 }
 
 .table_maincell {
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     font-size: 4vw;
-    padding-left: 5%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+
 }
 
 .table_mainstyle {
     width: 100%;
-    max-width: 100vw;
     background-color: rgb(255, 255, 255);
     text-align: left;
 }
 
-.table_text{
-    width:70vw;
+.table_text {
+    font-size: min(4vw, 25px);
+    width: 75%;
 }
 
 .table_answer {
@@ -56,23 +65,24 @@
 }
 
 .searchInput {
+    width: 100%;
     color: rgb(30, 30, 30);
     background-color: rgb(245, 245, 245);
     border: 0.3vw solid rgb(230, 230, 230);
-    padding-left: 5vw;
-    padding-right: 43vw;
-    padding-top: 2.5vw;
-    padding-bottom: 2.5vw;
-    text-align:left;
+    padding-left: 5%;
+    padding-right: 43%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    text-align: left;
     border-radius: 10vw;
-    font-size: 4vw;
-    margin-bottom: 5vw;
+    font-size: min(4vw, 100);
+    margin-bottom: 2vh;
+    margin-top: 2vh;
 
 }
 
-.searchInput::placeholder{
-    color:rgb(125, 125, 125)
-
+.searchInput::placeholder {
+    color: rgb(125, 125, 125)
 }
 
 .active {
@@ -127,24 +137,28 @@
 
 .flipped {
     transform: scaleY(-1);
-  }
+}
+
+.tag_holder {
+    width: 100%;
+    margin-bottom: 1vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
 .tag {
-  display: inline-block;
-  padding: 3px 14px;
-  margin-right: 1vw;
-  margin-left: 1vw;
-  margin-bottom: 20px;
-  background-color: rgb(245, 245, 245);
-  color:rgb(125, 125, 125);
-  cursor: pointer;
-  border-radius: 4vw;
-  font-size: 4vw;
-  font-weight: bold;
+    display: inline-block;
+    padding: 3px 14px;
+    background-color: rgb(245, 245, 245);
+    color: rgb(125, 125, 125);
+    cursor: pointer;
+    border-radius: 4vw;
+    font-size: min(4vw, 25px);
+    font-weight: bold;
 }
 
 .active_tag {
-  background-color: rgb(30, 30, 30);
-  color: white;
+    background-color: rgb(30, 30, 30);
+    color: white;
 }
-

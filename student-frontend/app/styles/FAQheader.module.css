@@ -1,15 +1,19 @@
 .header {
+    width: 96vw;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 13vw;
-    padding-bottom: 8vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     background-color: #ffffff;
 }
 
 .backButton {
-    font-size: 10vw;
-    padding-left: 5vw;
+    font-size: min(10vw, 75px);
+    padding-left: 2vw;
     background-color: transparent;
     border: none;
     outline: none;
@@ -17,15 +21,18 @@
 }
 
 .headerText {
-    font-size: 10vw;
+    font-size: min(10vw, 75px);
     font-weight: bold;
     margin: 0;
     align-items: center;
 }
 
 .placeholderIcon {
-    width: 24px;
-    height: 24px;
-    background-color: #ffffff;
+    font-size: min(10vw, 75px);
+    padding-right: 2vw;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
     /* Add your icon styles here */
 }
