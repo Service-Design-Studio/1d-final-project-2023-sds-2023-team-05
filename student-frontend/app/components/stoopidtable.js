@@ -122,7 +122,7 @@ function Stoopidtable({ classCode }) {
                                 <tr>
                                     <td colSpan={theadData.length}>
                                         <div className={styles.table_answer}>
-                                            <b>Answer: {row.answer}</b>
+                                            Answer: {row.answer}
                                         </div>
                                     </td>
                                 </tr>
