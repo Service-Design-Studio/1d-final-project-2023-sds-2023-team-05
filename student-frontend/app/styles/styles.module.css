@@ -57,11 +57,16 @@
 }
 
 .table_answer {
+    font-size: min(4vw, 25px);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 7%;
+    padding-right: 20%;
+    font-family: "Open Sans", Arial, sans-serif;
     width: 100%;
-    font-size: 4vw;
+    font-size: min(4vw, 25px);
     color: rgb(30, 30, 30);
     background-color: rgb(245, 245, 245);
-    padding-left: 10%;
 }
 
 .searchInput {
