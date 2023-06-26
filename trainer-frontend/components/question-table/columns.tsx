@@ -78,25 +78,25 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
-    accessorKey: "status",
+    accessorKey: "tag",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Status" />
+      <DataTableColumnHeader column={column} title="Tag" />
     ),
     cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue("status")
-      )
+      // const status = statuses.find(
+      //   (status) => status.value === row.getValue("status")
+      // )
 
-      if (!status) {
-        return null
-      }
+      // if (!status) {
+      //   return null
+      // }
 
       return (
         <div className="flex w-[100px] items-center">
-          {status.icon && (
+          {/* {status.icon && (
             <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{status.label}</span>
+          )} */}
+          <span>{row.getValue("tag")}</span>
         </div>
       )
     },
@@ -105,25 +105,25 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
-    accessorKey: "priority",
+    accessorKey: "author",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Priority" />
+      <DataTableColumnHeader column={column} title="Author" />
     ),
     cell: ({ row }) => {
-      const priority = priorities.find(
-        (priority) => priority.value === row.getValue("priority")
-      )
+      // const priority = priorities.find(
+      //   (priority) => priority.value === row.getValue("author")
+      // )
 
-      if (!priority) {
-        return null
-      }
+      // if (!priority) {
+      //   return null
+      // }
 
       return (
         <div className="flex items-center">
-          {priority.icon && (
+          {/* {priority.icon && (
             <priority.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{priority.label}</span>
+          )} */}
+          <span>{row.getValue("author")}</span>
         </div>
       )
     },
