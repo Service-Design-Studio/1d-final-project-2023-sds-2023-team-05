@@ -69,3 +69,33 @@ export const priorities = [
     icon: ArrowUpToLine,
   },
 ]
+
+export const tags = [
+  {
+    label: "Christianity",
+    value: "Christianity",
+  },
+  {
+    label: "Islam",
+    value: "Islam",
+  },
+  {
+    label: "Buddhism",
+    value: "Buddhism",
+  },
+]
+
+export const authors = [
+  {
+    label: "Basil",
+    value: "Basil",
+  },
+  {
+    label: "Sheng",
+    value: "Sheng",
+  },
+  {
+    label: "Xiang",
+    value: "Xiang",
+  },
+]

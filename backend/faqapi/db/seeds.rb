@@ -11,67 +11,104 @@
 # Create sample data for interfaith FAQ
 
 questions = [
-    {
-      question: "What is the significance of baptism?",
-      answer: "Baptism is a Christian sacrament that symbolizes purification, initiation, and entry into the Christian faith.",
-      tag: "Christianity",
-      author: "John Smith"
-    },
-    {
-      question: "What are the Five Pillars of Islam?",
-      answer: "The Five Pillars of Islam are the core principles and practices that serve as the foundation of Muslim life and faith.",
-      tag: "Islam",
-      author: "Emily Johnson"
-    },
-    {
-      question: "What is the role of meditation in Buddhism?",
-      answer: "Meditation plays a vital role in Buddhism as a means to cultivate mindfulness, develop insight, and achieve enlightenment.",
-      tag: "Buddhism",
-      author: "Michael Anderson"
-    },
-    {
-      question: "What dietary restrictions are followed in Judaism?",
-      answer: "Judaism has dietary laws known as Kashrut, which includes guidelines on what foods are permissible (kosher) and what foods are forbidden.",
-      tag: "Judaism",
-      author: "Sarah Thompson"
-    },
-    {
-      question: "What are some common Hindu festivals?",
-      answer: "Hinduism celebrates a wide range of festivals throughout the year, including Diwali, Holi, Navaratri, and Durga Puja.",
-      tag: "Hinduism",
-      author: "David Wilson"
-    },
-    {
-      question: "What is the concept of karma in Sikhism?",
-      answer: "In Sikhism, karma refers to the law of cause and effect, where one's actions and intentions have consequences in this life and future lives.",
-      tag: "Sikhism",
-      author: "Sophia Lee"
-    },
-    {
-      question: "What is the significance of the Torah in Judaism?",
-      answer: "The Torah is the sacred text of Judaism, containing the teachings, laws, and narratives that form the foundation of Jewish faith and identity.",
-      tag: "Judaism",
-      author: "Ryan Adams"
-    },
-    {
-      question: "What is the purpose of the Hajj pilgrimage in Islam?",
-      answer: "The Hajj pilgrimage is a significant Islamic practice that involves visiting the holy city of Mecca and performing specific rituals as a demonstration of faith and unity.",
-      tag: "Islam",
-      author: "Olivia Parker"
-    },
-    {
-      question: "What are the key beliefs of Taoism?",
-      answer: "Taoism emphasizes living in harmony with the Tao, which is the fundamental force that flows through all things. It promotes simplicity, balance, and the pursuit of spiritual enlightenment.",
-      tag: "Taoism",
-      author: "Daniel Brown"
-    },
-    {
-      question: "What is the role of prayer in Christianity?",
-      answer: "Prayer is a central practice in Christianity that allows believers to communicate with God, seek guidance, express gratitude, and deepen their relationship with the divine.",
-      tag: "Christianity",
-      author: "Emma Garcia"
-    },
-  ]
+  {
+    "question": "What is the significance of baptism?",
+    "answer": "Baptism is a Christian sacrament that symbolizes purification, initiation, and entry into the Christian faith.",
+    "tag": "Christianity",
+    "author": "Basil"
+  },
+  {
+    "question": "What are the Five Pillars of Islam?",
+    "answer": "The Five Pillars of Islam are the core principles and practices that serve as the foundation of Muslim life and faith.",
+    "tag": "Islam",
+    "author": "Sheng"
+  },
+  {
+    "question": "What is the role of meditation in Buddhism?",
+    "answer": "Meditation plays a vital role in Buddhism as a means to cultivate mindfulness, develop insight, and achieve enlightenment.",
+    "tag": "Buddhism",
+    "author": "Xiang"
+  },
+  {
+    "question": "What is the concept of heaven in Christianity?",
+    "answer": "Heaven in Christianity is the eternal dwelling place of God and the final destination for believers who have accepted Jesus Christ as their Savior.",
+    "tag": "Christianity",
+    "author": "Basil"
+  },
+  {
+    "question": "What is the significance of the Quran in Islam?",
+    "answer": "The Quran is the holy book of Islam, believed to be the word of God as revealed to the Prophet Muhammad. It serves as a guide for Muslims in matters of faith, worship, and daily life.",
+    "tag": "Islam",
+    "author": "Sheng"
+  },
+  {
+    "question": "What is the role of compassion in Buddhism?",
+    "answer": "Compassion is a central virtue in Buddhism, promoting kindness, empathy, and the alleviation of suffering. It is essential in cultivating the path to enlightenment.",
+    "tag": "Buddhism",
+    "author": "Xiang"
+  },
+  {
+    "question": "What is the sacrament of Eucharist in Christianity?",
+    "answer": "The Eucharist, also known as Holy Communion or the Lord's Supper, is a Christian sacrament that commemorates the Last Supper of Jesus Christ with his disciples, where bread and wine are consecrated and consumed as the body and blood of Christ.",
+    "tag": "Christianity",
+    "author": "Basil"
+  },
+  {
+    "question": "What is the purpose of the Hajj pilgrimage in Islam?",
+    "answer": "The Hajj pilgrimage is a significant Islamic practice that involves visiting the holy city of Mecca and performing specific rituals as a demonstration of faith and unity.",
+    "tag": "Islam",
+    "author": "Sheng"
+  },
+  {
+    "question": "What is the Eightfold Path in Buddhism?",
+    "answer": "The Eightfold Path is a foundational teaching in Buddhism that provides a practical guide to living a moral, mindful, and enlightened life. It consists of eight interconnected aspects, including right understanding, intention, speech, action, livelihood, effort, mindfulness, and concentration.",
+    "tag": "Buddhism",
+    "author": "Xiang"
+  },
+  {
+    "question": "What is the role of prayer in Christianity?",
+    "answer": "Prayer is a central practice in Christianity that allows believers to communicate with God, seek guidance, express gratitude, and deepen their relationship with the divine.",
+    "tag": "Christianity",
+    "author": "Basil"
+  },
+  {
+    "question": "What are the key beliefs of Islam?",
+    "answer": "Islam is based on the belief in the oneness of God (Allah) and the prophethood of Muhammad. Muslims also believe in the five pillars of Islam, the Day of Judgment, and the importance of following Islamic law (Sharia).",
+    "tag": "Islam",
+    "author": "Sheng"
+  },
+  {
+    "question": "What is the concept of Nirvana in Buddhism?",
+    "answer": "Nirvana is the ultimate goal in Buddhism, representing the state of liberation and freedom from suffering. It is achieved through the extinguishment of desires, attachment, and the realization of the true nature of reality.",
+    "tag": "Buddhism",
+    "author": "Xiang"
+  },
+  {
+    "question": "What is the role of the Bible in Christianity?",
+    "answer": "The Bible is the holy scripture of Christianity, containing the Old Testament (Hebrew Bible) and the New Testament. It is considered the inspired word of God and serves as a guide for faith, morals, and Christian teachings.",
+    "tag": "Christianity",
+    "author": "Basil"
+  },
+  {
+    "question": "What is the concept of the Ummah in Islam?",
+    "answer": "The Ummah refers to the global community of Muslims, regardless of their nationality, ethnicity, or cultural background. It represents the unity and solidarity among Muslims worldwide.",
+    "tag": "Islam",
+    "author": "Sheng"
+  },
+  {
+    "question": "What is the role of mindfulness in Buddhism?",
+    "answer": "Mindfulness is a core practice in Buddhism that involves cultivating present-moment awareness, non-judgmental attention, and an understanding of the impermanent and interconnected nature of existence.",
+    "tag": "Buddhism",
+    "author": "Xiang"
+  },
+  {
+    "question": "What is the concept of sin in Christianity?",
+    "answer": "Sin in Christianity refers to actions, thoughts, or behaviors that are considered to be against the will of God and harm one's relationship with Him. It is believed that through repentance and forgiveness, believers can be redeemed from sin.",
+    "tag": "Christianity",
+    "author": "Basil"
+  }
+]
+
   
 questions.each do |q|
 Faq.create!(

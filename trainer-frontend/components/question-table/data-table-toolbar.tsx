@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 
 import { DataTableFacetedFilter } from "./data-table-faceted-filter"
 import { DataTableViewOptions } from "./data-table-view-options"
-import { priorities, statuses } from "./data/data"
+import { authors, priorities, statuses, tags } from "./data/data"
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>
@@ -17,9 +17,7 @@ interface DataTableToolbarProps<TData> {
 export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
-  const isFiltered =
-    table.getPreFilteredRowModel().rows.length >
-    table.getFilteredRowModel().rows.length
+  const isFiltered = table.getState().columnFilters.length > 0
 
   return (
     <div className="flex items-center justify-between">
@@ -34,18 +32,18 @@ export function DataTableToolbar<TData>({
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("status") && (
+        {table.getColumn("tag") && (
           <DataTableFacetedFilter
-            column={table.getColumn("status")}
-            title="Status"
-            options={statuses}
+            column={table.getColumn("tag")}
+            title="Tag"
+            options={tags}
           />
         )}
-        {table.getColumn("priority") && (
+        {table.getColumn("author") && (
           <DataTableFacetedFilter
-            column={table.getColumn("priority")}
-            title="Priority"
-            options={priorities}
+            column={table.getColumn("author")}
+            title="Author"
+            options={authors}
           />
         )}
         {isFiltered && (

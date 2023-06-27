@@ -121,8 +121,8 @@
 @media (max-width: 767px) {
     .table_answer {
         font-size: 4vw;
-        padding-left: 9vw;
-        padding-right: 5vw;
+        padding-left: 9%;
+        padding-right: 7%;
         padding-top: 3vw;
         padding-bottom: 3vw;
         font-family: "Open Sans", Arial, sans-serif;

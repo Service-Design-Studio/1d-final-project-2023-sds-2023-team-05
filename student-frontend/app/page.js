@@ -31,7 +31,7 @@ export default function Home() {
         const path = "/first?classCode=" + combinedCode;
         router.push(path);
       } else {
-        alert("Invalid last digit. Last digit must be 1, 2, 3, or 4.");
+        alert("Invalid class code");
         const parentDiv = document.querySelector(`.${styles.login_row}`); // Use styles.login_row
 
         if (parentDiv) {
