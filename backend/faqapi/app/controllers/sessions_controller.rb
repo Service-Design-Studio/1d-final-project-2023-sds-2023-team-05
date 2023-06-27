@@ -10,7 +10,19 @@ class SessionsController < ApplicationController
     end
 
     def create
-        session = Session.create(session_params)
-        render json: session
+        session = session_params
+        render json: session, include: [:faqs]
+    end
+
+
+    private
+    def session_params
+        params.require(:session).permit(:title, :faqs)
+        faqs = params[:faqs]
+        session = Session.create!(title: :title)
+        faqs.each do |faq_id|
+            FaqSession.create!(session_id: session.id, faq_id: faq_id)
+        end
+        return session
     end
 end

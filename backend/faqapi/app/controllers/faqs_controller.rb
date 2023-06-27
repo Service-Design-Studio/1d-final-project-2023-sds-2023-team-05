@@ -38,6 +38,16 @@ class FaqsController < ApplicationController
     @faq.destroy
   end
 
+  def tags
+    @tags = Faq.all.pluck(:tag).uniq
+    render json: @tags
+  end
+
+  def authors
+    @authors = Faq.all.pluck(:author).uniq
+    render json: @authors
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_faq

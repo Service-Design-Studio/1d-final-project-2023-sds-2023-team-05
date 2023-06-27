@@ -27,7 +27,6 @@ async function getTasks() {
   )
   // const tasks = JSON.parse(data.toString())
   const faqs = await res.json()
-  console.log(faqs)
   return z.array(taskSchema).parse(faqs)
 }
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :faq_sessions
+  get '/tags', to: 'faqs#tags'
+  get '/authors' , to: 'faqs#authors'
   resources :sessions
   resources :users
   resources :faqs

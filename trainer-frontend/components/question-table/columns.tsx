@@ -79,35 +79,52 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: "tag",
+    accessorKey: "tag",
     header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Tag" />
       <DataTableColumnHeader column={column} title="Tag" />
     ),
     cell: ({ row }) => {
-      const tag = labels.find((label) => label.value === row.original.answer)
+      // const status = statuses.find(
+      //   (status) => status.value === row.getValue("status")
+      // )
+
+      // if (!status) {
+      //   return null
+      // }
 
       return (
-        <div className="flex space-x-2">
-          <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("tag")}
-          </span>
+        <div className="flex w-[100px] items-center">
+          {/* {status.icon && (
+            <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+          )} */}
+          <span>{row.getValue("tag")}</span>
         </div>
       )
     },
   },
   {
     accessorKey: "author",
+    accessorKey: "author",
     header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Author" />
       <DataTableColumnHeader column={column} title="Author" />
     ),
     cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.answer)
+      // const priority = priorities.find(
+      //   (priority) => priority.value === row.getValue("author")
+      // )
+
+      // if (!priority) {
+      //   return null
+      // }
 
       return (
-        <div className="flex space-x-2">
-          {label && <Badge variant="outline">{label.label}</Badge>}
-          <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("author")}
-          </span>
+        <div className="flex items-center">
+          {/* {priority.icon && (
+            <priority.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+          )} */}
+          <span>{row.getValue("author")}</span>
         </div>
       )
     },
