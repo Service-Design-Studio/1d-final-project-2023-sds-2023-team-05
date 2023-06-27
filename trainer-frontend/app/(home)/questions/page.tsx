@@ -17,10 +17,7 @@ export const metadata: Metadata = {
 
 // Simulate a database read for tasks.
 async function getTasks() {
-  const res = await fetch(
-    "https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs",
-    { cache: "no-store" }
-  )
+  const res = await fetch("http://localhost:3000/faqs", { cache: "no-store" })
   const faqs = await res.json()
   return z.array(taskSchema).parse(faqs)
 }

@@ -100,6 +100,9 @@ export const columns: ColumnDef<Task>[] = [
         </div>
       )
     },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     accessorKey: "author",
@@ -123,6 +126,9 @@ export const columns: ColumnDef<Task>[] = [
           <span>{row.getValue("author")}</span>
         </div>
       )
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
     },
   },
   {
