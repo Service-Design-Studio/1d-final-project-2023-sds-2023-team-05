@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 
+import { API_PROD_URL } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -21,19 +22,16 @@ export default function AddQuestion() {
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
-    const res = await fetch(
-      "https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs",
-      {
-        body: JSON.stringify({
-          answer,
-          question,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      }
-    )
+    const res = await fetch(`${API_PROD_URL}/faqs`, {
+      body: JSON.stringify({
+        answer,
+        question,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    })
 
     if (!res.ok) {
       alert("Error creating question")

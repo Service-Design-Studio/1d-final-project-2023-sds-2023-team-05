@@ -1,29 +1,19 @@
-import { promises as fs } from "fs"
-import path from "path"
-import { Metadata } from "next"
-import Image from "next/image"
 import { columns } from "@components/question-table/columns"
 import { DataTable } from "@components/question-table/data-table"
 import { z } from "zod"
 
+import { API_PROD_URL } from "@/config/site"
 import AddQuestion from "@/components/AddQuestion"
 import { taskSchema } from "@/components/question-table/data/schema"
-import { UserNav } from "@/components/user-nav"
 
-export const metadata: Metadata = {
-  title: "Tasks",
-  description: "A task and issue tracker build using Tanstack Table.",
-}
-
-// Simulate a database read for tasks.
-async function getTasks() {
-  const res = await fetch("http://localhost:3000/faqs", { cache: "no-store" })
+async function getFaqs() {
+  const res = await fetch(`${API_PROD_URL}/faqs`, { cache: "no-store" })
   const faqs = await res.json()
   return z.array(taskSchema).parse(faqs)
 }
 
-export default async function TaskPage() {
-  const tasks = await getTasks()
+export default async function FaqPage() {
+  const tasks = await getFaqs()
 
   return (
     <>

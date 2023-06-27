@@ -5,14 +5,14 @@ import { columns } from "@components/question-table/columns"
 import { DataTable } from "@components/question-table/data-table"
 import { z } from "zod"
 
+import { API_PROD_URL } from "@/config/site"
 import AddQuestion from "@/components/AddQuestion"
 import { taskSchema } from "@/components/question-table/data/schema"
 
 async function getSessions(search: string) {
-  const res = await fetch(
-    "https://faqapi-service-mgn7slqt5a-as.a.run.app/sessions/" + search,
-    { cache: "no-store" }
-  )
+  const res = await fetch(`${API_PROD_URL}/sessions/${search}`, {
+    cache: "no-store",
+  })
   // const tasks = JSON.parse(data.toString())
   return await res.json()
   //   return z.array(taskSchema).parse(sessions.faqs)

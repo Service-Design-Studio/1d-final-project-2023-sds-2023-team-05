@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { Row } from "@tanstack/react-table"
 import { Copy, MoreHorizontal, Pen, Star, Tags, Trash } from "lucide-react"
 
+import { API_PROD_URL } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -33,12 +34,9 @@ export function DataTableRowActions<TData>({
   const task = taskSchema.parse(row.original)
 
   const deleteQuestion = async () => {
-    const res = await fetch(
-      `https://faqapi-service-mgn7slqt5a-as.a.run.app/faqs/${task.id}`,
-      {
-        method: "DELETE",
-      }
-    )
+    const res = await fetch(`${API_PROD_URL}/${task.id}`, {
+      method: "DELETE",
+    })
     if (res.ok) {
       router.refresh()
     } else {

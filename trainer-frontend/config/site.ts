@@ -15,12 +15,17 @@ export const siteConfig = {
     },
     {
       title: "Sessions",
-      href: "/sessions"
-    }
+      href: "/sessions",
+    },
   ],
   links: {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
     docs: "https://ui.shadcn.com",
   },
+  api_prod: "https://faqapi-service-mgn7slqt5a-as.a.run.app",
+  api_local: "http://localhost:3000",
 }
+
+export const API_PROD_URL = siteConfig.api_prod
+export const API_LOCAL_URL = siteConfig.api_local
