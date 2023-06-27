@@ -34,17 +34,17 @@ export function DataTableToolbar<TData>({
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("status") && (
+        {table.getColumn("tag") && (
           <DataTableFacetedFilter
-            column={table.getColumn("status")}
-            title="Status"
+            column={table.getColumn("tag")}
+            title="Tag"
             options={statuses}
           />
         )}
-        {table.getColumn("priority") && (
+        {table.getColumn("author") && (
           <DataTableFacetedFilter
-            column={table.getColumn("priority")}
-            title="Priority"
+            column={table.getColumn("author")}
+            title="Author"
             options={priorities}
           />
         )}

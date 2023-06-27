@@ -78,57 +78,38 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
-    accessorKey: "status",
+    accessorKey: "tag",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Status" />
+      <DataTableColumnHeader column={column} title="Tag" />
     ),
     cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue("status")
-      )
-
-      if (!status) {
-        return null
-      }
+      const tag = labels.find((label) => label.value === row.original.answer)
 
       return (
-        <div className="flex w-[100px] items-center">
-          {status.icon && (
-            <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{status.label}</span>
+        <div className="flex space-x-2">
+          <span className="max-w-[500px] truncate font-medium">
+            {row.getValue("tag")}
+          </span>
         </div>
       )
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
     },
   },
   {
-    accessorKey: "priority",
+    accessorKey: "author",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Priority" />
+      <DataTableColumnHeader column={column} title="Author" />
     ),
     cell: ({ row }) => {
-      const priority = priorities.find(
-        (priority) => priority.value === row.getValue("priority")
-      )
-
-      if (!priority) {
-        return null
-      }
+      const label = labels.find((label) => label.value === row.original.answer)
 
       return (
-        <div className="flex items-center">
-          {priority.icon && (
-            <priority.icon className="mr-2 h-4 w-4 text-muted-foreground" />
-          )}
-          <span>{priority.label}</span>
+        <div className="flex space-x-2">
+          {label && <Badge variant="outline">{label.label}</Badge>}
+          <span className="max-w-[500px] truncate font-medium">
+            {row.getValue("author")}
+          </span>
         </div>
       )
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id))
     },
   },
   {
