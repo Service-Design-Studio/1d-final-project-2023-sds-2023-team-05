@@ -13,7 +13,7 @@ const FAQheader = () => {
         <div className={styles.header}>
             <button className={styles.backButton} onClick={handleBackButtonClick}>{'<'}</button>
             <h1 className={styles.headerText}>FAQ</h1>
-            <div className={styles.placeholderIcon}>{'>'}</div>
+            <div className={styles.placeholderIcon}></div>
         </div>
     );
 };
