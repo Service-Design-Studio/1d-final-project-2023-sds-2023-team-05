@@ -27,7 +27,7 @@
     align-items: center;
 }
 
-.placeholderIcon {
+.chatbotIcon {
     width: 40px;
     height: 40px;
     background-image: url('../Assets/chatbot_icon.jpg');
