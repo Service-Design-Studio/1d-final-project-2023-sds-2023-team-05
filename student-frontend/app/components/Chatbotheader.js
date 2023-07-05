@@ -2,21 +2,20 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../styles/FAQheader.module.css';
 
-const FAQheader = () => {
+const Chatbotheader = () => {
     const router = useRouter();
 
     const handleBackButtonClick = () => {
-        router.push('/');
+        router.push('/first');
     };
 
     return (
         <div className={styles.header}>
             <button className={styles.backButton} onClick={handleBackButtonClick}>{'<'}</button>
-            <h1 className={styles.headerText}>FAQ</h1>
-            <div className={styles.chatbotIcon}></div>
-            <div className={styles.placeholderIcon} onClick={handleChatButtonClick}>{'>'}</div>
+            <h1 className={styles.headerText}>Chatbot</h1>
+            <div className={styles.placeholderIcon}>{'>'}</div>
         </div>
     );
 };
 
-export default FAQheader;
+export default Chatbotheader;
