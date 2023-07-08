@@ -27,13 +27,12 @@
     align-items: center;
 }
 
-.chatbotIcon {
-    width: 60px;
-    height: 60px;
-    background-image: url('../Assets/chatbot_icon.jpg');
-    background-size: contain;
-    float: right;
-    margin-top: auto;
-    margin-bottom: auto;  
+.placeholderIcon {
+    font-size: min(10vw, 75px);
+    padding-right: 2vw;
+    background-color: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
+    /* Add your icon styles here */
 }
