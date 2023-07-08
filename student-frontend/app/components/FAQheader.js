@@ -15,6 +15,7 @@ const FAQheader = () => {
             <h1 className={styles.headerText}>FAQ</h1>
             <div className={styles.chatbotIcon}></div>
             <div className={styles.placeholderIcon} onClick={handleChatButtonClick}>{'>'}</div>
+        
         </div>
     );
 };

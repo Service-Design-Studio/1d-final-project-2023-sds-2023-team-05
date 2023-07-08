@@ -1,4 +1,3 @@
-/* The styler for the main container, using flex display to store all the subelements */
 .mainbody {
     background-color: white;
     background: white;
@@ -110,7 +109,7 @@
 .stoopid_box {
     width: 25px;
     height: 25px;
-    background-image: url('../Assets/PFC.png');
+    background-image: url('../Assets/Icon1.png');
     background-size: contain;
     float: right;
     margin-top: auto;
