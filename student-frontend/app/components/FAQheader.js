@@ -10,7 +10,7 @@ const FAQheader = () => {
     };
 
     const handleChatButtonClick = () => {
-        router.push('/');
+        router.push('/chatbot');
     };
 
     return (
