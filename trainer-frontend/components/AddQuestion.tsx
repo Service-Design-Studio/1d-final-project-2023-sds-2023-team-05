@@ -15,17 +15,29 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem
+} from "@/components/ui/select"
 
 export default function AddQuestion() {
   const [answer, setAnswer] = useState("")
   const [question, setQuestion] = useState("")
+  const [tag, setTag] = useState(""); // Add state for the tag
+  const [author, setAuthor] = useState("Basil");
+
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
+    console.log(answer, question, tag)
     const res = await fetch(`${API_PROD_URL}/faqs`, {
       body: JSON.stringify({
         answer,
         question,
+        tag,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -39,9 +51,11 @@ export default function AddQuestion() {
 
     setAnswer("")
     setQuestion("")
+    setTag("")
 
     window.location.reload()
   }
+
 
   return (
     <Dialog>
@@ -77,6 +91,22 @@ export default function AddQuestion() {
               className="col-span-3"
               onChange={(e) => setAnswer(e.target.value)}
             />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="tag" className="text-right">
+              Tag
+            </Label>
+            <Select onValueChange={setTag}>
+              <SelectTrigger className="w-[278px]">
+                <SelectValue placeholder="What religion is this related to?"
+                />
+              </SelectTrigger>
+              <SelectContent >
+                <SelectItem value="Christianity">Christianity</SelectItem>
+                <SelectItem value="Islam">Islam</SelectItem>
+                <SelectItem value="Buddhism">Buddhism</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <DialogFooter>
