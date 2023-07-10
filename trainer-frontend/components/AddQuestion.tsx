@@ -38,6 +38,7 @@ export default function AddQuestion() {
         answer,
         question,
         tag,
+        author,
       }),
       headers: {
         "Content-Type": "application/json",
