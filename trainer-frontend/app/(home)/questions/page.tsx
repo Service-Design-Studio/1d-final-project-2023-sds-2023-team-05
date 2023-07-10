@@ -9,7 +9,7 @@ import { taskSchema } from "@/components/question-table/data/schema"
 async function getFaqs() {
   const res = await fetch(`${API_PROD_URL}/faqs`, { cache: "no-store" })
   const faqs = await res.json()
-  return z.array(taskSchema).parse(faqs)
+  return faqs
 }
 
 export default async function FaqPage() {
