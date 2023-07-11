@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     def session_params
         params.require(:session).permit(:title, :faqs)
         faqs = params[:faqs]
-        session = Session.create!(title: :title)
+        session = Session.create!(title: params[:title])
         faqs.each do |faq_id|
             FaqSession.create!(session_id: session.id, faq_id: faq_id)
         end
