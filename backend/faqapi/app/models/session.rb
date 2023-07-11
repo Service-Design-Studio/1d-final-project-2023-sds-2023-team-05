@@ -6,11 +6,10 @@ class Session < ApplicationRecord
     validates :author, presence: true
     before_create :generate_classcode
     
-    # auto generate unique 6 digit classcode
     def generate_classcode
-        loop do
-            self.classcode = SecureRandom.hex(3)
-            break unless Session.where(classcode: classcode).exists?
+        self.classcode = rand(100000..999999)
+        while Session.exists?(classcode: self.classcode)
+            self.classcode = rand(100000..999999)
         end
     end
 end

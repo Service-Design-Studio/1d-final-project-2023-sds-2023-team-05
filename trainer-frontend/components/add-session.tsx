@@ -41,6 +41,7 @@ export default function AddSession({ table }: AddSessionProps<any>) {
       body: JSON.stringify({
         title: title,
         faqs: selectedRows,
+        author: "Basil",
       }),
       headers: {
         "Content-Type": "application/json",
