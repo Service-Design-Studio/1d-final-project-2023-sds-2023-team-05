@@ -1,8 +1,9 @@
+import Link from "next/link"
 import { columns } from "@components/question-table/columns"
 import { DataTable } from "@components/question-table/data-table"
 import { z } from "zod"
 
-import { API_PROD_URL } from "@/config/site"
+import { API_LOCAL_URL, API_PROD_URL } from "@/config/site"
 import {
   Table,
   TableBody,
@@ -14,8 +15,16 @@ import {
 } from "@/components/ui/table"
 import AddQuestion from "@/components/AddQuestion"
 import { taskSchema } from "@/components/question-table/data/schema"
+import SessionsTable from "@/components/sessions-table"
 
-async function getSessions() {
+interface Session {
+  id: string
+  classcode: string
+  author: string
+  title: string
+}
+
+async function getSessions(): Promise<Session[]> {
   const res = await fetch(`${API_PROD_URL}/sessions`, { cache: "no-store" })
   const sessions = await res.json()
   return sessions
@@ -33,27 +42,7 @@ export default async function SessionPage() {
             <p className="text-muted-foreground">Sessions contain FAQs</p>
           </div>
         </div>
-        <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[200px]">Class Code</TableHead>
-              <TableHead>Author</TableHead>
-              <TableHead>Title</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-
-        {/* <pre>{JSON.stringify(sessions, null, 2)}</pre> */}
+        <SessionsTable sessions={sessions} />
       </div>
     </>
   )
