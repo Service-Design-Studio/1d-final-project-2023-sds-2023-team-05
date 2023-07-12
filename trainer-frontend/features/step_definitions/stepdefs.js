@@ -70,13 +70,6 @@ Then(/^I will be on the "([^"]*)" page$/, async function (page) {
   assert.strictEqual(urlWithoutIdentifier, expectedUrl, 'The URL without the identifier does not match');
 })
 
-When(/^I input Gmail account "([^"]*)"$/, async function (gmailAccount) {
-  const inputSelector = By.css('input[type="email"]');
-  const inputField = await this.driver.findElement(inputSelector);
-  await inputField.sendKeys(gmailAccount);
-});
-
-
 module.exports = {
   Given,
   When,
