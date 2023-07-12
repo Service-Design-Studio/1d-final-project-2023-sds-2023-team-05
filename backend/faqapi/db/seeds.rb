@@ -125,16 +125,18 @@ end
 sessions = [
     {
       title: "Christianity",
-      faqs: [1,4,5,10]
+      faqs: [1,4,5,10],
+      author: "Basil"
     },
     {
       title: "Islam",
-      faqs: [2,5,6,8]
+      faqs: [2,5,6,8],
+      author: "Sheng Xiang"
     },
   ]
 
 sessions.each do |s|
-  session = Session.create!(title: s[:title])
+  session = Session.create!(title: s[:title], author: s[:author])
   s[:faqs].each do |faq_id|
     FaqSession.create!(session_id: session.id, faq_id: faq_id)
   end

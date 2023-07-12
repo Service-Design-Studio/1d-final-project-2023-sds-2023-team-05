@@ -16,6 +16,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
+import { API_LOCAL_URL, API_PROD_URL } from "@/config/site"
 import {
   Table,
   TableBody,

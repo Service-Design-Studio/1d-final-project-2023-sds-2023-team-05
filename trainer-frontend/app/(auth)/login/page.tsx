@@ -20,8 +20,7 @@ function Page() {
         className="flex flex-col gap-2 p-5 max-w-xs w-full bg-white shadow-lg rounded-lg mx-auto"
       >
         <div className="head text-center">
-          <h3 className="font-semibold">Sign In</h3>
-          <small>we are A Team that guides Each other</small>
+          <h3 className="font-semibold">Interfaith.ai</h3>
         </div>
         <button
           onClick={() => signIn("google")}
