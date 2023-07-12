@@ -5,6 +5,5 @@ Feature: Frontend Cucumber
 
   Scenario: Log in to the main page
       Given started the application
-      When I click the button with text "Sign in with Google"
-      Then I will be on the Google sign in page
-      Then I input Gmail account "audiobobbin@gmail.com"
+      When I click the button with text "Sessions"
+      Then I will be on the "http://localhost:3000/sessions" page
