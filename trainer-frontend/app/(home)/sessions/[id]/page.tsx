@@ -1,4 +1,10 @@
 import React from "react"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 import { API_PROD_URL } from "@/config/site"
 
@@ -16,7 +22,14 @@ export default async function SessionPage({
   const session = await getSession(params.id)
   return (
     <div>
-      <pre>{JSON.stringify(session, null, 2)}</pre>
+      <Accordion type="single" collapsible className="w-1/2 mx-auto">
+        {session.faqs.map((faq: any, index: number) => (
+          <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionContent>{faq.answer}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   )
 }
