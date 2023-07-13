@@ -49,3 +49,19 @@ Then(/^I should( not)? see a question with text "([^"]*)"$/, async function (neg
     expect(found).to.be.true;
   }
 });
+
+Then(/^I open the menu for the question of text "([^"]*)"$/, async function (expectedText) {
+  const table = await driver.findElement(By.id("question-table"));
+  const rows = await table.findElements(By.css("tr"));
+
+  for (const row of rows) {
+    const text = await row.findElement(By.css("span"));
+    const questionText = await text.getText();
+    if (questionText.includes(expectedText)) {
+      const button = await row.findElement(By.xpath(".//button[.//span[text()='Open menu']]"));
+      await button.click();
+      break;
+    }
+  }
+
+})

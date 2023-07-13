@@ -3,7 +3,7 @@ Feature: Trainer Add Questions page
         As a: trainer who is preparing for the upcoming training session
         I want: to be able to add questions and the corresponding answers that I think will be useful to the students
         so that: I can view them in the Questions page
-    
+
     Scenario: When the trainer logs in and sees the table of questions posted by different trainers
         Given I am logged in
         And I am on the questions page
@@ -29,6 +29,16 @@ Feature: Trainer Add Questions page
         Then I click the "button" with id "submit-question"
         When I refresh the page
         Then I should see a question with text "Who is singapore's prime minister?"
+
+    
+    Scenario: When a trainer sees a question about the prime minister, he will delete it
+        Given I am logged in
+        And I am on the questions page
+        Then I should see a question with text "Who is singapore's prime minister?"
+        Then I open the menu for the question of text "Who is singapore's prime minister?"
+        Then I click the "button" with id "delete-question"
+        When I refresh the page
+        Then I should not see a question with text "Who is singapore's prime minister?"
 
 
     Scenario: When the trainer fails to enter the question, then they should see an alert
