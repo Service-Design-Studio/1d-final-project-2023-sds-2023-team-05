@@ -69,13 +69,16 @@ When(
 
 When("I head to the sessions page", async function () {
   // select sessions button
-  const sessionSubmitButton = await driver.findElement(
-    By.xpath("/html/body/div/div/section/header/div/div[1]/nav/a[3]")
-  )
+  // const sessionSubmitButton = await driver.findElement(
+  //   By.xpath("/html/body/div/div/section/header/div/div[1]/nav/a[3]")
+  // )
 
-  // click the sessions button
-  await sessionSubmitButton.click()
+  // // click the sessions button
+  // await sessionSubmitButton.click()
+  driver.get(baseUrl + "/sessions")
 })
+
+
 
 Then(
   /^I will see the session (.*) in the sessions table$/,

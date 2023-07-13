@@ -1,11 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import styles from '../styles/styles.module.css'
-import Stoopidtable from '../components/stoopidtable'
-import FAQheader from '../components/FAQheader'
-import Buttonexample from '../components/button'
-
+import styles from '../../styles/styles.module.css'
+import Stoopidtable from '@/app/components/stoopidtable'
+import FAQheader from '@/app/components/FAQheader'
 
 function Page() {
     const [classCode, setClassCode] = useState(null);
