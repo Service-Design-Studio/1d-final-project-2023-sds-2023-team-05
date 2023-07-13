@@ -31,7 +31,15 @@ export default function AddQuestion() {
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
-    console.log(answer, question, tag)
+    if (question == "") {
+      alert("Fill question properly!")
+      return
+    }
+    if (answer == "") {
+      alert("Fill answer properly!")
+      return
+    }
+
     const res = await fetch(`${API_PROD_URL}/faqs`, {
       body: JSON.stringify({
         answer,
@@ -63,7 +71,7 @@ export default function AddQuestion() {
           Add Question
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]" id="new-question-dialog">
         <DialogHeader>
           <DialogTitle>Add Question</DialogTitle>
           {/* <DialogDescription>
@@ -100,22 +108,22 @@ export default function AddQuestion() {
               Tag
             </Label>
             <Select onValueChange={setTag}>
-              <SelectTrigger className="w-[278px]">
+              <SelectTrigger className="w-[278px]" id="tag-selector">
                 <SelectValue
                   placeholder="What religion is this related to?"
                   id="tag-select"
                 />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Christianity">Christianity</SelectItem>
-                <SelectItem value="Islam">Islam</SelectItem>
-                <SelectItem value="Buddhism">Buddhism</SelectItem>
+                <SelectItem id="Christianity-selector" value="Christianity">Christianity</SelectItem>
+                <SelectItem id="Islam-selector" value="Islam">Islam</SelectItem>
+                <SelectItem id="Buddhism-selector" value="Buddhism">Buddhism</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit" id="submit-question" onClick={handleSubmit}>
             Submit
           </Button>
         </DialogFooter>

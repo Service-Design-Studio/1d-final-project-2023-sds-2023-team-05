@@ -5,7 +5,7 @@ var chrome = require("selenium-webdriver/chrome")
 // var options = new chrome.Options().headless();
 var options = new chrome.Options()
 
-const width = 411
+const width = 800
 const height = 999
 setDefaultTimeout(60 * 1000)
 
