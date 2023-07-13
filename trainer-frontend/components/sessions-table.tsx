@@ -44,9 +44,11 @@ function SessionsTable({ sessions }: SessionProps) {
               onClick={() => router.push(`/sessions/${session.id}`)}
               id={`session-${session.id}`}
             >
-              <TableCell className="font-medium">{session.classcode}</TableCell>
-              <TableCell>{session.author}</TableCell>
-              <TableCell>{session.title}</TableCell>
+              <TableCell className="font-medium sessionClasscodes">
+                {session.classcode}
+              </TableCell>
+              <TableCell className="sessionAuthor">{session.author}</TableCell>
+              <TableCell className="sessionTitle">{session.title}</TableCell>
             </TableRow>
           ))}
         </TableBody>
