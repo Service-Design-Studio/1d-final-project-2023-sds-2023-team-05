@@ -1,4 +1,4 @@
-Feature: Trainer Sessions
+Feature: Trainer Creating Sessions
     Narrative
         As a: trainer who is preparing for the upcoming training session
         I want: to be able to create my sessions
@@ -29,13 +29,6 @@ Feature: Trainer Sessions
         When I click the submit button
         Then I should expect an alert with text "Input title!"
     
-    Scenario: Trainer clicks in a session to view it's customised FAQ
-        Given I am on the questions page
-        When I head to the sessions page
-        When I click in the session titled Islam
-        Then I will see a title with text 'Christianity'
-        Then I will see an author with text 'Basil'
-        Then I will see a session code with code '474035'
     
         
        
