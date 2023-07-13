@@ -63,12 +63,16 @@ export default function AddSession({ table }: AddSessionProps<any>) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default" className="h-8 px-2 lg:px-3">
+        <Button
+          variant="default"
+          className="h-8 px-2 lg:px-3"
+          id="create-new-session-button"
+        >
           Create New Session
           <Plus className="ml-2 h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]" id="new-session-dialog">
         <DialogHeader>
           <DialogTitle>Add Session</DialogTitle>
         </DialogHeader>

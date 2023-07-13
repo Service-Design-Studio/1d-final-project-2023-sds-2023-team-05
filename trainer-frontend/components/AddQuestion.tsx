@@ -59,7 +59,9 @@ export default function AddQuestion() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default">Add Question</Button>
+        <Button variant="default" id="add-question-button">
+          Add Question
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -78,6 +80,7 @@ export default function AddQuestion() {
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Why does...?"
               className="col-span-3"
+              id="question-input"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -89,6 +92,7 @@ export default function AddQuestion() {
               placeholder="It is believed that..."
               className="col-span-3"
               onChange={(e) => setAnswer(e.target.value)}
+              id="answer-input"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -97,7 +101,10 @@ export default function AddQuestion() {
             </Label>
             <Select onValueChange={setTag}>
               <SelectTrigger className="w-[278px]">
-                <SelectValue placeholder="What religion is this related to?" />
+                <SelectValue
+                  placeholder="What religion is this related to?"
+                  id="tag-select"
+                />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Christianity">Christianity</SelectItem>

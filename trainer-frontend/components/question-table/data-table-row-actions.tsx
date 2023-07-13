@@ -34,7 +34,7 @@ export function DataTableRowActions<TData>({
   const task = taskSchema.parse(row.original)
 
   const deleteQuestion = async () => {
-    const res = await fetch(`${API_PROD_URL}/${task.id}`, {
+    const res = await fetch(`${API_PROD_URL}/faqs/${task.id}`, {
       method: "DELETE",
     })
     if (res.ok) {
