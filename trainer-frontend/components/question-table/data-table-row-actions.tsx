@@ -34,7 +34,7 @@ export function DataTableRowActions<TData>({
   const task = taskSchema.parse(row.original)
 
   const deleteQuestion = async () => {
-    const res = await fetch(`${API_PROD_URL}/${task.id}`, {
+    const res = await fetch(`${API_PROD_URL}/faqs/${task.id}`, {
       method: "DELETE",
     })
     if (res.ok) {
@@ -85,7 +85,7 @@ export function DataTableRowActions<TData>({
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={deleteQuestion}>
+        <DropdownMenuItem id="delete-question" onClick={deleteQuestion}>
           <Trash className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>

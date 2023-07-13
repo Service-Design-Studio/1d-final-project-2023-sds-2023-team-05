@@ -31,7 +31,15 @@ export default function AddQuestion() {
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
-    console.log(answer, question, tag)
+    if (question == "") {
+      alert("Fill question properly!")
+      return
+    }
+    if (answer == "") {
+      alert("Fill answer properly!")
+      return
+    }
+
     const res = await fetch(`${API_PROD_URL}/faqs`, {
       body: JSON.stringify({
         answer,
@@ -59,9 +67,11 @@ export default function AddQuestion() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default">Add Question</Button>
+        <Button variant="default" id="add-question-button">
+          Add Question
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]" id="new-question-dialog">
         <DialogHeader>
           <DialogTitle>Add Question</DialogTitle>
           {/* <DialogDescription>
@@ -78,6 +88,7 @@ export default function AddQuestion() {
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Why does...?"
               className="col-span-3"
+              id="question-input"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -89,6 +100,7 @@ export default function AddQuestion() {
               placeholder="It is believed that..."
               className="col-span-3"
               onChange={(e) => setAnswer(e.target.value)}
+              id="answer-input"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -96,19 +108,22 @@ export default function AddQuestion() {
               Tag
             </Label>
             <Select onValueChange={setTag}>
-              <SelectTrigger className="w-[278px]">
-                <SelectValue placeholder="What religion is this related to?" />
+              <SelectTrigger className="w-[278px]" id="tag-selector">
+                <SelectValue
+                  placeholder="What religion is this related to?"
+                  id="tag-select"
+                />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Christianity">Christianity</SelectItem>
-                <SelectItem value="Islam">Islam</SelectItem>
-                <SelectItem value="Buddhism">Buddhism</SelectItem>
+                <SelectItem id="Christianity-selector" value="Christianity">Christianity</SelectItem>
+                <SelectItem id="Islam-selector" value="Islam">Islam</SelectItem>
+                <SelectItem id="Buddhism-selector" value="Buddhism">Buddhism</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit" id="submit-question" onClick={handleSubmit}>
             Submit
           </Button>
         </DialogFooter>

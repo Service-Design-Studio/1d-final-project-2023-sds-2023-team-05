@@ -28,7 +28,7 @@ function SessionsTable({ sessions }: SessionProps) {
   const router = useRouter()
   return (
     <div>
-      <Table>
+      <Table id="sessions-table">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[200px]">Class Code</TableHead>
@@ -42,10 +42,13 @@ function SessionsTable({ sessions }: SessionProps) {
               key={session.id}
               className="cursor-pointer hover:bg-slate-50"
               onClick={() => router.push(`/sessions/${session.id}`)}
+              id={`session-${session.id}`}
             >
-              <TableCell className="font-medium">{session.classcode}</TableCell>
-              <TableCell>{session.author}</TableCell>
-              <TableCell>{session.title}</TableCell>
+              <TableCell className="font-medium sessionClasscodes">
+                {session.classcode}
+              </TableCell>
+              <TableCell className="sessionAuthor">{session.author}</TableCell>
+              <TableCell className="sessionTitle">{session.title}</TableCell>
             </TableRow>
           ))}
         </TableBody>

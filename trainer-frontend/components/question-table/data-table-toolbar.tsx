@@ -33,6 +33,7 @@ export function DataTableToolbar<TData>({
             table.getColumn("question")?.setFilterValue(event.target.value)
           }
           className="h-8 w-[150px] lg:w-[250px]"
+          id="filter-faqs-input"
         />
         {table.getColumn("tag") && (
           <DataTableFacetedFilter
