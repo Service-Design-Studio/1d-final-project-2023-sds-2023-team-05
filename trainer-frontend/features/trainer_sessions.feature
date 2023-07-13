@@ -27,5 +27,5 @@ Feature: Trainer Sessions
         When I click create new session button 
         Then I will see Add Session pop up
         When I click the submit button
-        Then I will see an alert with text "Input title!"
+        Then I should expect an alert with text "Input title!"
     

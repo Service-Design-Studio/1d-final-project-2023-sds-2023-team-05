@@ -95,53 +95,6 @@ Then(
 )
 
 /////////////////////////////// Trainer fails to enter session title ////////////////////////////
-When("I select a question 0", async function () {
-  // select question 0
-  const selectedQ0Button = await driver.findElement(By.id("select-0"))
-
-  // click the question 0 checkbox
-  await selectedQ0Button.click()
-})
-
-Then("I select a question 1", async function () {
-  // select question 1
-  const selectedQ1Button = await driver.findElement(By.id("select-1"))
-
-  // click the question 1 checkbox
-  await selectedQ1Button.click()
-})
-
-Then("I select a question 2", async function () {
-  // select question 2
-  const selectedQ2Button = await driver.findElement(By.id("select-2"))
-
-  // click the question 2 checkbox
-  await selectedQ2Button.click()
-})
-
-Then("I see a create new session button", async function () {
-  return driver
-    .findElement(By.id("create-new-session-button"))
-    .then((element) => {
-      expect(element).to.not.be.null
-    })
-})
-
-When("I click create new session button", async function () {
-  // select new session button
-  const createSessionButton = await driver.findElement(
-    By.id("create-new-session-button")
-  )
-
-  // click the new session button
-  await createSessionButton.click()
-})
-
-Then("I will see Add Session pop up", async function () {
-  return driver.findElement(By.id("new-session-dialog")).then((element) => {
-    expect(element).to.not.be.null
-  })
-})
 
 When("I click the submit button", async function () {
   // select submit button
