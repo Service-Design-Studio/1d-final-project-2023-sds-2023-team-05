@@ -35,15 +35,19 @@ export default async function SessionPage() {
 
   return (
     <>
-      <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
-        <div className="flex items-center justify-between space-y-2">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">Session page</h2>
-            <p className="text-muted-foreground">Sessions contain FAQs</p>
+      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+        <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
+          <div className="flex items-center justify-between space-y-2">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Session page
+              </h2>
+              <p className="text-muted-foreground">Sessions contain FAQs</p>
+            </div>
           </div>
+          <SessionsTable sessions={sessions} />
         </div>
-        <SessionsTable sessions={sessions} />
-      </div>
+      </section>
     </>
   )
 }

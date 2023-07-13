@@ -17,18 +17,17 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
   Select,
+  SelectContent,
+  SelectItem,
   SelectTrigger,
   SelectValue,
-  SelectContent,
-  SelectItem
 } from "@/components/ui/select"
 
 export default function AddQuestion() {
   const [answer, setAnswer] = useState("")
   const [question, setQuestion] = useState("")
-  const [tag, setTag] = useState(""); // Add state for the tag
-  const [author, setAuthor] = useState("Basil");
-
+  const [tag, setTag] = useState("") // Add state for the tag
+  const [author, setAuthor] = useState("Basil")
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -57,11 +56,10 @@ export default function AddQuestion() {
     window.location.reload()
   }
 
-
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Add Question</Button>
+        <Button variant="default">Add Question</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -99,10 +97,9 @@ export default function AddQuestion() {
             </Label>
             <Select onValueChange={setTag}>
               <SelectTrigger className="w-[278px]">
-                <SelectValue placeholder="What religion is this related to?"
-                />
+                <SelectValue placeholder="What religion is this related to?" />
               </SelectTrigger>
-              <SelectContent >
+              <SelectContent>
                 <SelectItem value="Christianity">Christianity</SelectItem>
                 <SelectItem value="Islam">Islam</SelectItem>
                 <SelectItem value="Buddhism">Buddhism</SelectItem>
