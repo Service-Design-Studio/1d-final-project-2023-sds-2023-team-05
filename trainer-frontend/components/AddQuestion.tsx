@@ -59,7 +59,9 @@ export default function AddQuestion() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="default">Add Question</Button>
+        <Button variant="default" id="add-question-button">
+          Add Question
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
