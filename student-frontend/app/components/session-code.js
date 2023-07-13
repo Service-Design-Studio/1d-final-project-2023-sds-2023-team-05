@@ -27,7 +27,7 @@ export default function SessionCode({ idAndClassCode }) {
       const lastDigit = combinedCode.slice(-1);
 
       if (combinedCode in idAndClassCode) {
-        const path = '/first?classCode=' + combinedCode;
+        const path = '/first?classCode=' + idAndClassCode[combinedCode];
         router.push(path);
       } else {
         alert('Invalid class code');
