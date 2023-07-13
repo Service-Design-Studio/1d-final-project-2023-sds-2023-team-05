@@ -37,6 +37,12 @@ export default function AddSession({ table }: AddSessionProps<any>) {
 
   async function createNewSession(title: string) {
     const selectedRows = getSelectedRows()
+
+    if (title == "" || selectedRows.length == 0) {
+      alert("Input title!")
+      return
+    }
+
     const res = await fetch(`${API_PROD_URL}/sessions`, {
       body: JSON.stringify({
         title: title,
@@ -85,11 +91,16 @@ export default function AddSession({ table }: AddSessionProps<any>) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="col-span-3"
+              id="add-session-title"
             />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" onClick={handleSubmit}>
+          <Button
+            type="submit"
+            onClick={handleSubmit}
+            id="add-session-submit-button"
+          >
             Submit
           </Button>
         </DialogFooter>
