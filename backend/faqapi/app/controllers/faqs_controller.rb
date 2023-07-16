@@ -5,7 +5,7 @@ class FaqsController < ApplicationController
   def index
     @faqs = Faq.all
 
-    render json: @faqs
+    render json: @faqs.reverse
   end
 
   # GET /faqs/1
