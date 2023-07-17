@@ -109,6 +109,63 @@ questions = [
   }
 ]
 
+# seed data for chats question:string answer:string flagged:boolean
+
+chats = [
+  {
+    "question": "What are the major religions in the world?",
+    "answer": "The major religions in the world include Christianity, Islam, Hinduism, Buddhism, and Judaism.",
+    "flagged": false
+  },
+  {
+    "question": "What is the holy book of Islam?",
+    "answer": "The holy book of Islam is the Quran.",
+    "flagged": false
+  },
+  {
+    "question": "Who is considered the founder of Buddhism?",
+    "answer": "Siddhartha Gautama, also known as Buddha, is considered the founder of Buddhism.",
+    "flagged": true
+  },
+  {
+    "question": "What are the Five Pillars of Islam?",
+    "answer": "The Five Pillars of Islam are Shahada (faith), Salah (prayer), Zakat (charity), Sawm (fasting), and Hajj (pilgrimage).",
+    "flagged": false
+  },
+  {
+    "question": "What is the concept of karma in Hinduism?",
+    "answer": "In Hinduism, karma refers to the consequences of one's actions that determine their future existence and experiences.",
+    "flagged": true
+  },
+  {
+    "question": "How is God referred to in Judaism?",
+    "answer": "In Judaism, God is often referred to as Yahweh or Adonai.",
+    "flagged": false
+  },
+  {
+    "question": "What are the Four Noble Truths in Buddhism?",
+    "answer": "The Four Noble Truths in Buddhism are the truth of suffering, the truth of the cause of suffering, the truth of the end of suffering, and the truth of the path that leads to the end of suffering.",
+    "flagged": false
+  },
+  {
+    "question": "What is the sacred text of Christianity?",
+    "answer": "The sacred text of Christianity is the Bible.",
+    "flagged": false
+  },
+  {
+    "question": "What is the significance of Mecca in Islam?",
+    "answer": "Mecca is the holiest city in Islam and the birthplace of Prophet Muhammad. It is the destination of the Hajj pilgrimage.",
+    "flagged": false
+  },
+  {
+    "question": "What are the main branches of Judaism?",
+    "answer": "The main branches of Judaism are Orthodox, Conservative, Reform, and Reconstructionist.",
+    "flagged": true
+  }
+]
+
+
+
   
 questions.each do |q|
 Faq.create!(
@@ -117,6 +174,14 @@ Faq.create!(
       tag: q[:tag],
       author: q[:author]
     )
+end
+
+chats.each do |c|
+  Chat.create!(
+    question: c[:question],
+    answer: c[:answer],
+    flagged: c[:flagged]
+  )
 end
 
 
