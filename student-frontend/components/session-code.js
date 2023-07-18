@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import styles from './../styles/login.module.css';
+import styles from '@/styles/login.module.css';
 import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
 export default function SessionCode({ idAndClassCode }) {
   const [classCode, setClassCode] = useState(Array(6).fill(''));
@@ -25,9 +25,10 @@ export default function SessionCode({ idAndClassCode }) {
     if (classCode.join('').length === 6) {
       const combinedCode = classCode.join(''); // Combine digits into a string
       const lastDigit = combinedCode.slice(-1);
+      console.log(idAndClassCode);
 
       if (combinedCode in idAndClassCode) {
-        const path = '/first?classCode=' + combinedCode;
+        const path = '/first?classCode=' + idAndClassCode[combinedCode];
         router.push(path);
       } else {
         alert('Invalid class code');
