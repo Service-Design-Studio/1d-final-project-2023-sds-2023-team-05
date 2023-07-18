@@ -10,6 +10,7 @@ Feature: Chatbot
         When I key in the class code 725018
         Then I will see the customised FAQ page with 4 questions
         When I click on the chatbot icon
+        Then I will see the chatbot page
         And I ask my interfaith question with the prompt " "
         Then I will receive an answer with the text " "
 
@@ -18,7 +19,19 @@ Feature: Chatbot
         When I key in the class code 725018
         Then I will see the customised FAQ page with 4 questions
         When I click on the chatbot icon
+        Then I will see the chatbot page
         And I ask my non-interfaith question with the prompt " "
         Then I will receive an alert with the text "Please ask interfaith related questions only"
+
+    Scenario: Learner asks the chatbot a question and flags an inappropriate answer given by the chatbot
+        Given I am on the sign in page
+        When I key in the class code 725018
+        Then I will see the customised FAQ page with 4 questions
+        When I click on the chatbot icon
+        Then I will see the chatbot page
+        And I ask my interfaith question with prompt " "
+        Then I will receive an answer with text " "
+        Then I will click the flag button
+        Then I will see an alert with text "Answer has been flagged" 
 
 
