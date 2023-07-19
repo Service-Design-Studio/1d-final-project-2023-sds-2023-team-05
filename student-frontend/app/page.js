@@ -65,7 +65,7 @@ export default function Home() {
 							<input
 								key={index}
 								type='text'
-								index={index}
+								id={index}
 								maxLength={1}
 								value={digit}
 								onChange={(event) => handleClassCodeChange(event, index)}
