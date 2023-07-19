@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chats/flagged', to: 'chats#flagged'
+  resources :chats
   get '/tags', to: 'faqs#tags'
   get '/authors' , to: 'faqs#authors'
   resources :sessions
