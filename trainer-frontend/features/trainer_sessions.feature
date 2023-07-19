@@ -10,7 +10,7 @@ Feature: Trainer Creating Sessions
         When I select a question 0
         Then I select a question 1
         Then I select a question 2
-        Then I see a create new session button
+        Then I see a create new session button on the page
         When I click create new session button 
         Then I will see Add Session pop up
         When I input Lesson1 as title into the form and click the submit button
