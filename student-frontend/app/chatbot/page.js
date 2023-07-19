@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
-import React, { useState, useEffect } from 'react';
-import Chatbotheader from '../components/Chatbotheader';
-import styles from '../styles/chatbot.module.css';
+import Chatbotheader from '@/components/chatbot-header';
+import styles from '@/styles/chatbot.module.css';
+import { useEffect, useState } from 'react';
 
 function ChatBotPage() {
   const [messages, setMessages] = useState([]);
@@ -54,16 +54,14 @@ function ChatBotPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''}`}
+              className={`${styles.message} ${styles[message.sender]} ${
+                index === messages.length - 1 ? styles.fadeIn : ''
+              }`}
             >
               {message.sender === 'bot' && (
-                <div className={styles.avatar}>
-              
-                </div>
+                <div className={styles.avatar}></div>
               )}
-              <div className={styles.messageContent}>
-                {message.content}
-              </div>
+              <div className={styles.messageContent}>{message.content}</div>
             </div>
           ))}
         </div>
@@ -86,4 +84,3 @@ function ChatBotPage() {
 }
 
 export default ChatBotPage;
-
