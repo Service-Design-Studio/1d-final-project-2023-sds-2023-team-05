@@ -14,10 +14,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # CMD ["python", "chatbot_api.py"]
 
 # Run the application with Gunicorn(port 8080)
-# CMD ["gunicorn", "-b", "0.0.0.0:8080", "chatbot_api:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "chatbot_api:app"]
 
 # Run the application with Gunicorn
-CMD ["gunicorn", "chatbot_api:app"]
+# CMD ["gunicorn", "chatbot_api:app"]
 
 
 
