@@ -6,16 +6,16 @@ export const siteConfig = {
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
   mainNav: [
     {
-      title: "Home",
-      href: "/",
-    },
-    {
       title: "Questions",
       href: "/questions",
     },
     {
       title: "Sessions",
       href: "/sessions",
+    },
+    {
+      title: "Chatbot",
+      href: "/Chatbot",
     },
   ],
   links: {
