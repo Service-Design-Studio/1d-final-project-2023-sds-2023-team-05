@@ -34,11 +34,13 @@ Then(
 		const expectedQuestions = dataTable.raw().flat();
 
 		// Assuming you have located the FAQ questions on the page, you can retrieve them and verify
-		const actualQuestions = await driver.findElements(By.css('.faq-question'));
+		const actualQuestions = await driver.findElements(By.id('faq-question'));
 
 		// Extract the text from the actual questions
 		const actualQuestionsText = await Promise.all(
-			actualQuestions.map(async (element) => element.getText())
+			actualQuestions.map(async (element) =>
+				element.innerText.trim().split('\n')[1].trim()
+			)
 		);
 
 		// Compare the expected and actual questions
@@ -46,8 +48,63 @@ Then(
 	}
 );
 
-/////////////////////////////// Learner asks interfaith related question ////////////////////////////
+/////////////////////////////// Learner sees the chatbot page ////////////////////////////
+Given('I am on the customised FAQ page', async function () {
+	await keyInDigit('725018', 0);
+	await keyInDigit('725018', 1);
+	await keyInDigit('725018', 2);
+	await keyInDigit('725018', 3);
+	await keyInDigit('725018', 4);
+	await keyInDigit('725018', 5);
 
-/////////////////////////////// Learner asks non-interfaith related question ////////////////////////////
+	await driver.sleep(1000);
 
+	return await driver.findElement(By.id('faq-header')).then((element) => {
+		expect(element).to.not.be.null;
+	});
+});
+
+When('I click on the chatbot icon', async function () {
+	const chatbotButton = await driver.findElement(By.id('chatbot-icon'));
+	chatbotButton.click();
+});
+
+Then('I will see the chatbot page', async function () {
+	await driver.sleep(1000);
+
+	return await driver.findElement(By.id('chatbot-header')).then((element) => {
+		expect(element).to.not.be.null;
+	});
+});
+
+/////////////////////////////// Learner asks an interfaith related question in the chatbot ////////////////////////////
+Given('I am on the chatbot page', async function () {
+	await keyInDigit('725018', 0);
+	await keyInDigit('725018', 1);
+	await keyInDigit('725018', 2);
+	await keyInDigit('725018', 3);
+	await keyInDigit('725018', 4);
+	await keyInDigit('725018', 5);
+
+	await driver.sleep(1000);
+
+	await driver.findElement(By.id('chatbot-icon')).click();
+
+	await driver.sleep(1000);
+
+	return await driver.findElement(By.id('chatbot-header')).then((element) => {
+		expect(element).to.not.be.null;
+	});
+});
+
+When(
+	/^I ask my interfaith related question with the prompt '(.*)'/,
+	async function (prompt) {
+		const chatbotPrompt = await driver.findElement(By.id('chatbot-prompt'));
+		await chatbotPrompt.sendKeys(prompt);
+
+		const sendButton = await driver.findElement(By.id('send-button'));
+		sendButton.click();
+	}
+);
 /////////////////////////////// Learner flags chatbot answer ////////////////////////////

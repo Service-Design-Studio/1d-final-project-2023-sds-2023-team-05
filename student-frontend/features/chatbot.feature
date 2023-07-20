@@ -14,14 +14,14 @@ Feature: Chatbot
             | What is the role of compassion in Buddhism? |
             | What is the purpose of the Hajj pilgrimage in Islam? |
     
-    # Scenario: Learner sees the chatbot page
-    #     Given that I am on the customised FAQ page
-    #     When I click on the chatbot icon
-    #     Then I will see the chatbot page
+    Scenario: Learner sees the chatbot page
+        Given I am on the customised FAQ page
+        When I click on the chatbot icon
+        Then I will see the chatbot page
 
-    # Scenario: Learner asks an interfath related question in the chatbot
-    #     Given that I am on the chatbot page
-    #     When I ask my interfaith related question with the prompt " "
+    Scenario: Learner asks an interfath related question in the chatbot
+        Given I am on the chatbot page
+        When I ask my interfaith related question with the prompt 'Hi bye'
     #     Then I will receive an answer with the text " "
 
     # Scenario: Learner flags an inappropriate answer given by the chatbot
