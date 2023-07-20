@@ -22,7 +22,7 @@ Feature: Chatbot
     Scenario: Learner asks an interfath related question in the chatbot
         Given I am on the chatbot page
         When I ask my interfaith related question with the prompt 'Hi bye'
-    #     Then I will receive an answer with the text " "
+        Then I will receive an answer with the text 'This is a bot response.'
 
     # Scenario: Learner flags an inappropriate answer given by the chatbot
     #     Given that I have already asked my interfaith related question

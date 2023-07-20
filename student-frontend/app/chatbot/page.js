@@ -60,7 +60,9 @@ function ChatBotPage() {
 							{message.sender === 'bot' && (
 								<div className={styles.avatar}></div>
 							)}
-							<div className={styles.messageContent}>{message.content}</div>
+							<div className={`${styles.messageContent} promptAnswer`}>
+								{message.content}
+							</div>
 						</div>
 					))}
 				</div>

@@ -111,7 +111,7 @@ function Stoopidtable({ classCode }) {
 								className={activeRow === index ? styles.active : ''}
 								onClick={() => handleRowClick(index)}>
 								<td className={styles.table_maincell}>
-									<p id='faq-question' className={styles.table_text}>
+									<p className={styles.table_text}>
 										<b>{row.question}</b>
 									</p>
 									<div

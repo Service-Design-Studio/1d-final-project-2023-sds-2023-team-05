@@ -100,11 +100,31 @@ Given('I am on the chatbot page', async function () {
 When(
 	/^I ask my interfaith related question with the prompt '(.*)'/,
 	async function (prompt) {
+		await driver.sleep(1000);
+
 		const chatbotPrompt = await driver.findElement(By.id('chatbot-prompt'));
+
+		await driver.sleep(1000);
 		await chatbotPrompt.sendKeys(prompt);
 
+		await driver.sleep(1000);
 		const sendButton = await driver.findElement(By.id('send-button'));
 		sendButton.click();
 	}
 );
+
+Then(/^I will receive an answer with the text '(.*)'/, async function (answer) {
+	await driver.sleep(1000);
+	const chatbotAnswers = await driver.findElements(
+		By.className('promptAnswer')
+	);
+
+	const promptAnswerWebElement = chatbotAnswers.pop();
+
+	const promptAnswer = await promptAnswerWebElement.getText();
+
+	await driver.sleep(1000);
+
+	assert.strictEqual(chatbotAnswers, answer);
+});
 /////////////////////////////// Learner flags chatbot answer ////////////////////////////
