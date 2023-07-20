@@ -1,13 +1,14 @@
 import os
-import constants
+from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
 
-# set environment variable
-os.environ["OPENAI_API_KEY"] = constants.API_KEY
+# load environment variable
+load_dotenv()
 
+llm = ChatOpenAI(temperature = 0.3, model_name = 'gpt-3.5-turbo')
 
-convoChain = ConversationChain(llm = ChatOpenAI(temperature = 0.3, model_name = 'gpt-3.5-turbo'))
+convoChain = ConversationChain(llm = llm)
     
 def run(input):
     ai_response = convoChain.predict(input = input)
