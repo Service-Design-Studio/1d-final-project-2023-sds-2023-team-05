@@ -16,7 +16,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
-import { API_LOCAL_URL, API_PROD_URL } from "@/config/site"
 import {
   Table,
   TableBody,
@@ -74,7 +73,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="space-y-4 max-w-4xl" id="question-table">
+    <div className="space-y-4" id="question-table">
       <DataTableToolbar table={table} />
       <div className="rounded-md border">
         <Table>

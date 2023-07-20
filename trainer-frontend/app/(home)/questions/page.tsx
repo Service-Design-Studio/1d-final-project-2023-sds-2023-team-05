@@ -1,10 +1,8 @@
 import { columns } from "@components/question-table/columns"
 import { DataTable } from "@components/question-table/data-table"
-import { z } from "zod"
 
 import { API_PROD_URL } from "@/config/site"
 import AddQuestion from "@/components/AddQuestion"
-import { taskSchema } from "@/components/question-table/data/schema"
 
 async function getFaqs() {
   const res = await fetch(`${API_PROD_URL}/faqs`, { cache: "no-store" })
@@ -17,7 +15,7 @@ export default async function FaqPage() {
 
   return (
     <>
-      <section className="container">
+      <section className="">
         <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
           <div className="flex items-center justify-between space-y-2">
             <div>

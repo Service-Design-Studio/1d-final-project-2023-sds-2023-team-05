@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -22,6 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+
+import { Textarea } from "./ui/textarea"
 
 export default function AddQuestion() {
   const [answer, setAnswer] = useState("")
@@ -71,7 +72,7 @@ export default function AddQuestion() {
           Add Question
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]" id="new-question-dialog">
+      <DialogContent className="sm:max-w-[525px]" id="new-question-dialog">
         <DialogHeader>
           <DialogTitle>Add Question</DialogTitle>
           {/* <DialogDescription>
@@ -91,35 +92,49 @@ export default function AddQuestion() {
               id="question-input"
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Answer
-            </Label>
-            <Input
-              value={answer}
-              placeholder="It is believed that..."
-              className="col-span-3"
-              onChange={(e) => setAnswer(e.target.value)}
-              id="answer-input"
-            />
-          </div>
+
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="tag" className="text-right">
               Tag
             </Label>
             <Select onValueChange={setTag}>
-              <SelectTrigger className="w-[278px]" id="tag-selector">
+              <SelectTrigger className="w-[352px]" id="tag-selector">
                 <SelectValue
                   placeholder="What religion is this related to?"
                   id="tag-select"
                 />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem id="Christianity-selector" value="Christianity">Christianity</SelectItem>
-                <SelectItem id="Islam-selector" value="Islam">Islam</SelectItem>
-                <SelectItem id="Buddhism-selector" value="Buddhism">Buddhism</SelectItem>
+                <SelectItem id="Christianity-selector" value="Christianity">
+                  Christianity
+                </SelectItem>
+                <SelectItem id="Islam-selector" value="Islam">
+                  Islam
+                </SelectItem>
+                <SelectItem id="Buddhism-selector" value="Buddhism">
+                  Buddhism
+                </SelectItem>
               </SelectContent>
             </Select>
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="answer-input" className="text-right">
+              Answer
+            </Label>
+            {/* <Input
+              value={answer}
+              placeholder="It is believed that..."
+              className="col-span-3"
+              onChange={(e) => setAnswer(e.target.value)}
+              id="answer-input"
+            /> */}
+            <Textarea
+              value={answer}
+              placeholder="It is believed that..."
+              className="col-span-3 h-60"
+              onChange={(e) => setAnswer(e.target.value)}
+              id="answer-input"
+            />
           </div>
         </div>
         <DialogFooter>
