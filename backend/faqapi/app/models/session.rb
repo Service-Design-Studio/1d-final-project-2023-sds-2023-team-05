@@ -7,9 +7,15 @@ class Session < ApplicationRecord
     before_create :generate_classcode
     
     def generate_classcode
-        self.classcode = rand(100000..999999)
-        while Session.exists?(classcode: self.classcode)
+        if self.classcode
+            # If the classcode is already set, no need to generate a new one
+            return
+        else
             self.classcode = rand(100000..999999)
+            while Session.exists?(classcode: self.classcode)
+                self.classcode = rand(100000..999999)
+            end
         end
     end
+    
 end
