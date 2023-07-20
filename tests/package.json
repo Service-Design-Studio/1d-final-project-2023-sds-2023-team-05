@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@cucumber/cucumber": "^9.3.0",
+    "chai": "^4.3.7",
+    "selenium-webdriver": "^4.10.0"
+  },
+  "scripts": {
+    "cucumber": "cucumber-js"
+  }
+}
