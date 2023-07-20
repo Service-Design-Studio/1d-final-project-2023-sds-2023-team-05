@@ -10,5 +10,14 @@ ADD . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Run app.py when the container launches
-CMD gunicorn -b :$PORT chatbot_api:app
+# Run locally
+# CMD ["python", "chatbot_api.py"]
+
+# Run the application with Gunicorn(port 8080)
+# CMD ["gunicorn", "-b", "0.0.0.0:8080", "chatbot_api:app"]
+
+# Run the application with Gunicorn
+CMD ["gunicorn", "chatbot_api:app"]
+
+
+
