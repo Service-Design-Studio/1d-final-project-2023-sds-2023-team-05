@@ -1,29 +1,28 @@
 'use client';
 
 import Chatbotheader from '@/components/chatbot-header';
-import { API_URL } from '@/config';
+import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState } from 'react';
 
 async function fetchBotResponse(question) {
-  // const res = await fetch(`${CHATBOT_URL}`, {
-  //   body: JSON.stringify({
-  //     question: question,
-  //   }),
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   method: 'POST',
-  // });
+  const res = await fetch(`${CHATBOT_URL}`, {
+    body: JSON.stringify({
+      question: question,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
 
-  // if (!res.ok) {
-  //   alert('Error...');
-  // }
+  if (!res.ok) {
+    alert('Error...');
+  }
 
-  // const data = await res.json();
+  const data = await res.json();
 
-  // return data.ai_response;
-  return 'fake api cause my api dont work';
+  return data.ai_response;
 }
 
 async function flagComment(id) {
