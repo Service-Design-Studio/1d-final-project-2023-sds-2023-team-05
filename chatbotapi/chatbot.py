@@ -1,13 +1,13 @@
 import os
 from dotenv import load_dotenv
-from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
 from langchain.chat_models import ChatVertexAI
+from langchain.llms import VertexAI
 
 # load environment variable
 load_dotenv()
 
-llm = ChatVertexAI()
+llm = VertexAI()
 
 convoChain = ConversationChain(llm = llm)
     
