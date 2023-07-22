@@ -7,7 +7,7 @@ CORS(app)
 
 @app.route('/chatbot/api', methods=['POST'])
 def chat_api():
-    input_message = request.get_json().get("question")
+    input_message = request.get_json().get('question')
     ai_response = chatbot.run(input_message)
     response = {'ai_response': ai_response}
     return jsonify(response)
