@@ -17,9 +17,9 @@ Feature: Trainer Creating Sessions
     @Sessions
     Scenario: Trainer sees a add session pop up
         Given I am on the questions page
-        When I click on the checkbox to select the question with text "What is the concept of sin in Christianity?"
-        When I click on the checkbox to select the question with text "What is the role of mindfulness in Buddhism?"
-        When I click on the checkbox to select the question with text "What is the concept of the Ummah in Islam?"
+        When I click on the checkbox to select the question with text 'What is the concept of sin in Christianity?'
+        When I click on the checkbox to select the question with text 'What is the role of mindfulness in Buddhism?'
+        When I click on the checkbox to select the question with text 'What is the concept of the Ummah in Islam?'
         Then I will see a create new session button
         When I click create new session button 
         Then I will see Add Session pop up

@@ -29,7 +29,7 @@ Then(
 
 ///// Trainer sees a add session pop up
 When(
-	/^I click on the checkbox to select the question with text "(.*)"/,
+	/^I click on the checkbox to select the question with text '(.*)'/,
 	async function (question) {
 		selectQuestion(question);
 	}
