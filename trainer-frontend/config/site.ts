@@ -15,7 +15,7 @@ export const siteConfig = {
     },
     {
       title: "Chatbot",
-      href: "/Chatbot",
+      href: "/chatbot",
     },
   ],
   links: {

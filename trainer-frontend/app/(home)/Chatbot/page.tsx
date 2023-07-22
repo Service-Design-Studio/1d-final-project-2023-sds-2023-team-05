@@ -1,13 +1,10 @@
-import { columns } from "@components/question-table/columns"
-import { DataTable } from "@components/question-table/data-table"
-
 import { API_PROD_URL } from "@/config/site"
-import ChatbotTable from "@/components/Chatbot-table"
+import ChatbotTable from "@/components/chatbot-table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 
 
-interface Session {
+interface Response {
   id: string
   question: string
   answer: string
@@ -16,14 +13,14 @@ interface Session {
   updated_at: string
 }
 
-async function getSessions(): Promise<Session[]> {
+async function getResponses(): Promise<Response[]> {
   const res = await fetch(`${API_PROD_URL}/chats`, { cache: "no-store" })
-  const sessions = await res.json()
-  return sessions
+  const responses = await res.json()
+  return responses
 }
 
 export default async function FaqPage() {
-  const sessions = await getSessions()
+  const responses = await getResponses()
 
   return (
     <>
@@ -41,11 +38,11 @@ export default async function FaqPage() {
             </TabsList>
             <TabsContent value="flagged">
               <h2>View <b>flagged</b> responses from the chatbot. </h2>
-              <ChatbotTable sessions={sessions} flagmode={true} />
+              <ChatbotTable sessions={responses} flagmode={true} />
             </TabsContent>
             <TabsContent value="all">
               <h2>View <b>all</b> responses from the chatbot. </h2>
-              <ChatbotTable sessions={sessions} flagmode={false} />
+              <ChatbotTable sessions={responses} flagmode={false} />
             </TabsContent>
           </Tabs>
         </div>
