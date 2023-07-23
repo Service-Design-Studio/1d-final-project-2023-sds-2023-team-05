@@ -4,6 +4,7 @@ import Chatbotheader from '@/components/chatbot-header';
 import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState } from 'react';
+import Modal from '@/components/modal';
 
 async function fetchBotResponse(question) {
   const res = await fetch(`${CHATBOT_URL}`, {
@@ -23,6 +24,7 @@ async function fetchBotResponse(question) {
   const data = await res.json();
 
   return data.ai_response;
+  // return 'Dummy Response'
 }
 
 async function flagComment(id) {
@@ -66,6 +68,17 @@ async function sendChatToBackend(question, answer, id) {
 function ChatBotPage() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [messageId, setMessageId] = useState('');
+
+  const handleOpenModal = (id) => {
+    setIsModalOpen(true);
+    setMessageId(id)
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     // Simulate delay for the first default message
@@ -127,9 +140,8 @@ function ChatBotPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`${styles.message} ${styles[message.sender]} ${
-                index === messages.length - 1 ? styles.fadeIn : ''
-              }`}
+              className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
+                }`}
             >
               {message.sender === 'bot' && (
                 <>
@@ -141,7 +153,7 @@ function ChatBotPage() {
               </div>
               {message.id && (
                 <>
-                  <button onClick={() => flagComment(message.id)}>flag</button>
+                  <button onClick={() => handleOpenModal(message.id)} style={{ backgroundColor: 'black' }}>flag</button>
                 </>
               )}
             </div>
@@ -165,6 +177,13 @@ function ChatBotPage() {
             Send
           </button>
         </div>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} messageId={messageId} setIsModalOpen={setIsModalOpen} API_URL={API_URL}>
+          {/* Content to be displayed inside the modal */}
+          <h2>Modal Content</h2>
+          <p>This is the content of the modal.</p>
+          <p>More content...</p>
+          {/* You can add any other content here */}
+        </Modal>
       </div>
     </div>
   );
