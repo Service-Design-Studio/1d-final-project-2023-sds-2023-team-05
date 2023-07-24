@@ -7,24 +7,24 @@ import { useEffect, useState } from 'react';
 import Modal from '@/components/modal';
 
 async function fetchBotResponse(question) {
-  const res = await fetch(`${CHATBOT_URL}`, {
-    body: JSON.stringify({
-      question: question,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
+  // const res = await fetch(`${CHATBOT_URL}`, {
+  //   body: JSON.stringify({
+  //     question: question,
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   method: 'POST',
+  // });
 
-  if (!res.ok) {
-    alert('Error...');
-  }
+  // if (!res.ok) {
+  //   alert('Error...');
+  // }
 
-  const data = await res.json();
+  // const data = await res.json();
 
-  return data.ai_response;
-  // return 'Dummy Response'
+  // return data.ai_response;
+  return 'Dummy Response'
 }
 
 async function flagComment(id) {
@@ -153,7 +153,9 @@ function ChatBotPage() {
               </div>
               {message.id && (
                 <>
-                  <button onClick={() => handleOpenModal(message.id)} style={{ backgroundColor: 'black' }}>flag</button>
+                <button className={styles.flaggingIcon} onClick={() => handleOpenModal(message.id)}>
+                  <img src="../app/assets/Icon3.png" width= "20" height= "20" />
+                  </button>
                 </>
               )}
             </div>
