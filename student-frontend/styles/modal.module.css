@@ -17,6 +17,7 @@
 
 .modal {
     background-color: #fff;
+    width: 280px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -31,6 +32,28 @@
 .modalContent {
     position: relative;
     /* Add this to make the closeButton position absolute relative to the modal content */
+}
+
+.textarea {
+    width: 100%;
+    border: 1px solid #CECECE;
+    height: 75px;
+}
+
+.reasonbox {
+    display: flex;
+    width: 100%;
+    background-color: #CECECE;
+    height: 40px;
+    justify-content: left;
+    align-items: center;
+    box-shadow: 3px 5px #555;
+    margin-bottom: 10px;
+}
+
+.selected {
+    background-color: #333333;
+    color: #CECECE
 }
 
 .closeButton {
