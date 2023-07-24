@@ -180,3 +180,12 @@
   /* Add your icon styles here */
 }
 
+.flaggingIcon {
+  background-image: url("../assets/Icon3.png");
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-top: 15px;
+  opacity: 0.8;
+}

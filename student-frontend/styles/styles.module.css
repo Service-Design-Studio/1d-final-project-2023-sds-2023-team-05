@@ -1,6 +1,5 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+
   font-family: 'Averia Serif Libre';
   src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
 }
@@ -67,7 +66,7 @@
   padding-bottom: 2%;
   padding-left: 7%;
   padding-right: 20%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Averia Serif Libre', sans-serif;
   width: 100%;
   font-size: min(4vw, 25px);
   color: rgb(30, 30, 30);
@@ -88,7 +87,7 @@
   font-size: min(4vw, 100);
   margin-bottom: 2vh;
   margin-top: 2vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .searchInput::placeholder {
@@ -118,6 +117,7 @@
   height: 25px;
   background-image: url('../assets/Icon1.png');
   background-size: contain;
+  cursor: pointer;
   float: right;
   margin-top: auto;
   margin-bottom: auto;
@@ -130,7 +130,7 @@
     padding-right: 7%;
     padding-top: 3vw;
     padding-bottom: 3vw;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Averia Serif Libre', sans-serif;
   }
 
   .table_maincell {
