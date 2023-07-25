@@ -125,6 +125,7 @@
   /* Stick it to the bottom */
   z-index: 1;
   /* Ensure it's above the messages */
+  left: 0;
 }
 
 .user-input input[type='text'] {
