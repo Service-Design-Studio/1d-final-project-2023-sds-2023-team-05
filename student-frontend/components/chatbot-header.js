@@ -5,8 +5,8 @@ const Chatbotheader = () => {
 	const router = useRouter();
 
 	const handleBackButtonClick = () => {
-		router.push('/first');
-	};
+		window.history.back();
+	  };
 
 	return (
 		<div id='chatbot-header' className={styles.header}>
