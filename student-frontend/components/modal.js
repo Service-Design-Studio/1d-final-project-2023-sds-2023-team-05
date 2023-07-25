@@ -42,13 +42,19 @@ function Modal({ isOpen, onClose, messageId, setIsModalOpen }) {
         }
     };
 
+    const closeModal = () => {
+        setSelectedReason('')
+        setOthersResponse('')
+        onClose()
+    }
+
     return (
         <>
             {isOpen && (
                 <div className={styles.modalOverlay}>
                     <div className={styles.modal}>
                         <div className={styles.modalContent}>
-                            <button className={styles.closeButton} onClick={onClose}>
+                            <button className={styles.closeButton} onClick={() => closeModal()}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <div style={{ paddingTop: '20px', marginBottom: '10px' }}>
