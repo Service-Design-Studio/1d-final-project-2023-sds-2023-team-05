@@ -24,7 +24,7 @@ export const siteConfig = {
     docs: "https://ui.shadcn.com",
   },
   api_prod: "https://faqapi-service-mgn7slqt5a-as.a.run.app",
-  api_local: "http://localhost:3000",
+  api_local: "http://localhost:4000",
 }
 
 export const API_PROD_URL = siteConfig.api_prod
