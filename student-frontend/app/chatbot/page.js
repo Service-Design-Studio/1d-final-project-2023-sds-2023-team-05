@@ -74,10 +74,14 @@ function ChatBotPage() {
   const handleOpenModal = (id) => {
     setIsModalOpen(true);
     setMessageId(id)
+    document.body.style.overflow = 'hidden';
+
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+
   };
 
   useEffect(() => {
@@ -178,13 +182,7 @@ function ChatBotPage() {
             Send
           </button>
         </div>
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal} messageId={messageId} setIsModalOpen={setIsModalOpen} API_URL={API_URL}>
-          {/* Content to be displayed inside the modal */}
-          <h2>Modal Content</h2>
-          <p>This is the content of the modal.</p>
-          <p>More content...</p>
-          {/* You can add any other content here */}
-        </Modal>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} messageId={messageId} setIsModalOpen={setIsModalOpen} API_URL={API_URL} />
       </div>
     </div>
   );
