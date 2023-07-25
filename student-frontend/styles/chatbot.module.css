@@ -156,12 +156,14 @@
 }
 
 .backButton {
-  font-size: min(10vw, 75px);
-  padding-left: 2vw;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  background-image: url("../assets/back.png");
+  width: 35px;
+  height: 35px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  opacity: 0.8;
+  background-repeat: no-repeat
 }
 
 .headerText {
