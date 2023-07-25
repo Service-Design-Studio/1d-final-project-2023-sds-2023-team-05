@@ -59,6 +59,7 @@ function ChatBotPage() {
   const [inputValue, setInputValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [messageId, setMessageId] = useState('');
+  const [flaggedQuestions, setFlaggedQuestions] = useState([]);
 
   const handleOpenModal = (id) => {
     setIsModalOpen(true);
@@ -87,6 +88,10 @@ function ChatBotPage() {
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
+  };
+
+  const isMessageFlagged = (messageId) => {
+    return flaggedQuestions.includes(messageId);
   };
 
   const handleSendMessage = async () => {
@@ -119,7 +124,7 @@ function ChatBotPage() {
       };
 
       setMessages((prevMessages) => [...prevMessages, botResponse]);
-    
+
 
       // generate id to send into backend
       // const id = Date.now()
@@ -136,9 +141,8 @@ function ChatBotPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`${styles.message} ${styles[message.sender]} ${
-                index === messages.length - 1 ? styles.fadeIn : ''
-              }`}
+              className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
+                }`}
             >
               {message.sender === 'bot' && (
                 <>
@@ -151,8 +155,8 @@ function ChatBotPage() {
               {message.id && (
                 <>
                   <button
-                    className={`${styles.flaggingIcon}`}
-                    onClick={() => handleOpenModal(message.id)}
+                    className={`${isMessageFlagged(message.id) ? styles.flaggingIconFlagged : styles.flaggingIcon}`}
+                    onClick={flaggedQuestions.includes(message.id) ? null : () => handleOpenModal(message.id)}
                   ></button>
                 </>
               )}
@@ -183,6 +187,7 @@ function ChatBotPage() {
           messageId={messageId}
           setIsModalOpen={setIsModalOpen}
           API_URL={API_URL}
+          setFlaggedQuestions={setFlaggedQuestions}
         />
       </div>
     </div>

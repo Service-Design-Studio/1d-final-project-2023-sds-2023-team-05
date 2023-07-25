@@ -2,7 +2,7 @@ import { API_URL } from '@/config';
 import styles from '@/styles/modal.module.css';
 import { useState } from 'react';
 
-function Modal({ isOpen, onClose, messageId, setIsModalOpen }) {
+function Modal({ isOpen, onClose, messageId, setIsModalOpen, setFlaggedQuestions }) {
     const [selectedReason, setSelectedReason] = useState('');
     const [othersResponse, setOthersResponse] = useState('');
 
@@ -27,6 +27,7 @@ function Modal({ isOpen, onClose, messageId, setIsModalOpen }) {
             method: 'PATCH',
         });
 
+        setFlaggedQuestions((prevQuestions) => [...prevQuestions, messageId]);
         setIsModalOpen(false);
         // TODO: Reset fields
 
