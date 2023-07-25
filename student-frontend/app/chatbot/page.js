@@ -157,7 +157,8 @@ function ChatBotPage() {
               </div>
               {message.id && (
                 <>
-                  <button onClick={() => handleOpenModal(message.id)} style={{ backgroundColor: 'black' }}>flag</button>
+                  <button className={`${styles.flaggingIcon}`} onClick={() => handleOpenModal(message.id)}>
+                  </button>
                 </>
               )}
             </div>

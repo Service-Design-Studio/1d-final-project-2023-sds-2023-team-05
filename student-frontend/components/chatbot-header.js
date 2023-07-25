@@ -14,7 +14,8 @@ const Chatbotheader = () => {
 				{'<'}
 			</button>
 			<h1 className={styles.headerText}>Chatbot</h1>
-			<div className={styles.placeholderIcon}>{''}</div>
+			<div className={styles.placeholderIcon}>
+			</div>
 		</div>
 	);
 };
