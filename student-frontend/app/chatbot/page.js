@@ -1,5 +1,4 @@
 'use client';
-
 import Chatbotheader from '@/components/chatbot-header';
 import Modal from '@/components/modal';
 import { API_URL, CHATBOT_URL } from '@/config';
@@ -18,30 +17,13 @@ async function fetchBotResponse(question) {
     method: 'POST',
   });
 
-  // if (!res.ok) {
-  //   alert('Error...');
-  // }
-
-  // const data = await res.json();
-
-  // return data.ai_response;
-  return 'Dummy Response';
-}
-
-async function flagComment(id) {
-  const res = await fetch(`${API_URL}/chats/${id}`, {
-    body: JSON.stringify({
-      flagged: true,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'PATCH',
-  });
-
   if (!res.ok) {
     alert('Error...');
   }
+
+  const data = await res.json();
+
+  return data.ai_response;
 }
 
 async function sendChatToBackend(question, answer, id) {
