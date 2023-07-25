@@ -5,8 +5,8 @@ const Chatbotheader = () => {
 	const router = useRouter();
 
 	const handleBackButtonClick = () => {
-		router.push('/first');
-	};
+		window.history.back();
+	  };
 
 	return (
 		<div id='chatbot-header' className={styles.header}>
@@ -14,7 +14,8 @@ const Chatbotheader = () => {
 				{'<'}
 			</button>
 			<h1 className={styles.headerText}>Chatbot</h1>
-			<div className={styles.placeholderIcon}>{''}</div>
+			<div className={styles.placeholderIcon}>
+			</div>
 		</div>
 	);
 };

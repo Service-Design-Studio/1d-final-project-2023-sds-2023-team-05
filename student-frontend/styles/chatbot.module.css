@@ -1,4 +1,11 @@
 /* Chat container */
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-family: 'Averia Serif Libre';
+  src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
+}
+
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -54,11 +61,13 @@
   display: inline-block;
   padding: 0.8rem;
   border-radius: 1rem;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .user .messageContent {
   background-color: #007bff;
   color: #ffffff; /* Set text color for user messages */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .bot .messageContent {
@@ -94,6 +103,7 @@
   width: 100%;
   color: rgb(30, 30, 30);
   background-color: rgb(255, 255, 255);
+  font-family: 'Averia Serif Libre', sans-serif;
   padding: 12px 16px; /* Adjust padding for a more balanced look */
   text-align: center;
   align-items: center;
@@ -127,6 +137,7 @@
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 /* Chat bot header */
@@ -156,14 +167,25 @@
   align-items: center; /* Align the text vertically within the header */
   justify-content: center; /* Center the text horizontally within the header */
   flex-grow: 1; /* Allow the text to grow and occupy remaining space */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .placeholderIcon {
   font-size: min(10vw, 75px);
-  padding-right: 2vw;
+  padding-right: 6vw;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   /* Add your icon styles here */
+}
+
+.flaggingIcon {
+  background-image: url("../assets/Icon3.png");
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-top: 15px;
+  opacity: 0.8;
 }

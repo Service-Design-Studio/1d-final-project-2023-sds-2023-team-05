@@ -7,24 +7,24 @@ import { useEffect, useState } from 'react';
 import Modal from '@/components/modal';
 
 async function fetchBotResponse(question) {
-  const res = await fetch(`${CHATBOT_URL}`, {
-    body: JSON.stringify({
-      question: question,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
+  // const res = await fetch(`${CHATBOT_URL}`, {
+  //   body: JSON.stringify({
+  //     question: question,
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   method: 'POST',
+  // });
 
-  if (!res.ok) {
-    alert('Error...');
-  }
+  // if (!res.ok) {
+  //   alert('Error...');
+  // }
 
-  const data = await res.json();
+  // const data = await res.json();
 
-  return data.ai_response;
-  // return 'Dummy Response'
+  // return data.ai_response;
+  return 'Dummy Response'
 }
 
 async function flagComment(id) {
@@ -74,10 +74,14 @@ function ChatBotPage() {
   const handleOpenModal = (id) => {
     setIsModalOpen(true);
     setMessageId(id)
+    document.body.style.overflow = 'hidden';
+
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+
   };
 
   useEffect(() => {
@@ -153,7 +157,8 @@ function ChatBotPage() {
               </div>
               {message.id && (
                 <>
-                  <button onClick={() => handleOpenModal(message.id)} style={{ backgroundColor: 'black' }}>flag</button>
+                  <button className={`${styles.flaggingIcon}`} onClick={() => handleOpenModal(message.id)}>
+                  </button>
                 </>
               )}
             </div>
@@ -177,13 +182,7 @@ function ChatBotPage() {
             Send
           </button>
         </div>
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal} messageId={messageId} setIsModalOpen={setIsModalOpen} API_URL={API_URL}>
-          {/* Content to be displayed inside the modal */}
-          <h2>Modal Content</h2>
-          <p>This is the content of the modal.</p>
-          <p>More content...</p>
-          {/* You can add any other content here */}
-        </Modal>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} messageId={messageId} setIsModalOpen={setIsModalOpen} API_URL={API_URL} />
       </div>
     </div>
   );
