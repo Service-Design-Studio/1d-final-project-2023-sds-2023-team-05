@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -19,7 +18,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 interface AddSessionProps<TData> {
-  table: Table<TData>
+  table?: Table<TData>
 }
 
 export default function AddSession({ table }: AddSessionProps<any>) {
@@ -27,6 +26,8 @@ export default function AddSession({ table }: AddSessionProps<any>) {
 
   const getSelectedRows = () => {
     const selectedRows = []
+
+    if (!table) return
 
     for (const row of table.getSelectedRowModel().flatRows) {
       selectedRows.push(row.getValue("id"))
@@ -36,9 +37,9 @@ export default function AddSession({ table }: AddSessionProps<any>) {
   }
 
   async function createNewSession(title: string) {
-    const selectedRows = getSelectedRows()
+    const selectedRows = table ? getSelectedRows() : []
 
-    if (title == "" || selectedRows.length == 0) {
+    if (title == "") {
       alert("Input title!")
       return
     }
@@ -57,13 +58,16 @@ export default function AddSession({ table }: AddSessionProps<any>) {
 
     if (!res.ok) {
       alert("Error creating question")
+    } else {
+      // redirect to created page
+      const data = await res.json()
+      window.location.href = `/sessions/${data.id}`
     }
   }
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
     createNewSession(title)
-    window.location.reload()
   }
 
   return (

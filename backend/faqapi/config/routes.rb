@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :chats
   get '/tags', to: 'faqs#tags'
   get '/authors' , to: 'faqs#authors'
+  post '/sessions/:id', to: 'sessions#add_faq'
   resources :sessions
   resources :users
   resources :faqs
