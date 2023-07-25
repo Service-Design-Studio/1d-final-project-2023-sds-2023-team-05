@@ -1,21 +1,22 @@
 'use client';
 
 import Chatbotheader from '@/components/chatbot-header';
+import Modal from '@/components/modal';
 import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState } from 'react';
-import Modal from '@/components/modal';
 
 async function fetchBotResponse(question) {
-  // const res = await fetch(`${CHATBOT_URL}`, {
-  //   body: JSON.stringify({
-  //     question: question,
-  //   }),
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   method: 'POST',
-  // });
+  const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
+    body: JSON.stringify({
+      question: question,
+      session_id: '123456789',
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
 
   // if (!res.ok) {
   //   alert('Error...');
@@ -24,7 +25,7 @@ async function fetchBotResponse(question) {
   // const data = await res.json();
 
   // return data.ai_response;
-  return 'Dummy Response'
+  return 'Dummy Response';
 }
 
 async function flagComment(id) {
@@ -73,15 +74,13 @@ function ChatBotPage() {
 
   const handleOpenModal = (id) => {
     setIsModalOpen(true);
-    setMessageId(id)
+    setMessageId(id);
     document.body.style.overflow = 'hidden';
-
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     document.body.style.overflow = 'auto';
-
   };
 
   useEffect(() => {
@@ -144,8 +143,9 @@ function ChatBotPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
-                }`}
+              className={`${styles.message} ${styles[message.sender]} ${
+                index === messages.length - 1 ? styles.fadeIn : ''
+              }`}
             >
               {message.sender === 'bot' && (
                 <>
@@ -157,8 +157,10 @@ function ChatBotPage() {
               </div>
               {message.id && (
                 <>
-                  <button className={`${styles.flaggingIcon}`} onClick={() => handleOpenModal(message.id)}>
-                  </button>
+                  <button
+                    className={`${styles.flaggingIcon}`}
+                    onClick={() => handleOpenModal(message.id)}
+                  ></button>
                 </>
               )}
             </div>
@@ -182,7 +184,13 @@ function ChatBotPage() {
             Send
           </button>
         </div>
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal} messageId={messageId} setIsModalOpen={setIsModalOpen} API_URL={API_URL} />
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          messageId={messageId}
+          setIsModalOpen={setIsModalOpen}
+          API_URL={API_URL}
+        />
       </div>
     </div>
   );
