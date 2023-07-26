@@ -18,7 +18,7 @@
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 50px;
+  width: 45px;
   height: 50px;
   background-size: contain;
   margin-left: 5px;
@@ -36,8 +36,8 @@
 }
 
 .chatbotIcon {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   background-image: url('../assets/chatbot_icon.jpg');
   background-size: contain;
   float: right;
