@@ -46,7 +46,7 @@
   height: 55px;
   border-radius: 50%;
   margin-right: 10px;
-  background-image: url('../assets/Icon2.png');
+  background-image: url('../assets/Icon6.jpg');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -128,6 +128,7 @@
   /* Stick it to the bottom */
   z-index: 1;
   /* Ensure it's above the messages */
+  left: 0;
 }
 
 .user-input input[type='text'] {
@@ -211,8 +212,8 @@
 
 .flaggingIcon {
   background-image: url("../assets/Icon3.png");
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-size: contain;
   margin-left: 5px;
   margin-top: 15px;
