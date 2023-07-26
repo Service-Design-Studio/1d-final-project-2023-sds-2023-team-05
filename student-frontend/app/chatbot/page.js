@@ -4,32 +4,26 @@ import Modal from '@/components/modal';
 import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState } from 'react';
-import { resolve } from 'styled-jsx/css';
 
 async function fetchBotResponse(question) {
-	// const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
-	//   body: JSON.stringify({
-	//     question: question,
-	//     session_id: '123456789',
-	//   }),
-	//   headers: {
-	//     'Content-Type': 'application/json',
-	//   },
-	//   method: 'POST',
-	// });
-
-	// if (!res.ok) {
-	//   alert('Error...');
-	// }
-
-	// const data = await res.json();
-
-	// return data.ai_response;
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve('Dummy Response!');
-		}, 2000);
+	const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
+		body: JSON.stringify({
+			question: question,
+			session_id: '123456789',
+		}),
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		method: 'POST',
 	});
+
+	if (!res.ok) {
+		alert('Error...');
+	}
+
+	const data = await res.json();
+
+	return data.ai_response;
 }
 
 async function sendChatToBackend(question, answer, id) {
@@ -46,12 +40,8 @@ async function sendChatToBackend(question, answer, id) {
 	});
 
 	if (!res.ok) {
-		alert('Error...');
+		console.log('Error...');
 	}
-
-	const data = await res.json();
-
-	return data.ai_response;
 }
 
 function ChatBotPage() {
@@ -158,7 +148,7 @@ function ChatBotPage() {
 											isMessageFlagged(message.id)
 												? styles.flaggingIconFlagged
 												: styles.flaggingIcon
-										} flagButton`}
+										}`}
 										onClick={
 											flaggedQuestions.includes(message.id)
 												? null
