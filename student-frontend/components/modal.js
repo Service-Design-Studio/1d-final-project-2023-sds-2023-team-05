@@ -28,8 +28,7 @@ function Modal({ isOpen, onClose, messageId, setIsModalOpen, setFlaggedQuestions
         });
 
         setFlaggedQuestions((prevQuestions) => [...prevQuestions, messageId]);
-        setSelectedReason('')
-        setOthersResponse('')
+        closeModal();
         setIsModalOpen(false);
         // TODO: Reset fields
 
