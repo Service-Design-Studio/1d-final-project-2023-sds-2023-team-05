@@ -1,9 +1,9 @@
-# Feature: FAQ by Session
+Feature: FAQ by Session
 
-#     Narrative
-#         As a: student who is starting a training session
-#         I want: to be able to log in via the session code to see related FAQ questions for my current training session
-#         so that: I can view and interact with the customised FAQ so that I can get immediate answers to my questions if any.
+    Narrative
+        As a: student who is starting a training session
+        I want: to be able to log in via the session code to see related FAQ questions for my current training session
+        so that: I can view and interact with the customised FAQ so that I can get immediate answers to my questions if any.
 
 #     @STUDENT
 #     Scenario: Learner sees a customised FAQ page for the training session with code 952555
@@ -15,10 +15,10 @@
 #             | What is the significance of the Quran in Islam? |
 #             | What is the role of prayer in Christianity? |
 
-#     @STUDENT
-#     Scenario: Learner sees a different customised FAQ page for the training session with code 725018
-#         Given I am on the sign in page
-#         When I key in the class code 725018
+    @STUDENT
+    Scenario: Learner sees a different customised FAQ page for the training session with code 725018
+        Given I am on the sign in page
+        When I key in the class code 725018
 #         Then I will see the customised FAQ page with the following questions:
 #             | What are the Five Pillars of Islam? |
 #             | What is the significance of the Quran in Islam? |

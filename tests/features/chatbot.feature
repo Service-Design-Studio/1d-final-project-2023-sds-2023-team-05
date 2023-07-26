@@ -15,31 +15,26 @@ Feature: Chatbot
             | What is the role of compassion in Buddhism? |
             | What is the purpose of the Hajj pilgrimage in Islam? |
     
-    # @STUDENT
-    # Scenario: Learner sees the chatbot page
-    #     Given I am on the customised FAQ page
-    #     When I click on the chatbot icon
-    #     Then I will see the chatbot page
+    @STUDENT
+    Scenario: Learner sees the chatbot page
+        Given I am on the customised FAQ page
+        When I click on the chatbot icon
+        Then I will see the chatbot page
 
-    # @STUDENT
-    # Scenario: Learner asks an interfath related question in the chatbot
-    #     Given I am on the chatbot page
-    #     When I ask my interfaith related question with the prompt 'Hi bye'
-    #     Then I will receive an answer with the text 'Dummy Response!'
+    @STUDENT
+    Scenario: Learner asks an interfath related question in the chatbot
+        Given I am on the chatbot page
+        When I ask my interfaith related question with the prompt 'Hi bye'
+        Then I will receive an answer with the text 'Bye! Have a nice day.'
 
     @STUDENT
     Scenario: Learner flags an inappropriate answer given by the chatbot
         Given I have already asked my interfaith related question
         When I click the flag button
-        Then I will see a pop up with the following options:
-            | Rude or Offensive |
-            | Misinformation |
-            | Does not answer the question |
-            | Religious Propaganda |
-            | Others |
-        # When I click the option 'Rude or Offensive'
-        # Then I press the button 'Flag Question'
-        # Then I will return to the Chatbot page
+        Then I will see a pop up with the question 'Why are you flagging this answer?'
+        When I click the option 'Rude or Offensive'
+        When I press the button 'Flag Question'
+        Then I will return to the Chatbot page
 
     # @STUDENT
     #  Scenario: Learner asks a non-interfaith related question in the chatbot
