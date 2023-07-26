@@ -5,8 +5,8 @@
 }
 
 .mainbody {
-  background-color: white;
-  background: white;
+  background-color: #EEE;
+  background: #EEE;
 }
 
 .main_Component_styler {
@@ -23,7 +23,7 @@
   flex-direction: column;
   text-align: center;
   color: rgb(30, 30, 30);
-  background-color: white;
+  background-color: #EEE;
   font-size: 1.3em;
 }
 
@@ -32,7 +32,7 @@
   height: 20vh;
   width: 100%;
   color: rgb(30, 30, 30);
-  background-color: white;
+  background-color: #EEE;
 }
 
 /* CSS for table */
@@ -51,7 +51,7 @@
 
 .table_mainstyle {
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: #EEE;
   text-align: left;
 }
 
@@ -65,38 +65,38 @@
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 7%;
-  padding-right: 20%;
+  padding-right:7%;
   font-family: 'Averia Serif Libre', sans-serif;
   width: 100%;
   font-size: min(4vw, 25px);
-  color: rgb(30, 30, 30);
-  background-color: rgb(245, 245, 245);
+  color: rgb(72, 72, 72);
+  background-color: #e7e7e7;
 }
 
 .searchInput {
-  width: 100%;
+  width: 92%;
   color: rgb(30, 30, 30);
-  background-color: rgb(245, 245, 245);
-  border: 0.3vw solid rgb(230, 230, 230);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding-left: 5%;
   padding-right: 43%;
-  padding-top: 2.5%;
-  padding-bottom: 2.5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   text-align: left;
-  border-radius: 10vw;
+  border-radius: 4.5vw;
   font-size: min(4vw, 100);
-  margin-bottom: 2vh;
+  margin-bottom: 3.5vh;
   margin-top: 2vh;
   font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .searchInput::placeholder {
-  color: rgb(125, 125, 125);
+  color:rgba(0, 0, 0, 0.25);
   font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .active {
-  background-color: rgb(255, 255, 255);
+  background-color: #EEE;
 }
 
 .classCodeInput {
@@ -113,9 +113,9 @@
 }
 
 .stoopid_box {
-  width: 25px;
-  height: 25px;
-  background-image: url('../assets/Icon1.png');
+  width: 28px;
+  height: 28px;
+  background-image: url('../assets/Icon5.png');
   background-size: contain;
   cursor: pointer;
   float: right;
@@ -138,8 +138,10 @@
     flex-direction: row;
     justify-content: space-evenly;
     font-size: 4vw;
-    border-bottom: 0.4vw solid rgb(245, 245, 245);
-    padding: 4vw;
+    border-bottom: 0.3vw solid #E2E2E2; width: 95%;
+    margin:auto ;
+    padding-bottom: 4.5vw;
+    padding-top: 4.5W;
     font-family: 'Averia Serif Libre', sans-serif;
   }
 }
@@ -150,26 +152,27 @@
 
 .tag_holder {
   width: 100%;
-  margin-bottom: 1vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-bottom: 3vh;
 }
 
 .tag {
   display: inline-block;
-  padding: 3px 14px;
-  background-color: rgb(245, 245, 245);
-  color: rgb(125, 125, 125);
+  padding: 5px 14px;
+  background-color: #D9D9D9 ;
+  color: #333;
   cursor: pointer;
   border-radius: 4vw;
-  font-size: min(4vw, 25px);
+  font-size: min(4vw, 20px);
   font-weight: bold;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .active_tag {
-  background-color: rgb(30, 30, 30);
+  background-color: #C14D54;
   color: white;
   font-family: 'Averia Serif Libre', sans-serif;
 }

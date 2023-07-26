@@ -14,9 +14,7 @@ const FAQheader = () => {
 
 	return (
 		<div id='faq-header' className={styles.header}>
-			<button className={styles.backButton} onClick={handleBackButtonClick}>
-				{'<'}
-			</button>
+			<button className={styles.backButton} onClick={handleBackButtonClick}></button>
 			<h1 className={styles.headerText}>FAQ</h1>
 			<div
 				id='chatbot-icon'

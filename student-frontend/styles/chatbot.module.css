@@ -42,10 +42,10 @@
 }
 
 .bot .avatar {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  margin-right: 8px;
+  margin-right: 10px;
   background-image: url('../assets/Icon2.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -64,19 +64,20 @@
   border-radius: 1rem;
   font-family: 'Averia Serif Libre', sans-serif;
   max-width: 200px;
-  font-size: 15px;
+  font-size: 20px;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .user .messageContent {
-  background-color: #007bff;
+  background-color: #C14D54;
   color: #ffffff;
   /* Set text color for user messages */
   font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .bot .messageContent {
-  background-color: #ededed;
-  color: #000000;
+  background-color: #ffffff;
+  color: #333333;
   /* Set text color for bot messages */
 }
 
@@ -106,12 +107,13 @@
 .user-input {
   display: flex;
   margin-top: 16px;
-  border: 2vw solid rgb(255, 255, 255);
+  margin-left: -16px;
+  border: 0vw solid #d1a8a8;
   width: 100%;
   color: rgb(30, 30, 30);
-  background-color: rgb(255, 255, 255);
+  background-color: #EEE;
   font-family: 'Averia Serif Libre', sans-serif;
-  padding: 12px 16px;
+  padding: 16px 16px;
   /* Adjust padding for a more balanced look */
   text-align: center;
   align-items: center;
@@ -130,28 +132,29 @@
 
 .user-input input[type='text'] {
   flex-grow: 1;
-  height: 50px;
-  padding: 10px;
+  height: 70px;
+  padding: 20px;
   /* Adjust padding for a more balanced look */
   border: none;
   border-radius: 30px;
   font-size: 20px;
   border: 0.5vw solid rgb(230, 230, 230);
-  background-color: rgb(245, 245, 245);
+  background-color: #ffffff;
 }
 
 .user-input button {
-  height: 50px;
+  height: 60px;
   padding: 0 16px;
   margin-left: auto;
   /* Adjust margin to auto */
-  margin-left: 5px;
+  margin-left: 10px;
   /* Adjust margin for a more balanced look */
   border: none;
   border-radius: 20px;
-  background-color: #007bff;
-  color: #ffffff;
-  font-size: 20px;
+  background-color: #C14D54;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #EEE;
+  font-size: 25px;
   font-weight: 500;
   cursor: pointer;
   font-family: 'Averia Serif Libre', sans-serif;
@@ -167,17 +170,19 @@
   justify-content: center;
   /* Center the content horizontally */
   padding: 16px;
-  background-color: #ffffff;
+  background-color: #EEE;
   color: #000000;
 }
 
 .backButton {
-  font-size: min(10vw, 75px);
-  padding-left: 2vw;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  background-image: url("../assets/back2.png");
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  opacity: 0.8;
+  background-repeat: no-repeat
 }
 
 .headerText {
@@ -206,8 +211,8 @@
 
 .flaggingIcon {
   background-image: url("../assets/Icon3.png");
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-size: contain;
   margin-left: 5px;
   margin-top: 15px;
