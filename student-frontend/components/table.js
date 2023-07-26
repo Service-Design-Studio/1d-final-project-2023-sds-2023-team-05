@@ -107,6 +107,7 @@ function Stoopidtable({ classCode }) {
           Judaism
         </button>
       </div>
+
       {filteredData.length > 0 ? (
         <table className={styles.table_mainstyle}>
           <tbody>
@@ -143,6 +144,7 @@ function Stoopidtable({ classCode }) {
           Don't have your question? Try our Chatbot!
         </div>
       )}
+
     </div>
   );
 }
