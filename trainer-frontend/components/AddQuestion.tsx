@@ -24,7 +24,11 @@ import {
 
 import { Textarea } from "./ui/textarea"
 
-export default function AddQuestion() {
+interface AddQuestionProps {
+  sessionID?: string
+}
+
+export default function AddQuestion({ sessionID }: AddQuestionProps) {
   const [answer, setAnswer] = useState("")
   const [question, setQuestion] = useState("")
   const [tag, setTag] = useState("") // Add state for the tag
@@ -41,21 +45,42 @@ export default function AddQuestion() {
       return
     }
 
-    const res = await fetch(`${API_PROD_URL}/faqs`, {
-      body: JSON.stringify({
-        answer,
-        question,
-        tag,
-        author,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    })
+    if (!sessionID) {
+      // this is creating without a session, the normal /faqs endpoint
+      const res = await fetch(`${API_PROD_URL}/faqs`, {
+        body: JSON.stringify({
+          answer,
+          question,
+          tag,
+          author,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      })
 
-    if (!res.ok) {
-      alert("Error creating question")
+      if (!res.ok) {
+        alert("Error creating question")
+      }
+    } else if (sessionID) {
+      // this is creating inside a session
+      const res = await fetch(`${API_PROD_URL}/sessions/${sessionID}`, {
+        body: JSON.stringify({
+          answer,
+          question,
+          tag,
+          author,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      })
+
+      if (!res.ok) {
+        alert("Error creating question")
+      }
     }
 
     setAnswer("")

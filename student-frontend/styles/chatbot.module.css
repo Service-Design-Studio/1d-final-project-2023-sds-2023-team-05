@@ -1,10 +1,17 @@
 /* Chat container */
+@font-face {
+
+  font-family: 'Averia Serif Libre';
+  src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
+}
+
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  margin-bottom: 10vh;
   padding: 16px;
-  justify-content: flex-end; /* Align content to the bottom */
+  justify-content: flex-end;
+  /* Align content to the bottom */
 }
 
 /* Chat messages */
@@ -41,6 +48,7 @@
   margin-right: 8px;
   background-image: url('../assets/Icon2.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .botName {
@@ -54,20 +62,27 @@
   display: inline-block;
   padding: 0.8rem;
   border-radius: 1rem;
+  font-family: 'Averia Serif Libre', sans-serif;
+  max-width: 200px;
+  font-size: 15px;
 }
 
 .user .messageContent {
   background-color: #007bff;
-  color: #ffffff; /* Set text color for user messages */
+  color: #ffffff;
+  /* Set text color for user messages */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .bot .messageContent {
   background-color: #ededed;
-  color: #000000; /* Set text color for bot messages */
+  color: #000000;
+  /* Set text color for bot messages */
 }
 
 .user .avatar {
-  display: none; /* Hide the avatar for user messages */
+  display: none;
+  /* Hide the avatar for user messages */
 }
 
 /* Animation styles */
@@ -80,6 +95,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -94,20 +110,28 @@
   width: 100%;
   color: rgb(30, 30, 30);
   background-color: rgb(255, 255, 255);
-  padding: 12px 16px; /* Adjust padding for a more balanced look */
+  font-family: 'Averia Serif Libre', sans-serif;
+  padding: 12px 16px;
+  /* Adjust padding for a more balanced look */
   text-align: center;
   align-items: center;
-  border-radius: 20px; /* Use a fixed value for border radius */
-  font-size: 16px; /* Use a fixed font size suitable for mobile */
-  position: fixed; /* Make it fixed for mobile */
-  bottom: 0; /* Stick it to the bottom */
-  z-index: 1; /* Ensure it's above the messages */
+  border-radius: 20px;
+  /* Use a fixed value for border radius */
+  font-size: 16px;
+  /* Use a fixed font size suitable for mobile */
+  position: fixed;
+  /* Make it fixed for mobile */
+  bottom: 0;
+  /* Stick it to the bottom */
+  z-index: 1;
+  /* Ensure it's above the messages */
 }
 
 .user-input input[type='text'] {
   flex-grow: 1;
   height: 50px;
-  padding: 10px; /* Adjust padding for a more balanced look */
+  padding: 10px;
+  /* Adjust padding for a more balanced look */
   border: none;
   border-radius: 30px;
   font-size: 20px;
@@ -118,8 +142,10 @@
 .user-input button {
   height: 50px;
   padding: 0 16px;
-  margin-left: auto; /* Adjust margin to auto */
-  margin-left: 5px; /* Adjust margin for a more balanced look */
+  margin-left: auto;
+  /* Adjust margin to auto */
+  margin-left: 5px;
+  /* Adjust margin for a more balanced look */
   border: none;
   border-radius: 20px;
   background-color: #007bff;
@@ -127,25 +153,32 @@
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 /* Chat bot header */
 .header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center the content horizontally */
+  justify-content: center;
+  /* Center the content horizontally */
   padding: 16px;
   background-color: #ffffff;
   color: #000000;
 }
 
 .backButton {
-  font-size: min(10vw, 75px);
-  padding-left: 2vw;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  background-image: url("../assets/back.png");
+  width: 35px;
+  height: 35px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  opacity: 0.8;
+  background-repeat: no-repeat
 }
 
 .headerText {
@@ -153,17 +186,43 @@
   font-weight: bold;
   margin: 0;
   display: flex;
-  align-items: center; /* Align the text vertically within the header */
-  justify-content: center; /* Center the text horizontally within the header */
-  flex-grow: 1; /* Allow the text to grow and occupy remaining space */
+  align-items: center;
+  /* Align the text vertically within the header */
+  justify-content: center;
+  /* Center the text horizontally within the header */
+  flex-grow: 1;
+  /* Allow the text to grow and occupy remaining space */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .placeholderIcon {
   font-size: min(10vw, 75px);
-  padding-right: 2vw;
+  padding-right: 6vw;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   /* Add your icon styles here */
+}
+
+.flaggingIcon {
+  background-image: url("../assets/Icon3.png");
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-top: 15px;
+  opacity: 0.8;
+  background-repeat: no-repeat;
+}
+
+.flaggingIconFlagged {
+  background-image: url("../assets/Icon3_5.png");
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-top: 15px;
+  opacity: 0.8;
+  background-repeat: no-repeat;
 }

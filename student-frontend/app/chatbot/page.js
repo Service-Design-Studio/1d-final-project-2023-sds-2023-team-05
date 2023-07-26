@@ -1,44 +1,35 @@
 'use client';
-
 import Chatbotheader from '@/components/chatbot-header';
+import Modal from '@/components/modal';
 import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState } from 'react';
+import { resolve } from 'styled-jsx/css';
 
 async function fetchBotResponse(question) {
-  const res = await fetch(`${CHATBOT_URL}`, {
-    body: JSON.stringify({
-      question: question,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
+  // const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
+  //   body: JSON.stringify({
+  //     question: question,
+  //     session_id: '123456789',
+  //   }),
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   method: 'POST',
+  // });
+
+  // if (!res.ok) {
+  //   alert('Error...');
+  // }
+
+  // const data = await res.json();
+
+  // return data.ai_response;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('Dummy Response!');
+    }, 2000);
   });
-
-  if (!res.ok) {
-    alert('Error...');
-  }
-
-  const data = await res.json();
-
-  return data.ai_response;
-}
-
-async function flagComment(id) {
-  const res = await fetch(`${API_URL}/chats/${id}`, {
-    body: JSON.stringify({
-      flagged: true,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'PATCH',
-  });
-
-  if (!res.ok) {
-    alert('Error...');
-  }
 }
 
 async function sendChatToBackend(question, answer, id) {
@@ -66,6 +57,20 @@ async function sendChatToBackend(question, answer, id) {
 function ChatBotPage() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [messageId, setMessageId] = useState('');
+  const [flaggedQuestions, setFlaggedQuestions] = useState([]);
+
+  const handleOpenModal = (id) => {
+    setIsModalOpen(true);
+    setMessageId(id);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
 
   useEffect(() => {
     // Simulate delay for the first default message
@@ -85,12 +90,21 @@ function ChatBotPage() {
     setInputValue(event.target.value);
   };
 
+  const isMessageFlagged = (messageId) => {
+    return flaggedQuestions.includes(messageId);
+  };
+
   const handleSendMessage = async () => {
     if (inputValue.trim() !== '') {
       const newMessage = {
         content: inputValue,
         sender: 'user',
       };
+
+      // yy add here 
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+      setInputValue('');
+      //
 
       const content = await fetchBotResponse(inputValue.trim());
 
@@ -109,8 +123,8 @@ function ChatBotPage() {
         id: id,
       };
 
-      setMessages((prevMessages) => [...prevMessages, newMessage, botResponse]);
-      setInputValue('');
+      setMessages((prevMessages) => [...prevMessages, botResponse]);
+
 
       // generate id to send into backend
       // const id = Date.now()
@@ -127,9 +141,8 @@ function ChatBotPage() {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`${styles.message} ${styles[message.sender]} ${
-                index === messages.length - 1 ? styles.fadeIn : ''
-              }`}
+              className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
+                }`}
             >
               {message.sender === 'bot' && (
                 <>
@@ -141,7 +154,10 @@ function ChatBotPage() {
               </div>
               {message.id && (
                 <>
-                  <button onClick={() => flagComment(message.id)}>flag</button>
+                  <button
+                    className={`${isMessageFlagged(message.id) ? styles.flaggingIconFlagged : styles.flaggingIcon}`}
+                    onClick={flaggedQuestions.includes(message.id) ? null : () => handleOpenModal(message.id)}
+                  ></button>
                 </>
               )}
             </div>
@@ -165,6 +181,14 @@ function ChatBotPage() {
             Send
           </button>
         </div>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          messageId={messageId}
+          setIsModalOpen={setIsModalOpen}
+          API_URL={API_URL}
+          setFlaggedQuestions={setFlaggedQuestions}
+        />
       </div>
     </div>
   );

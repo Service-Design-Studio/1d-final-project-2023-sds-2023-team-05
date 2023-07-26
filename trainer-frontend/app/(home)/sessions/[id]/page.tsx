@@ -1,5 +1,3 @@
-import React from "react"
-
 import { API_PROD_URL } from "@/config/site"
 import {
   Accordion,
@@ -8,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Separator } from "@/components/ui/separator"
+import AddQuestion from "@/components/AddQuestion"
 
 async function getSession(id: string) {
   const res = await fetch(`${API_PROD_URL}/sessions/${id}`, {
@@ -34,7 +33,8 @@ export default async function SessionPage({
       <p className="text-muted-foreground flex" id="session-classcode">
         Code: {session.classcode}
       </p>
-      <Separator className="mt-4" />
+      <Separator className="my-4" />
+      <AddQuestion sessionID={params.id} />
       <Accordion type="single" collapsible id="session-faqs-accordion">
         {session.faqs.map((faq: any, index: number) => (
           <AccordionItem key={index} value={`item-${index}`}>

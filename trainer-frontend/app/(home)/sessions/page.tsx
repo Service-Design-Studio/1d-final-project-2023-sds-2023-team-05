@@ -1,20 +1,5 @@
-import Link from "next/link"
-import { columns } from "@components/question-table/columns"
-import { DataTable } from "@components/question-table/data-table"
-import { z } from "zod"
-
-import { API_LOCAL_URL, API_PROD_URL } from "@/config/site"
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-import AddQuestion from "@/components/AddQuestion"
-import { taskSchema } from "@/components/question-table/data/schema"
+import { API_PROD_URL } from "@/config/site"
+import AddSession from "@/components/add-session"
 import SessionsTable from "@/components/sessions-table"
 
 interface Session {
@@ -43,6 +28,7 @@ export default async function SessionPage() {
                 Session page
               </h2>
               <p className="text-muted-foreground">Sessions contain FAQs</p>
+              <AddSession />
             </div>
           </div>
           <SessionsTable sessions={sessions} />

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Averia Serif Libre';
+  src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
+}
+
 .header {
   width: 96vw;
   max-width: 700px;
@@ -12,12 +17,14 @@
 }
 
 .backButton {
-  font-size: min(10vw, 75px);
-  padding-left: 2vw;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  background-image: url("../assets/back.png");
+  width: 35px;
+  height: 35px;
+  background-size: contain;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  opacity: 0.8;
+  background-repeat: no-repeat
 }
 
 .headerText {
@@ -25,11 +32,12 @@
   font-weight: bold;
   margin: 0;
   align-items: center;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .chatbotIcon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/chatbot_icon.jpg');
   background-size: contain;
   float: right;

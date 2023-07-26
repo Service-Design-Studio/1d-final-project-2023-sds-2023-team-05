@@ -5,7 +5,7 @@ class ChatsController < ApplicationController
   def index
     @chats = Chat.all
 
-    render json: @chats
+    render json: @chats.reverse
   end
 
   # GET /chats/1
@@ -51,6 +51,6 @@ class ChatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chat_params
-      params.require(:chat).permit(:flagged, :question, :answer, :id)
+      params.require(:chat).permit(:flagged, :question, :answer, :id, :reason, :comment)
     end
 end

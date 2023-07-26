@@ -10,16 +10,32 @@ export default function SessionCode({ idAndClassCode }) {
 	const router = useRouter();
 
 	const handleClassCodeChange = (event, index) => {
-		const inputValue = event.target.value.toUpperCase().substring(0, 1);
-		const updatedClassCode = [...classCode];
-		updatedClassCode[index] = inputValue;
-		setClassCode(updatedClassCode);
+		const inputValue = event.target.value.trim();
+		const isValidInteger = /^\d*$/.test(inputValue); // Check if the input is a valid integer
 
-		// Move focus to the next input cell
-		if (inputValue && index < inputRefs.current.length - 1) {
-			inputRefs.current[index + 1].focus();
+		if (isValidInteger) {
+			const updatedClassCode = [...classCode];
+			updatedClassCode[index] = inputValue;
+			setClassCode(updatedClassCode);
+
+			// Move focus to the next input cell if there is an input value
+			if (inputValue && index < inputRefs.current.length - 1) {
+				inputRefs.current[index + 1].focus();
+			}
+		} else {
+			event.preventDefault(); // Prevent non-integer input from being displayed
 		}
 	};
+
+	const handlekeypressed = (event, index) => {
+		if (event.keyCode === 8 && classCode[index] === "") {
+			// Move focus to the previous input cell if the current cell is empty
+			if (index > 0) {
+				inputRefs.current[index - 1].focus();
+			}
+			return; // Exit the function early since there's no need to update the state
+		}
+	}
 
 	useEffect(() => {
 		if (classCode.join('').length === 6) {
@@ -66,6 +82,7 @@ export default function SessionCode({ idAndClassCode }) {
 								maxLength={1}
 								value={digit}
 								onChange={(event) => handleClassCodeChange(event, index)}
+								onKeyDown={(event) => handlekeypressed(event, index)}
 								ref={(input) => (inputRefs.current[index] = input)}
 							/>
 						))}
