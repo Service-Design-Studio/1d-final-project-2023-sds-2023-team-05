@@ -13,13 +13,13 @@
   justify-content: space-between;
   padding-top: 2vh;
   padding-bottom: 2vh;
-  background-color: #ffffff;
+  background-color: #EEE#ffffff;
 }
 
 .backButton {
-  background-image: url("../assets/back.png");
-  width: 35px;
-  height: 35px;
+  background-image: url("../assets/back2.png");
+  width: 50px;
+  height: 50px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
@@ -36,12 +36,14 @@
 }
 
 .chatbotIcon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background-image: url('../assets/chatbot_icon.jpg');
   background-size: contain;
   float: right;
   margin-top: auto;
   margin-bottom: auto;
   cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
