@@ -6,25 +6,26 @@ import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState } from 'react';
 
 async function fetchBotResponse(question) {
-	const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
-		body: JSON.stringify({
-			question: question,
-			// session_id: '123456789',
-			session_id: Date.now(),
-		}),
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		method: 'POST',
-	});
+	// const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
+	// 	body: JSON.stringify({
+	// 		question: question,
+	// 		// session_id: '123456789',
+	// 		session_id: Date.now(),
+	// 	}),
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 	},
+	// 	method: 'POST',
+	// });
 
-	if (!res.ok) {
-		alert('Error...');
-	}
+	// if (!res.ok) {
+	// 	alert('Error...');
+	// }
 
-	const data = await res.json();
+	// const data = await res.json();
 
-	return data.ai_response;
+	// return data.ai_response;
+	return ('Dummy Response!')
 }
 
 async function sendChatToBackend(question, answer, id) {
@@ -127,39 +128,29 @@ function ChatBotPage() {
 			<Chatbotheader />
 
 			<div className={styles['chat-container']}>
-				<div className={styles.messages}>
-					{messages.map((message, index) => (
-						<div
-							key={index}
-							className={`${styles.message} ${styles[message.sender]} ${
-								index === messages.length - 1 ? styles.fadeIn : ''
-							}`}>
-							{message.sender === 'bot' && (
-								<>
-									<div className={styles.avatar}></div>
-								</>
-							)}
-							<div className={`${styles.messageContent} promptAnswer`}>
-								{message.content}
-							</div>
-							{message.id && (
-								<>
-									<button
-										className={`${
-											isMessageFlagged(message.id)
-												? styles.flaggingIconFlagged
-												: styles.flaggingIcon + ' flagButton'
-										}`}
-										onClick={
-											flaggedQuestions.includes(message.id)
-												? null
-												: () => handleOpenModal(message.id)
-										}></button>
-								</>
-							)}
-						</div>
-					))}
-				</div>
+                <div className={styles.messages}>
+                    {messages.map((message, index) => (
+                        <div key={index} className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''}`}>
+                            {message.sender === 'bot' && (
+                                <>
+                                    <div className={styles.avatar}></div>
+                                    <div className={styles.botName}>AI Trainer</div> {/* Add this line */}
+                                </>
+                            )}
+                            <div className={`${styles.messageContent} promptAnswer`}>
+                                {message.content}
+                            </div>
+                            {message.id && (
+                                <>
+                                    <button
+                                        className={`${isMessageFlagged(message.id) ? styles.flaggingIconFlagged : styles.flaggingIcon} ${styles.flagButton}`}
+                                        onClick={flaggedQuestions.includes(message.id) ? null : () => handleOpenModal(message.id)}>
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    ))}
+                </div>
 
 				<div className={styles['user-input']}>
 					<input
