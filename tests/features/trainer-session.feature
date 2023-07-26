@@ -4,7 +4,7 @@ Feature: Trainer Creating Sessions
         I want: to be able to create my sessions
         so that: I can view them in the sessions page
     
-    @sessions
+    @TRAINER
     Scenario: Trainer sees a table of questions
         Given I am on the questions page
         Then I will see the FAQ page with all the created questions

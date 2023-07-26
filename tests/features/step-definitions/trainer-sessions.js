@@ -20,7 +20,6 @@ Given('I am on the questions page', async function () {
 Then(
 	'I will see the FAQ page with all the created questions',
 	async function () {
-		// code needs to change
 		return driver.findElement(By.id('faq'));
 	}
 );
