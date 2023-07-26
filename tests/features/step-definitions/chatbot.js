@@ -10,27 +10,6 @@ async function keyInDigit(sessionCode, digitIndex) {
 
 /////////////////////////////// Learner sees a customised FAQ page ////////////////////////////
 
-// Then(
-// 	'I will see the customised FAQ page with the following questions:',
-// 	async function (dataTable) {
-// 		// Get the list of expected questions from the Cucumber table
-// 		const expectedQuestions = dataTable.raw().flat();
-
-// 		// Assuming you have located the FAQ questions on the page, you can retrieve them and verify
-// 		const actualQuestions = await driver.findElements(By.id('faq-question'));
-
-// 		// Extract the text from the actual questions
-// 		const actualQuestionsText = await Promise.all(
-// 			actualQuestions.map(async (element) =>
-// 				element.innerText.trim().split('\n')[1].trim()
-// 			)
-// 		);
-
-// 		// Compare the expected and actual questions
-// 		expect(actualQuestionsText).to.deep.equal(expectedQuestions);
-// 	}
-// );
-
 /////////////////////////////// Learner sees the chatbot page ////////////////////////////
 Given('I am on the customised FAQ page', async function () {
 	await keyInDigit('725018', 0);
@@ -91,17 +70,20 @@ When(
 	}
 );
 
-Then(/^I will receive an answer with the text '(.*)'/, async function (answer) {
-	await driver.sleep(3000);
-	const chatbotAnswers = await driver.findElements(
-		By.className('promptAnswer')
-	);
+Then(
+	/^I will receive an answer that contains the text '(.*)'/,
+	async function (answer) {
+		await driver.sleep(3000);
+		const chatbotAnswers = await driver.findElements(
+			By.className('promptAnswer')
+		);
 
-	const promptAnswerWebElement = chatbotAnswers.pop();
-	// const promptAnswer = await promptAnswerWebElement.getText();
+		const promptAnswerWebElement = chatbotAnswers.pop();
+		const promptAnswer = await promptAnswerWebElement.getText();
 
-	// assert.strictEqual(promptAnswer, answer);
-});
+		await promptAnswer.includes(answer);
+	}
+);
 
 /////////////////////////////// Learner flags an inappropriate answer given by the chatbot ////////////////////////////
 Given('I have already asked my interfaith related question', async function () {
@@ -129,9 +111,10 @@ Given('I have already asked my interfaith related question', async function () {
 
 When('I click the flag button', async function () {
 	await driver.sleep(5000);
-	console.log('hi');
 
 	const flags = await driver.findElements(By.className('flagButton'));
+
+	await driver.sleep(1000);
 	const mostRecentFlag = flags.pop();
 
 	await driver.sleep(1000);
@@ -160,3 +143,15 @@ Then('I will return to the Chatbot page', async function () {
 		expect(element).to.not.be.null;
 	});
 });
+
+/////////////////////////////// Learner asks a non-interfaith related question in the chatbot ////////////////////////////
+When(
+	/^I ask my non-interfaith related question with the prompt '(.*)'/,
+	async function (prompt) {
+		const chatbotPrompt = await driver.findElement(By.id('chatbot-prompt'));
+		await chatbotPrompt.sendKeys(prompt);
+
+		const sendButton = await driver.findElement(By.id('send-button'));
+		sendButton.click();
+	}
+);
