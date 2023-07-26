@@ -9,18 +9,17 @@
     justify-content: center;
     display: flex;
     height: 100vh;
-    background-color: white;
+    background-color:#EEE;
     width: 100%;
 }
 
 .loginContainer {
-    background-color: white;
+    background-color: #EEE;
     text-align: center;
 }
 
 .title {
-    background-color: white;
-    color: black;
+    color: #333333;
     text-align: center;
     font-weight: bold;
     font-size: 40px;
@@ -29,8 +28,8 @@
 }
 
 .subtitle {
-    background-color: white;
-    color: rgb(202, 202, 202);
+    color: rgb(195, 87, 87);
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -41,25 +40,26 @@
 }
 
 .classCodeInput {
-    background-color: white;
-    color: black;
+    color: rgb(195, 87, 87);
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
 }
 
 .row input {
-    margin-right: 5px;
-    font-size: 20px;
-    border: 1px solid black;
+    margin-right: 8px;
+    font-size: 35px;
+    border-radius: 18px;
     padding: 15px;
     text-align: center;
-    width: 50px;
+    width: 55px;
     max-width: 100px;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .login_row {
-    color: black;
+    color: #333333;
     background-color: white;
 }
