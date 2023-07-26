@@ -176,3 +176,11 @@
   color: white;
   font-family: 'Averia Serif Libre', sans-serif;
 }
+
+.emptyMessage {
+  color: #db9191;
+  font-family: 'Averia Serif Libre', sans-serif;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  padding-top: 20vw;
+}
