@@ -5,15 +5,15 @@ Feature: Chatbot
         I want: to be able to ask questions in the chatbot if the customised FAQ did not answer my inquiry
         so that: I can continue with the practical part of the workshop
 
-    # @STUDENT
-    # Scenario: Learner sees a customised FAQ page for the training session
-    #     Given I am on the sign in page
-    #     When I key in the class code 725018
-    #     Then I will see the customised FAQ page with the following questions:
-    #         | What are the Five Pillars of Islam? |
-    #         | What is the significance of the Quran in Islam? |
-    #         | What is the role of compassion in Buddhism? |
-    #         | What is the purpose of the Hajj pilgrimage in Islam? |
+    @STUDENT
+    Scenario: Learner sees a customised FAQ page for the training session
+        Given I am on the sign in page
+        When I key in the class code 725018
+        Then I will see the customised FAQ page with the following questions:
+            | What are the Five Pillars of Islam? |
+            | What is the significance of the Quran in Islam? |
+            | What is the role of compassion in Buddhism? |
+            | What is the purpose of the Hajj pilgrimage in Islam? |
     
     # @STUDENT
     # Scenario: Learner sees the chatbot page
