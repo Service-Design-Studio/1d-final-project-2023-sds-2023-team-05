@@ -4,7 +4,7 @@ Feature: Trainer Add Questions page
         I want: to be able to add questions and the corresponding answers that I think will be useful to the students
         so that: I can view them in the Questions page
 
-    @Questions
+    @TRAINER
     Scenario: Trainer sees a table of questions
         Given I am on the questions page
         Then I will see the customised FAQ page with the following first five questions:
@@ -14,13 +14,13 @@ Feature: Trainer Add Questions page
             | What is the role of the Bible in Christianity? |
             | What is the concept of Nirvana in Buddhism? |
 
-    @Questions
+    @TRAINER
     Scenario: Trainer see the Add Question pop up
         Given I am on the questions page
         When I click the Add Question button
         Then I see the Add Question pop up
 
-    @Questions
+    @TRAINER
     Scenario: Trainer adds a question and answer
         Given I see the Add Question pop up
         When I enter the question with text 'SX Testing Question'
@@ -29,13 +29,13 @@ Feature: Trainer Add Questions page
         When I click the 'Submit' button
         Then I will be on the question page
 
-    @Questions
+    @TRAINER
     Scenario: Trainer sees the newly created question and answer
         Given I am on the questions page
         When I will see the newly added question with text 'SX Testing Question'
         Then I will see the newly added answer with text 'SX Testing Answer'
 
-    @Questions
+    @TRAINER
     Scenario: Trainer deletes a question and answer
         Given I am on the questions page
         When I see the question with text 'SX Testing Question'
@@ -43,13 +43,13 @@ Feature: Trainer Add Questions page
         When I click the 'Delete' option
         Then I will be on the question page
 
-    @Questions
+    @TRAINER
     Scenario: Trainer fails to enter question
         Given I see the Add Question pop up
         When I click the 'Submit' button
         Then I will see an alert with text 'Fill question properly!'
 
-    @Questions
+    @TRAINER
     Scenario: Trainer fails to enter answer
         Given I see the Add Question pop up
         When I enter the question with text 'SX Testing Question'

@@ -83,21 +83,16 @@ Given('I am on the chatbot page', async function () {
 When(
 	/^I ask my interfaith related question with the prompt '(.*)'/,
 	async function (prompt) {
-		await driver.sleep(1000);
-
 		const chatbotPrompt = await driver.findElement(By.id('chatbot-prompt'));
-
-		await driver.sleep(1000);
 		await chatbotPrompt.sendKeys(prompt);
 
-		await driver.sleep(1000);
 		const sendButton = await driver.findElement(By.id('send-button'));
 		sendButton.click();
 	}
 );
 
 Then(/^I will receive an answer with the text '(.*)'/, async function (answer) {
-	await driver.sleep(1000);
+	await driver.sleep(3000);
 	const chatbotAnswers = await driver.findElements(
 		By.className('promptAnswer')
 	);
@@ -105,8 +100,36 @@ Then(/^I will receive an answer with the text '(.*)'/, async function (answer) {
 	const promptAnswerWebElement = chatbotAnswers.pop();
 	const promptAnswer = await promptAnswerWebElement.getText();
 
-	await driver.sleep(1000);
-
 	assert.strictEqual(promptAnswer, answer);
 });
-/////////////////////////////// Learner flags chatbot answer ////////////////////////////
+
+/////////////////////////////// Learner flags an inappropriate answer given by the chatbot ////////////////////////////
+Given('I have already asked my interfaith related question', async function () {
+	await keyInDigit('725018', 0);
+	await keyInDigit('725018', 1);
+	await keyInDigit('725018', 2);
+	await keyInDigit('725018', 3);
+	await keyInDigit('725018', 4);
+	await keyInDigit('725018', 5);
+
+	await driver.sleep(2000);
+
+	await driver.findElement(By.id('chatbot-icon')).click();
+
+	await driver.sleep(1000);
+
+	const chatbotPrompt = await driver.findElement(By.id('chatbot-prompt'));
+	await chatbotPrompt.sendKeys('Sample Question');
+
+	const sendButton = await driver.findElement(By.id('send-button'));
+	sendButton.click();
+
+	await driver.sleep(3000);
+});
+
+When('I click the flag button', async function () {
+	const flags = await driver.findElements(By.className('flagButton'));
+	const mostRecentFlag = flags.pop();
+
+	await mostRecentFlag.click();
+});
