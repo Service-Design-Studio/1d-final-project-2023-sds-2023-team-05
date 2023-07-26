@@ -107,36 +107,44 @@ function Stoopidtable({ classCode }) {
           Judaism
         </button>
       </div>
-      <table className={styles.table_mainstyle}>
-        <tbody>
-          {filteredData.map((row, index) => (
-            <React.Fragment key={index}>
-              <tr
-                className={activeRow === index ? styles.active : ''}
-                onClick={() => handleRowClick(index)}
-              >
-                <td className={styles.table_maincell}>
-                  <p className={styles.table_text}>
-                    <b className="question">{row.question}</b>
-                  </p>
-                  <div
-                    className={`${styles.stoopid_box} ${
-                      activeMainCell === index ? styles.flipped : ''
-                    }`}
-                  ></div>
-                </td>
-              </tr>
-              {activeRow === index && (
-                <tr>
-                  <td colSpan={theadData.length}>
-                    <div className={styles.table_answer}>{row.answer}</div>
+
+      {filteredData.length > 0 ? (
+        <table className={styles.table_mainstyle}>
+          <tbody>
+            {filteredData.map((row, index) => (
+              <React.Fragment key={index}>
+                <tr
+                  className={activeRow === index ? styles.active : ''}
+                  onClick={() => handleRowClick(index)}
+                >
+                  <td className={styles.table_maincell}>
+                    <p className={styles.table_text}>
+                      <b>{row.question}</b>
+                    </p>
+                    <div
+                      className={`${styles.stoopid_box} ${
+                        activeMainCell === index ? styles.flipped : ''
+                      }`}
+                    ></div>
                   </td>
                 </tr>
-              )}
-            </React.Fragment>
-          ))}
-        </tbody>
-      </table>
+                {activeRow === index && (
+                  <tr>
+                    <td colSpan={theadData.length}>
+                      <div className={styles.table_answer}>{row.answer}</div>
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <div className={styles.emptyMessage}>
+          Don't have your question? Try our Chatbot!
+        </div>
+      )}
+
     </div>
   );
 }

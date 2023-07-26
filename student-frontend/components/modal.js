@@ -33,10 +33,10 @@ function Modal({
 			method: 'PATCH',
 		});
 
-		setFlaggedQuestions((prevQuestions) => [...prevQuestions, messageId]);
-		setIsModalOpen(false);
-		// TODO: Reset fields
-
+        setFlaggedQuestions((prevQuestions) => [...prevQuestions, messageId]);
+        closeModal();
+        setIsModalOpen(false);
+        // TODO: Reset fields
 		if (!res.ok) {
 			alert('Error...');
 		}
