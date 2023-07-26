@@ -148,7 +148,7 @@ function ChatBotPage() {
 										className={`${
 											isMessageFlagged(message.id)
 												? styles.flaggingIconFlagged
-												: styles.flaggingIcon
+												: styles.flaggingIcon + ' flagButton'
 										}`}
 										onClick={
 											flaggedQuestions.includes(message.id)

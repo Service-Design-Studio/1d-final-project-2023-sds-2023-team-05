@@ -127,9 +127,9 @@ function Modal({
 								/>
 							)}
 							<button
-								className={styles.flagButton}
-								onClick={() => flagComment(messageId, setIsModalOpen)}
-								id='flagButton'>
+								id='flag-question'
+								className={`${styles.flagButton}`}
+								onClick={() => flagComment(messageId, setIsModalOpen)}>
 								Flag Question
 							</button>
 						</div>

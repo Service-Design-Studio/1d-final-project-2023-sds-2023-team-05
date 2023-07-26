@@ -119,7 +119,7 @@ Given('I have already asked my interfaith related question', async function () {
 	await driver.sleep(1000);
 
 	const chatbotPrompt = await driver.findElement(By.id('chatbot-prompt'));
-	await chatbotPrompt.sendKeys('Hi bye');
+	await chatbotPrompt.sendKeys('What is your name?');
 
 	await driver.sleep(1000);
 
@@ -129,6 +129,7 @@ Given('I have already asked my interfaith related question', async function () {
 
 When('I click the flag button', async function () {
 	await driver.sleep(5000);
+	console.log('hi');
 
 	const flags = await driver.findElements(By.className('flagButton'));
 	const mostRecentFlag = flags.pop();
@@ -150,7 +151,7 @@ When("I click the option 'Rude or Offensive'", async function () {
 });
 
 When("I press the button 'Flag Question'", async function () {
-	const flagQuestionButton = await driver.findElement(By.id('flagButton'));
+	const flagQuestionButton = await driver.findElement(By.id('flag-question'));
 	await flagQuestionButton.click();
 });
 
