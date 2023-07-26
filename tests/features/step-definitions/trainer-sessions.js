@@ -66,9 +66,9 @@ Then('I will see Add Session pop up', async function () {
 
 ///// Trainer creates a new session
 Given('I am on the Add Session pop up', async function () {
+	driver.findElement(By.id('select-1')).click();
 	driver.findElement(By.id('select-2')).click();
 	driver.findElement(By.id('select-3')).click();
-	driver.findElement(By.id('select-4')).click();
 
 	await driver.sleep(1000);
 	driver.findElement(By.id('create-new-session-button')).click();
