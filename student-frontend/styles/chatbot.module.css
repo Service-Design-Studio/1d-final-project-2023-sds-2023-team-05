@@ -70,6 +70,7 @@
 
 .user .messageContent {
   background-color: #C14D54;
+  text-align: right;
   color: #ffffff;
   /* Set text color for user messages */
   font-family: 'Averia Serif Libre', sans-serif;
@@ -175,8 +176,8 @@
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
