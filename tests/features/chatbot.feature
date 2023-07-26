@@ -42,3 +42,4 @@ Feature: Chatbot
         When I ask my non-interfaith related question with the prompt 'Who is Taylor Swift?'
         Then I will receive an answer that contains the text 'interfaith focus chatbot'
 
+    # Can add the feature about typing in ur flagging reason
