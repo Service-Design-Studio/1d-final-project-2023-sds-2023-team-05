@@ -89,6 +89,7 @@ Then('I click the submit button', async function () {
 		By.id('add-session-submit-button')
 	);
 	sessionTitleSubmitButton.click();
+	await driver.sleep(1000);
 });
 
 ///// Trainer sees the newly created session
@@ -121,64 +122,31 @@ Then(
 	}
 );
 
-// // Working Code (Archived First)
-// Then('I should see a button to edit a question', function () {
-// 	// Write code here that turns the phrase above into concrete actions
-// 	return 'pending';
-// });
+///// Trainer creates a new session from Sessions page
+Given("I am on the 'Sessions' page", async function () {
+	await driver.get('https://e-blyqvsvnka-as.a.run.app/sessions');
+	await driver.sleep(1000);
+});
 
-// Then('I should see a button to delete a question', function () {
-// 	// Write code here that turns the phrase above into concrete actions
-// 	return 'pending';
-// });
-// Then(
-// 	/^I should( not)? see a question with text "([^"]*)"$/,
-// 	async function (negative, expectedText) {
-// 		const table = await driver.findElement(By.id('question-table'));
-// 		const rows = await table.findElements(By.css('tr'));
-// 		let found = false;
+When("I click 'Create New Session' button", async function () {
+	const createNewSessionButton = await driver.findElement(
+		By.id('create-new-session-button')
+	);
+	await createNewSessionButton.click();
+	await driver.sleep(1000);
+});
 
-// 		for (const row of rows) {
-// 			const texts = await row.findElements(By.css('span'));
+When("I click the 'Add Question' button", async function () {
+	const addQuestionButton = await driver.findElement(
+		By.id('add-question-button')
+	);
+	await addQuestionButton.click();
+	await driver.sleep(1000);
+});
 
-// 			for (const text of texts) {
-// 				const questionText = await text.getText();
-
-// 				if (questionText.includes(expectedText)) {
-// 					found = true;
-// 					break;
-// 				}
-// 			}
-
-// 			if (found) {
-// 				break;
-// 			}
-// 		}
-
-// 		if (negative) {
-// 			expect(found).to.be.false;
-// 		} else {
-// 			expect(found).to.be.true;
-// 		}
-// 	}
-// );
-
-// Then(
-// 	/^I open the menu for the question of text "([^"]*)"$/,
-// 	async function (expectedText) {
-// 		const table = await driver.findElement(By.id('question-table'));
-// 		const rows = await table.findElements(By.css('tr'));
-
-// 		for (const row of rows) {
-// 			const text = await row.findElement(By.css('span'));
-// 			const questionText = await text.getText();
-// 			if (questionText.includes(expectedText)) {
-// 				const button = await row.findElement(
-// 					By.xpath(".//button[.//span[text()='Open menu']]")
-// 				);
-// 				await button.click();
-// 				break;
-// 			}
-// 		}
-// 	}
-// );
+Then(/^I am on '(.*)' session page/, async function (sessionName) {
+	const sessionTitleText = await driver
+		.findElement(By.id('session-title'))
+		.getText();
+	assert.strictEqual(sessionTitleText, sessionName);
+});
