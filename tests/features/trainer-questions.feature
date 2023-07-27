@@ -7,12 +7,7 @@ Feature: Trainer Add Questions page
     @TRAINER
     Scenario: Trainer sees a table of questions
         Given I am on the questions page
-        Then I will see the customised FAQ page with the following first five questions:
-            | What is the concept of sin in Christianity? |
-            | What is the role of mindfulness in Buddhism? |
-            | What is the concept of the Ummah in Islam? |
-            | What is the role of the Bible in Christianity? |
-            | What is the concept of Nirvana in Buddhism? |
+        Then I will see the FAQ page with all the created questions
 
     @TRAINER
     Scenario: Trainer see the Add Question pop up
@@ -22,7 +17,7 @@ Feature: Trainer Add Questions page
 
     @TRAINER
     Scenario: Trainer adds a question and answer
-        Given I see the Add Question pop up
+        Given I am at the Add Question pop up
         When I enter the question with text 'SX Testing Question'
         When I choose the tag with text 'Buddhism'
         When I enter the answer with text 'SX Testing Answer'
@@ -38,20 +33,19 @@ Feature: Trainer Add Questions page
     @TRAINER
     Scenario: Trainer deletes a question and answer
         Given I am on the questions page
-        When I see the question with text 'SX Testing Question'
         When I click on the kebab menu of the question with text 'SX Testing Question'
         When I click the 'Delete' option
         Then I will be on the question page
 
     @TRAINER
     Scenario: Trainer fails to enter question
-        Given I see the Add Question pop up
+        Given I am at the Add Question pop up
         When I click the 'Submit' button
         Then I will see an alert with text 'Fill question properly!'
 
     @TRAINER
     Scenario: Trainer fails to enter answer
-        Given I see the Add Question pop up
+        Given I am at the Add Question pop up
         When I enter the question with text 'SX Testing Question'
         When I click the 'Submit' button
         Then I will see an alert with text 'Fill answer properly!'

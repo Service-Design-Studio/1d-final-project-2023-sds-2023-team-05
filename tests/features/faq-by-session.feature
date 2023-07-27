@@ -41,12 +41,12 @@ Feature: FAQ by Session
 
     @STUDENT
     Scenario: Learner fails to search for a question regarding pilgrimage in the search bar for session code 952255
-        Given I am on the customised FAQ page for session code 725018
+        Given I am on the customised FAQ page for session code 952555
         When I type "pilgrimage" in the search bar
-        Then I will see nothing on the screen
+        Then I will see "dont have question" on the screen
 
     @STUDENT
     Scenario: Learner goes back to landing page from the FAQ page 
         Given I am on the customised FAQ page for session code 725018
         When I click the back button
-        Then I will see the landing page titled "Kampung Klass"
+        Then I am on the sign in page
