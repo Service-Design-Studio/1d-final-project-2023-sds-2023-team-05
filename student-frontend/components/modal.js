@@ -81,11 +81,11 @@ function Modal({
 							</div>
 							<div
 								className={`${styles.reasonbox} ${
-									selectedReason === 'Misinformation' ? styles.selected : ''
+									selectedReason === 'Inaccurate Information' ? styles.selected : ''
 								}`}
-								onClick={() => handleReasonClick('Misinformation')}
+								onClick={() => handleReasonClick('Inaccurate Information')}
 								id='modalReasonM'>
-								Misinformation
+								Inaccurate Information
 							</div>
 							<div
 								className={`${styles.reasonbox} ${
