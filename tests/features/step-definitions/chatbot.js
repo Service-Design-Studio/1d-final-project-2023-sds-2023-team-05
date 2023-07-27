@@ -139,6 +139,7 @@ When("I press the button 'Flag Question'", async function () {
 	const flagQuestionButton = await driver.findElement(By.id('flag-question'));
 	await driver.sleep(1000);
 	await flagQuestionButton.click();
+	await driver.sleep(1000);
 });
 
 Then('I will return to the Chatbot page', async function () {
