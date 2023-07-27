@@ -33,7 +33,7 @@ Before(async function () {
 	global.driver = initDriver();
 	// global.baseUrl = URLS.STUDENT_LOCAL;
 
-	await driver.get(URLS.STUDENT_PROD);
+	await driver.get(URLS.TRAINER_PROD);
 	await driver.sleep(500);
 });
 
