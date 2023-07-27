@@ -81,11 +81,11 @@ Then(
 		const promptAnswerWebElement = chatbotAnswers.pop();
 		const promptAnswer = await promptAnswerWebElement.getText();
 
-		await promptAnswer.includes(answer);
+		return promptAnswer.includes(answer);
 	}
 );
 
-/////////////////////////////// Learner flags an inappropriate answer given by the chatbot ////////////////////////////
+/////////////////////////////// Learner flags an inappropriate answer with the reason 'Rude or Offensive' ////////////////////////////
 Given('I have already asked my interfaith related question', async function () {
 	await keyInDigit('725018', 0);
 	await keyInDigit('725018', 1);
@@ -110,7 +110,7 @@ Given('I have already asked my interfaith related question', async function () {
 });
 
 When('I click the flag button', async function () {
-	await driver.sleep(5000);
+	await driver.sleep(3000);
 
 	const flags = await driver.findElements(By.className('flagButton'));
 
@@ -124,17 +124,20 @@ When('I click the flag button', async function () {
 Then(
 	"I will see a pop up with the question 'Why are you flagging this answer?'",
 	async function () {
+		await driver.sleep(1000);
 		const flagPopUp = await driver.findElement(By.id('flag-pop-up'));
 	}
 );
 
 When("I click the option 'Rude or Offensive'", async function () {
 	const flagOption1 = await driver.findElement(By.id('modalReasonRoO'));
+	await driver.sleep(1000);
 	await flagOption1.click();
 });
 
 When("I press the button 'Flag Question'", async function () {
 	const flagQuestionButton = await driver.findElement(By.id('flag-question'));
+	await driver.sleep(1000);
 	await flagQuestionButton.click();
 });
 
@@ -144,6 +147,67 @@ Then('I will return to the Chatbot page', async function () {
 	});
 });
 
+/////////////////////////////// Learner flags an inappropriate answer with the reason 'Misinformation' ////////////////////////////
+Given('I am at the flag pop up', async function () {
+	await keyInDigit('725018', 0);
+	await keyInDigit('725018', 1);
+	await keyInDigit('725018', 2);
+	await keyInDigit('725018', 3);
+	await keyInDigit('725018', 4);
+	await keyInDigit('725018', 5);
+
+	await driver.sleep(2000);
+	await driver.findElement(By.id('chatbot-icon')).click();
+
+	await driver.sleep(1000);
+	await driver
+		.findElement(By.id('chatbot-prompt'))
+		.sendKeys('What is your name?');
+
+	await driver.sleep(1000);
+	await driver.findElement(By.id('send-button')).click();
+
+	await driver.sleep(3000);
+	const flags = await driver.findElements(By.className('flagButton'));
+	const mostRecentFlag = flags.pop();
+
+	await driver.sleep(1000);
+	await mostRecentFlag.click();
+});
+
+When("I click the option 'Misinformation'", async function () {
+	const flagOption2 = await driver.findElement(By.id('modalReasonM'));
+	await driver.sleep(1000);
+	await flagOption2.click();
+});
+
+/////////////////////////////// Learner flags an inappropriate answer with the reason 'Does not answer the question' ////////////////////////////
+When("I click the option 'Does not answer the question'", async function () {
+	const flagOption3 = await driver.findElement(By.id('modalReasonDNATQ'));
+	await driver.sleep(1000);
+	await flagOption3.click();
+});
+/////////////////////////////// Learner flags an inappropriate answer with the reason 'Religious Propaganda' ////////////////////////////
+When("I click the option 'Religious Propaganda'", async function () {
+	const flagOption3 = await driver.findElement(By.id('modalReasonRP'));
+	await driver.sleep(1000);
+	await flagOption3.click();
+});
+/////////////////////////////// Learner flags an inappropriate answer with the reason 'Others' ////////////////////////////
+When("I click the option 'Others'", async function () {
+	const flagOption4 = await driver.findElement(By.id('modalReasonO'));
+	await driver.sleep(1000);
+	await flagOption4.click();
+});
+
+Then('I will see a text field', async function () {
+	return await driver.findElement(By.id('otherReasonTextField'));
+});
+
+When(/^I enter a reason with text '(.*)'/, async function (reason) {
+	const textField = await driver.findElement(By.id('otherReasonTextField'));
+	await textField.sendKeys(reason);
+});
 /////////////////////////////// Learner asks a non-interfaith related question in the chatbot ////////////////////////////
 When(
 	/^I ask my non-interfaith related question with the prompt '(.*)'/,
