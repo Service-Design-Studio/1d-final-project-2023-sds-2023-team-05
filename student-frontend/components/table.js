@@ -119,7 +119,7 @@ function Stoopidtable({ classCode }) {
                 >
                   <td className={styles.table_maincell}>
                     <p className={styles.table_text}>
-                      <b>{row.question}</b>
+                      <b className="question">{row.question}</b>
                     </p>
                     <div
                       className={`${styles.stoopid_box} ${
@@ -144,7 +144,6 @@ function Stoopidtable({ classCode }) {
           Don't have your question? Try our Chatbot!
         </div>
       )}
-
     </div>
   );
 }
