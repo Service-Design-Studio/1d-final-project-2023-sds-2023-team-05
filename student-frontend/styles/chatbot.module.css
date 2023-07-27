@@ -71,7 +71,7 @@
 
 .user .messageContent {
   background-color: #C14D54;
-  text-align: center;
+  text-align: left;
   color: #ffffff;
   /* Set text color for user messages */
   font-family: 'Averia Serif Libre', sans-serif;
