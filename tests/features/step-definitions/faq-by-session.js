@@ -32,14 +32,17 @@ Then(
 	async function (dataTable) {
 		await driver.sleep(1000);
 		const questions = await driver.findElements(By.className('question'));
+		console.log(questions);
 
 		const questionTexts = await Promise.all(
 			questions.map(async (question) => {
 				return await question.getText();
 			})
 		);
+		console.log(questionTexts);
 
 		const dataTableTexts = dataTable.raw().flat();
+		console.log(dataTableTexts);
 
 		for (data of dataTableTexts) {
 			expect(questionTexts.includes(data)).to.be.true;

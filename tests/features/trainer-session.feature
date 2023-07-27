@@ -7,12 +7,7 @@ Feature: Trainer Creating Sessions
     @TRAINER
     Scenario: Trainer sees a table of questions
         Given I am on the questions page
-        Then I will see the customised FAQ page with the following first five questions:
-            | What is the concept of sin in Christianity? |
-            | What is the role of mindfulness in Buddhism? |
-            | What is the concept of the Ummah in Islam? |
-            | What is the role of the Bible in Christianity? |
-            | What is the concept of Nirvana in Buddhism? |
+        Then I will see the FAQ page with all the created questions
     
     @TRAINER
     Scenario: Trainer sees a add session pop up
@@ -40,6 +35,8 @@ Feature: Trainer Creating Sessions
     Scenario: Trainer fails to create a new session
         Given I am on the Add Session pop up
         When I click the submit button
-        Then I should expect an alert with text 'Input Title!'
+        Then I should expect an alert with text 'Input title!'
+
+    # Haven't add the ability to create sessions then add questions
 
     
