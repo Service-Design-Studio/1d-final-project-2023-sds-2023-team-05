@@ -20,7 +20,7 @@ Feature: Trainer Creating Sessions
         Then I will see Add Session pop up
 
     @TRAINER
-    Scenario: Trainer creates a new session
+    Scenario: Trainer creates a new session from Add Session pop up
         Given I am on the Add Session pop up
         When I input 'Lesson1' as title into the form
         Then I click the submit button 
