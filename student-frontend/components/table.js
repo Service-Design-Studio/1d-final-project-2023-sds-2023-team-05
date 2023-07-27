@@ -71,6 +71,7 @@ function Stoopidtable({ classCode }) {
         value={searchText}
         onChange={handleSearchChange}
         placeholder="Search"
+        id="searchInput"
         className={styles.searchInput}
       />
       <div className={styles.tag_holder}>
@@ -119,7 +120,7 @@ function Stoopidtable({ classCode }) {
                 >
                   <td className={styles.table_maincell}>
                     <p className={styles.table_text}>
-                      <b>{row.question}</b>
+                      <b className="question">{row.question}</b>
                     </p>
                     <div
                       className={`${styles.stoopid_box} ${
@@ -131,7 +132,9 @@ function Stoopidtable({ classCode }) {
                 {activeRow === index && (
                   <tr>
                     <td colSpan={theadData.length}>
-                      <div className={styles.table_answer}>{row.answer}</div>
+                      <div className={styles.table_answer + ' answer'}>
+                        {row.answer}
+                      </div>
                     </td>
                   </tr>
                 )}
@@ -140,11 +143,10 @@ function Stoopidtable({ classCode }) {
           </tbody>
         </table>
       ) : (
-        <div className={styles.emptyMessage}>
+        <div className={styles.emptyMessage + ' noQuestion'}>
           Don't have your question? Try our Chatbot!
         </div>
       )}
-
     </div>
   );
 }
