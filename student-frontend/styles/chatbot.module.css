@@ -31,6 +31,7 @@
   font-size: 1rem;
   font-weight: 500;
   word-break: break-word;
+  padding-bottom: 3vw;
 }
 
 .user {
@@ -64,12 +65,13 @@
   border-radius: 1rem;
   font-family: 'Averia Serif Libre', sans-serif;
   max-width: 200px;
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .user .messageContent {
   background-color: #C14D54;
+  text-align: center;
   color: #ffffff;
   /* Set text color for user messages */
   font-family: 'Averia Serif Libre', sans-serif;
@@ -107,7 +109,7 @@
 .user-input {
   display: flex;
   margin-top: 16px;
-  margin-left: -16px;
+  margin-left: -5px;
   border: 0vw solid #d1a8a8;
   width: 100%;
   color: rgb(30, 30, 30);
@@ -176,8 +178,8 @@
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
