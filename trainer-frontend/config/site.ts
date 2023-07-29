@@ -29,3 +29,5 @@ export const siteConfig = {
 
 export const API_PROD_URL = siteConfig.api_prod
 export const API_LOCAL_URL = siteConfig.api_local
+export const CHATBOT_URL = 'https://chatbot-mgn7slqt5a-as.a.run.app';
+

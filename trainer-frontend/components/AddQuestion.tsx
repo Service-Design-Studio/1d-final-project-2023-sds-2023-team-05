@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 
-import { API_PROD_URL } from "@/config/site"
+import { API_PROD_URL, CHATBOT_URL } from "@/config/site"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -28,11 +28,51 @@ interface AddQuestionProps {
   sessionID?: string
 }
 
+async function fetchBotResponse(question) {
+  const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
+    body: JSON.stringify({
+      question: question,
+      // session_id: '123456789',
+      session_id: Date.now(),
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+  });
+
+  if (!res.ok) {
+    alert('Error...');
+  }
+
+  const data = await res.json();
+
+  return data.ai_response;
+}
+
 export default function AddQuestion({ sessionID }: AddQuestionProps) {
   const [answer, setAnswer] = useState("")
   const [question, setQuestion] = useState("")
   const [tag, setTag] = useState("") // Add state for the tag
   const [author, setAuthor] = useState("Basil")
+
+  const questionInputRef = useRef(null); // Create a ref for the question input
+
+
+  const handleAIsubmit = async () => {
+    if (answer == "") {
+      console.log("generate answer");
+      const questionValue = questionInputRef.current.value
+      if (questionValue.trim() === "") {
+        alert('Please put a question in.')
+        return
+      }
+      let fill = await fetchBotResponse(questionValue);
+      setAnswer(fill);
+    }
+  }
+
+
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -111,6 +151,7 @@ export default function AddQuestion({ sessionID }: AddQuestionProps) {
             </Label>
             <Input
               value={question}
+              ref={questionInputRef}
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Why does...?"
               className="col-span-3"
@@ -163,6 +204,9 @@ export default function AddQuestion({ sessionID }: AddQuestionProps) {
           </div>
         </div>
         <DialogFooter>
+          <Button style={{ backgroundColor: answer === "" ? "blue" : "grey", cursor: answer === "" ? 'pointer' : 'not-allowed' }} type="submit" id="submit-question" onClick={handleAIsubmit}>
+            AI assist
+          </Button>
           <Button type="submit" id="submit-question" onClick={handleSubmit}>
             Submit
           </Button>
