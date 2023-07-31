@@ -136,8 +136,7 @@ chats = [
     "question": "What is the concept of karma in Hinduism?",
     "answer": "In Hinduism, karma refers to the consequences of one's actions that determine their future existence and experiences.",
     "flagged": true,
-    "reason": "Inaccurate information"",
-    "comment": ""
+    "reason": "Inaccurate information",
   },
   {
     "question": "How is God referred to in Judaism?",
@@ -163,6 +162,14 @@ chats = [
     "question": "What are the main branches of Judaism?",
     "answer": "The main branches of Judaism are Orthodox, Conservative, Reform, and Reconstructionist.",
     "flagged": false
+  },
+  {
+    "question": "Who is Taylor Swift?",
+    "answer": "Taylor Alison Swift is an American singer-songwriter. Her narrative songwriting, which often centers around her personal life, has received widespread critical plaudits and media coverage.",
+    "flagged": true,
+    "reason": "Others",
+    "comment": "This is not a religious question",
+    "trained_response": "This not related to religion, please ask questions related to interfaith."
   }
 ]
 
@@ -182,7 +189,10 @@ chats.each do |c|
   Chat.create!(
     question: c[:question],
     answer: c[:answer],
-    flagged: c[:flagged]
+    flagged: c[:flagged],
+    reason: c[:reason],
+    comment: c[:comment],
+    trained_response: c[:trained_response]
   )
 end
 

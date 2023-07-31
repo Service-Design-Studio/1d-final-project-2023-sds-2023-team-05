@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useRef, useState } from "react"
+import { Loader2 } from "lucide-react"
 
 import { API_PROD_URL, CHATBOT_URL } from "@/config/site"
 import { Button } from "@/components/ui/button"
@@ -23,6 +24,12 @@ import {
 } from "@/components/ui/select"
 
 import { Textarea } from "./ui/textarea"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip"
 
 interface AddQuestionProps {
   sessionID?: string
@@ -36,18 +43,18 @@ async function fetchBotResponse(question) {
       session_id: Date.now(),
     }),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    method: 'POST',
-  });
+    method: "POST",
+  })
 
   if (!res.ok) {
-    alert('Error...');
+    alert("Error...")
   }
 
-  const data = await res.json();
+  const data = await res.json()
 
-  return data.ai_response;
+  return data.ai_response
 }
 
 export default function AddQuestion({ sessionID }: AddQuestionProps) {
@@ -55,24 +62,25 @@ export default function AddQuestion({ sessionID }: AddQuestionProps) {
   const [question, setQuestion] = useState("")
   const [tag, setTag] = useState("") // Add state for the tag
   const [author, setAuthor] = useState("Basil")
+  const [loading, setLoading] = useState(false)
 
-  const questionInputRef = useRef(null); // Create a ref for the question input
-
+  const questionInputRef = useRef(null) // Create a ref for the question input
 
   const handleAIsubmit = async () => {
     if (answer == "") {
-      console.log("generate answer");
+      console.log("generate answer")
       const questionValue = questionInputRef.current.value
       if (questionValue.trim() === "") {
-        alert('Please put a question in.')
+        alert("Please put a question in.")
         return
       }
-      let fill = await fetchBotResponse(questionValue);
-      setAnswer(fill);
+      setLoading(true)
+
+      let fill = await fetchBotResponse(questionValue)
+      setAnswer(fill)
+      setLoading(false)
     }
   }
-
-
 
   const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -82,6 +90,10 @@ export default function AddQuestion({ sessionID }: AddQuestionProps) {
     }
     if (answer == "") {
       alert("Fill answer properly!")
+      return
+    }
+    if (tag == "") {
+      alert("Fill tag properly!")
       return
     }
 
@@ -204,9 +216,35 @@ export default function AddQuestion({ sessionID }: AddQuestionProps) {
           </div>
         </div>
         <DialogFooter>
-          <Button style={{ backgroundColor: answer === "" ? "blue" : "grey", cursor: answer === "" ? 'pointer' : 'not-allowed' }} type="submit" id="submit-question" onClick={handleAIsubmit}>
-            AI assist
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                {!loading ? (
+                  <Button
+                    type="submit"
+                    disabled={answer !== ""}
+                    id="ai-assist"
+                    variant="secondary"
+                    onClick={handleAIsubmit}
+                  >
+                    AI Assist
+                  </Button>
+                ) : (
+                  <Button variant={"secondary"} disabled>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    AI Assist
+                  </Button>
+                )}
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>
+                  Use AI to generate an answer to the question.
+                  <br /> You can edit the answer after.
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
           <Button type="submit" id="submit-question" onClick={handleSubmit}>
             Submit
           </Button>
