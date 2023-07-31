@@ -125,7 +125,7 @@ chats = [
   {
     "question": "Who is considered the founder of Buddhism?",
     "answer": "Siddhartha Gautama, also known as Buddha, is considered the founder of Buddhism.",
-    "flagged": true
+    "flagged": false
   },
   {
     "question": "What are the Five Pillars of Islam?",
@@ -135,7 +135,9 @@ chats = [
   {
     "question": "What is the concept of karma in Hinduism?",
     "answer": "In Hinduism, karma refers to the consequences of one's actions that determine their future existence and experiences.",
-    "flagged": true
+    "flagged": true,
+    "reason": "Inaccurate information"",
+    "comment": ""
   },
   {
     "question": "How is God referred to in Judaism?",
@@ -160,7 +162,7 @@ chats = [
   {
     "question": "What are the main branches of Judaism?",
     "answer": "The main branches of Judaism are Orthodox, Conservative, Reform, and Reconstructionist.",
-    "flagged": true
+    "flagged": false
   }
 ]
 

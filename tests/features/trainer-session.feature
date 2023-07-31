@@ -20,13 +20,13 @@ Feature: Trainer Creating Sessions
         Then I will see Add Session pop up
 
     @TRAINER
-    Scenario: Trainer creates a new session
+    Scenario: Trainer creates a new session from Add Session pop up
         Given I am on the Add Session pop up
         When I input 'Lesson1' as title into the form
         Then I click the submit button 
 
     @TRAINER
-    Scenario: Trainer sees the newly created session
+    Scenario: Trainer sees the newly created session from Add Session pop up
         Given I am on the questions page
         When I click into the sessions page
         Then I will see the session 'Lesson1' in the sessions table
@@ -37,6 +37,22 @@ Feature: Trainer Creating Sessions
         When I click the submit button
         Then I should expect an alert with text 'Input title!'
 
-    # Haven't add the ability to create sessions then add questions
+    @TRAINER
+    Scenario: Trainer creates a new session from Sessions page
+        Given I am on the 'Sessions' page
+        When I click 'Create New Session' button
+        When I input 'Lesson 2' as title into the form
+        Then I click the submit button 
+        When I click the 'Add Question' button
+        When I enter the question with text 'SX Lesson 2 Testing Question'
+        When I choose the tag with text 'Buddhism'
+        When I enter the answer with text 'SX Lesson 2 Testing Answer'
+        When I click the 'Submit' button
+        Then I am on 'Lesson 2' session page
+
+    @TRAINER
+    Scenario: Trainer sees the newly created session from Sessions page
+        Given I am on the 'Sessions' page
+        Then I will see the session 'Lesson 2' in the sessions table
 
     

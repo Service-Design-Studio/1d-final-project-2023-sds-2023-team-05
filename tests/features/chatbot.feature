@@ -27,9 +27,9 @@ Feature: Chatbot
         Then I will return to the Chatbot page
 
     @STUDENT
-    Scenario: Learner flags an inappropriate answer with the reason 'Misinformation'
+    Scenario: Learner flags an inappropriate answer with the reason 'Inaccurate information'
         Given I am at the flag pop up
-        When I click the option 'Misinformation'
+        When I click the option 'Inaccurate information'
         When I press the button 'Flag Question'
         Then I will return to the Chatbot page
 
