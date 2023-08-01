@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_31_111742) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_01_071234) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_111742) do
     t.string "comment"
     t.string "reason"
     t.string "trained_response"
+    t.string "learner"
+    t.string "editor"
   end
 
   create_table "faq_sessions", force: :cascade do |t|

@@ -43,6 +43,12 @@ class ChatsController < ApplicationController
     render json: @chats
   end
 
+  def unflag
+    @chat = Chat.find(params[:id])
+    @chat.update(flagged: false)
+    render json: @chat
+  end
+
   def train
     @chat = Chat.find(params[:id])
     # if flagged
@@ -65,6 +71,6 @@ class ChatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chat_params
-      params.require(:chat).permit(:flagged, :question, :answer, :id, :reason, :comment, :trained_response)
+      params.require(:chat).permit(:flagged, :question, :answer, :id, :reason, :comment, :trained_response, :learner)
     end
 end

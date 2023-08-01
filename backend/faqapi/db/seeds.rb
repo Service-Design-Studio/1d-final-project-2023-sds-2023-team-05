@@ -137,6 +137,7 @@ chats = [
     "answer": "In Hinduism, karma refers to the consequences of one's actions that determine their future existence and experiences.",
     "flagged": true,
     "reason": "Inaccurate information",
+    "learner": "Sheng Xiang"
   },
   {
     "question": "How is God referred to in Judaism?",
@@ -169,7 +170,8 @@ chats = [
     "flagged": true,
     "reason": "Others",
     "comment": "This is not a religious question",
-    "trained_response": "This not related to religion, please ask questions related to interfaith."
+    "trained_response": "This not related to religion, please ask questions related to interfaith.",
+    "learner": "Gavin Ong"
   }
 ]
 
@@ -192,7 +194,8 @@ chats.each do |c|
     flagged: c[:flagged],
     reason: c[:reason],
     comment: c[:comment],
-    trained_response: c[:trained_response]
+    trained_response: c[:trained_response],
+    learner: c[:learner]
   )
 end
 
