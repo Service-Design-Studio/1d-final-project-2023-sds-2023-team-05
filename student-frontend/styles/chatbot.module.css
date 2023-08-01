@@ -82,7 +82,6 @@
 .bot .messageContent {
   background-color: #ffffff;
   color: #333333;
-  padding-top: 25px;
   /* Set text color for bot messages */
 }
 
@@ -220,7 +219,7 @@
   height: 20px;
   background-size: contain;
   margin-left: 5px;
-  margin-top: 40px;
+  margin-top: 15px;
   opacity: 0.8;
   background-repeat: no-repeat;
 }
@@ -231,7 +230,7 @@
   height: 20px;
   background-size: contain;
   margin-left: 5px;
-  margin-top: 40px;
+  margin-top: 15px;
   opacity: 0.8;
   background-repeat: no-repeat;
 }
