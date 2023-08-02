@@ -186,7 +186,7 @@ function ChatBotPage() {
 				</div>
 
 				<div className={styles['user-input']}>
-					<input
+					<textarea
 						type='text'
 						id='chatbot-prompt'
 						value={inputValue}
