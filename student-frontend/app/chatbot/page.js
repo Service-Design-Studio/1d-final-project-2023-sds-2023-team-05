@@ -25,6 +25,7 @@ async function fetchBotResponse(question) {
 	const data = await res.json();
 
 	return data.ai_response;
+	// return ('Dummy Response!')
 }
 
 async function sendChatToBackend(question, answer, id) {
@@ -127,7 +128,7 @@ function ChatBotPage() {
 			<Chatbotheader />
 
 			<div className={styles['chat-container']}>
-				<div className={styles.messages}>
+			<div className={styles.messages}>
 					{messages.map((message, index) => (
 						<div
 							key={index}

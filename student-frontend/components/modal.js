@@ -140,7 +140,7 @@ function Modal({
                 className={`${styles.flagButton}`}
                 onClick={() => flagComment(messageId, setIsModalOpen)}
               >
-                Flag Question
+                Flag Answer
               </button>
             </div>
           </div>
