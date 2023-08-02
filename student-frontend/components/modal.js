@@ -8,6 +8,7 @@ function Modal({
   messageId,
   setIsModalOpen,
   setFlaggedQuestions,
+  setIsModalOpen2
 }) {
   const [selectedReason, setSelectedReason] = useState('');
   const [othersResponse, setOthersResponse] = useState('');
@@ -39,6 +40,7 @@ function Modal({
     setFlaggedQuestions((prevQuestions) => [...prevQuestions, messageId]);
     closeModal();
     setIsModalOpen(false);
+    setIsModalOpen2(true)
     // TODO: Reset fields
     if (!res.ok) {
       alert('Error...');

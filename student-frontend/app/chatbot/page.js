@@ -1,6 +1,7 @@
 'use client';
 import Chatbotheader from '@/components/chatbot-header';
 import Modal from '@/components/modal';
+import ThxModal from '@/components/thxmodal';
 import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
 import { useEffect, useState, useRef } from 'react';
@@ -50,6 +51,7 @@ function ChatBotPage() {
 	const [messages, setMessages] = useState([]);
 	const [inputValue, setInputValue] = useState('');
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen2, setIsModalOpen2] = useState(false);
 	const [messageId, setMessageId] = useState('');
 	const [flaggedQuestions, setFlaggedQuestions] = useState([]);
 
@@ -63,6 +65,11 @@ function ChatBotPage() {
 		setIsModalOpen(false);
 		document.body.style.overflow = 'auto';
 	};
+
+	const handleCloseModal2 = () => {
+		setIsModalOpen2(false)
+		document.body.style.overflow = 'auto';
+	}
 
 	const handleKeyDown = (event) => {
 		if (event.key === 'Enter') {
@@ -83,9 +90,13 @@ function ChatBotPage() {
 			content: 'Ask me anything!',
 			sender: 'bot',
 		};
+		const flaggingMessage = {
+			content: 'If you see any inappropriate responses, please press the flag icon beside an answer to let us know!',
+			sender: 'bot',
+		};
 
 		const timer = setTimeout(() => {
-			setMessages((prevMessages) => [...prevMessages, initialMessage]);
+			setMessages((prevMessages) => [...prevMessages, initialMessage, flaggingMessage]);
 		}, 1000);
 
 		return () => clearTimeout(timer);
@@ -198,6 +209,13 @@ function ChatBotPage() {
 					setIsModalOpen={setIsModalOpen}
 					API_URL={API_URL}
 					setFlaggedQuestions={setFlaggedQuestions}
+					setIsModalOpen2={setIsModalOpen2}
+				/>
+				<ThxModal
+					isOpen={isModalOpen2}
+					onClose={handleCloseModal2}
+					messageId={messageId}
+					setIsModalOpen={setIsModalOpen2}
 				/>
 			</div>
 		</div>
