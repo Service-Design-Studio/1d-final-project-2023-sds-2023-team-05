@@ -31,11 +31,13 @@ import { DataTableToolbar } from "./data-table-toolbar"
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  sessions?: boolean
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  sessions,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
@@ -74,7 +76,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4" id="question-table">
-      <DataTableToolbar table={table} />
+      <DataTableToolbar table={table} sessions={sessions} />
       <div className="rounded-md border">
         <Table>
           <TableHeader>

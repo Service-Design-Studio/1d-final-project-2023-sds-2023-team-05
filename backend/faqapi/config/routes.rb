@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/authors' , to: 'faqs#authors'
   
   post '/sessions/:id', to: 'sessions#add_faq'
+  patch '/sessions/:id', to: 'sessions#add_faq_to_session'
+  
   
   resources :chats
   resources :sessions
