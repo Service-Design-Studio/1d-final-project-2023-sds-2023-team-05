@@ -180,8 +180,8 @@
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
@@ -190,8 +190,8 @@
 }
 
 .headerText {
-  font-size: min(10vw, 75px);
-  font-weight: bold;
+  font-size: 35px;
+  color:#555555;
   margin: 0;
   display: flex;
   align-items: center;
