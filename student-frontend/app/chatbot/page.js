@@ -3,7 +3,7 @@ import Chatbotheader from '@/components/chatbot-header';
 import Modal from '@/components/modal';
 import { API_URL, CHATBOT_URL } from '@/config';
 import styles from '@/styles/chatbot.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 async function fetchBotResponse(question) {
 	const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
@@ -63,6 +63,19 @@ function ChatBotPage() {
 		setIsModalOpen(false);
 		document.body.style.overflow = 'auto';
 	};
+
+	const handleKeyDown = (event) => {
+		if (event.key === 'Enter') {
+			handleSendMessage();
+		}
+	};
+
+	const chatContainerRef = useRef(null);
+
+	// Scroll to the bottom of the chat container when new messages are received
+	useEffect(() => {
+		chatContainerRef.current.scrollIntoView({ behavior: 'smooth' });
+	}, [messages]);
 
 	useEffect(() => {
 		// Simulate delay for the first default message
@@ -128,13 +141,12 @@ function ChatBotPage() {
 			<Chatbotheader />
 
 			<div className={styles['chat-container']}>
-			<div className={styles.messages}>
+				<div className={styles.messages}>
 					{messages.map((message, index) => (
 						<div
 							key={index}
-							className={`${styles.message} ${styles[message.sender]} ${
-								index === messages.length - 1 ? styles.fadeIn : ''
-							}`}>
+							className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
+								}`}>
 							{message.sender === 'bot' && (
 								<>
 									<div className={styles.avatar}></div>
@@ -146,11 +158,10 @@ function ChatBotPage() {
 							{message.id && (
 								<>
 									<button
-										className={`${
-											isMessageFlagged(message.id)
-												? styles.flaggingIconFlagged
-												: styles.flaggingIcon + ' flagButton'
-										}`}
+										className={`${isMessageFlagged(message.id)
+											? styles.flaggingIconFlagged
+											: styles.flaggingIcon + ' flagButton'
+											}`}
 										onClick={
 											flaggedQuestions.includes(message.id)
 												? null
@@ -160,6 +171,7 @@ function ChatBotPage() {
 							)}
 						</div>
 					))}
+					<div ref={chatContainerRef}	></div>
 				</div>
 
 				<div className={styles['user-input']}>
@@ -170,6 +182,7 @@ function ChatBotPage() {
 						onChange={handleInputChange}
 						placeholder='Type your message...'
 						className={styles.input}
+						onKeyDown={handleKeyDown}
 					/>
 					<button
 						id='send-button'
