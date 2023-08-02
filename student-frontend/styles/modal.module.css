@@ -13,10 +13,10 @@
     z-index: 100;
     backdrop-filter: blur(4px);
     font-family: 'Averia Serif Libre', sans-serif;
-    text-align:left;
+    text-align: left;
     font-size: 18px;
-    color:#333333
-    /* Adjust the blur intensity as needed */
+    color: #333333
+        /* Adjust the blur intensity as needed */
 }
 
 .modal {
@@ -30,12 +30,24 @@
     overflow: auto;
     position: relative;
     color: black
-    /* Add this to make the closeButton position relative to the modal content */
+        /* Add this to make the closeButton position relative to the modal content */
 }
 
 .modalContent {
     position: relative;
     /* Add this to make the closeButton position absolute relative to the modal content */
+}
+
+.namearea {
+    width: 100%;
+    border: 2px solid #EEE;
+    height: 60px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #9b9b9b;
+    padding-left: 10px;
+    padding-top: 5px;
+    resize: none;
 }
 
 .textarea {
@@ -75,7 +87,7 @@
     background: none;
     cursor: pointer;
     font-size: 45px;
-    color:#9b9b9b;
+    color: #9b9b9b;
 }
 
 .flagButton {
