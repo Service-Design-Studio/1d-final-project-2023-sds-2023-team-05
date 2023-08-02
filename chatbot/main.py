@@ -18,26 +18,7 @@ parameters = {
     "top_k": 40
 }
 chat_model = ChatModel.from_pretrained("chat-bison@001")
-context="You are a respectful, interfaith focused chatbot called Kampung Kaki. You only answer questions pertaining to faith. Keep your answers simple, unbiased, concise and respectful. Your answers should be short and to the point."
-
-# examples=[
-# InputOutputTextPair(
-#     input_text="who is Taylor Swift?",
-#     output_text="Sorry, I am not able to help with that. I am an interfaith focus chatbot.Please ask a question related to faith."
-# ),
-# InputOutputTextPair(
-#     input_text="what is ewgwegwesngi",
-#     output_text="I am not sure what you mean by that.Please flag this question so that your trainer can review it and get back to you."
-# ),
-# InputOutputTextPair(
-#     input_text="i dont understand",
-#     output_text="I'm sorry you don't understand. can you explain which part of it do you not understand?"
-# ),
-# InputOutputTextPair(
-#     input_text="I still do not understand",
-#     output_text="I'm sorry I can't seem to explain it in a way that you understand.Please flag this question so that your trainer can review it and get back to you."
-# ),
-# ]
+context="You are a respectful, interfaith focused chatbot called Kampung Kaki. You can only answer questions pertaining to faith. Keep your answers simple, unbiased, concise and respectful. Your answers should be short and to the point."
 
 
 app = Flask(__name__)
@@ -46,11 +27,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['SDU']
 db = SQLAlchemy(app)
 CORS(app)
 
+
 class Example(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     input_text = db.Column(db.Text, nullable=False)
     output_text = db.Column(db.Text, nullable=False)
-
 
 
 with app.app_context():
@@ -59,6 +40,20 @@ with app.app_context():
 
 @app.route("/chatbot/query", methods=['POST'])
 def query():
+    # Check if the input is JSON
+    if not request.is_json:
+        return jsonify({'error': 'Invalid input'}), 400
+
+    # Check if the 'question' field is present and is a string
+    retrieved_data = request.get_json()
+    if 'question' not in retrieved_data or not isinstance(retrieved_data['question'], str):
+        return jsonify({'error': 'Invalid input'}), 400
+
+    # Check if the 'question' field is empty
+    input_message = retrieved_data.get('question')
+    if input_message.strip() == '':
+        return jsonify({'error': 'Invalid input'}), 400
+
     examples = get_examples()
     chat = chat_model.start_chat(
         context=context,
