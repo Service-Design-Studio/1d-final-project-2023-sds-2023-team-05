@@ -10,8 +10,15 @@ async function getFaqs() {
   return faqs
 }
 
+async function getSessions() {
+  const res = await fetch(`${API_PROD_URL}/sessions`, { cache: "no-store" })
+  const sessions = await res.json()
+  return sessions
+}
+
 export default async function FaqPage() {
   const tasks = await getFaqs()
+  const sessions = await getSessions()
 
   return (
     <>
@@ -19,11 +26,13 @@ export default async function FaqPage() {
         <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
           <div className="flex items-center justify-between space-y-2">
             <div>
-              <h2 id='faq' className="text-2xl font-bold tracking-tight">FAQs</h2>
+              <h2 id="faq" className="text-2xl font-bold tracking-tight">
+                FAQs
+              </h2>
               <AddQuestion />
             </div>
           </div>
-          <DataTable data={tasks} columns={columns} />
+          <DataTable data={tasks} columns={columns} sessions={sessions} />
         </div>
       </section>
     </>

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/table"
 
 import EditChatbotResponse from "./edit-chatbot-response"
+import RemoveFlag from "./remove-flag"
 
 interface ChatProps {
   chats: Chat[]
@@ -28,6 +29,7 @@ export interface Chat {
   reason?: string
   comment?: string
   trained_response?: string
+  learner?: string
 }
 
 function ChatbotTable({ chats, flagmode }: ChatProps) {
@@ -56,7 +58,11 @@ function ChatbotTable({ chats, flagmode }: ChatProps) {
             {flagmode == "edited" && (
               <TableHead className="w-[200px]">Edited Response</TableHead>
             )}
-            {flagmode != "all" && <TableHead className="w-[200px]"></TableHead>}
+            {flagmode != "all" && <TableHead className="w-[50px]"></TableHead>}
+            {flagmode == "flagged" && (
+              <TableHead className="w-[50px]"></TableHead>
+            )}
+
             {flagmode == "all" && (
               <TableHead className="w-[200px]">Flagged</TableHead>
             )}
@@ -73,6 +79,11 @@ function ChatbotTable({ chats, flagmode }: ChatProps) {
                 <>
                   <TableCell>
                     {chat.comment ? chat.comment : chat.reason}
+                    {chat.learner && (
+                      <>
+                        <span>{chat.learner}</span>
+                      </>
+                    )}
                   </TableCell>
                   {flagmode == "edited" && (
                     <TableCell>{chat.trained_response}</TableCell>
@@ -80,6 +91,13 @@ function ChatbotTable({ chats, flagmode }: ChatProps) {
                   <TableCell>
                     <EditChatbotResponse {...chat} />
                   </TableCell>
+                  {flagmode == "flagged" && (
+                    <>
+                      <TableCell className="w-10">
+                        <RemoveFlag id={chat.id} />
+                      </TableCell>
+                    </>
+                  )}
                 </>
               )}
 

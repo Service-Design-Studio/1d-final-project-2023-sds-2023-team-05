@@ -51,11 +51,12 @@ export default function EditChatbotResponse(chat: Chat) {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button
-          variant="ghost"
-          className="underline text-blue-600"
+          variant="link"
           id="add-question-button"
+          className="text-blue-600"
+          size={"icon"}
         >
-          Edit Response
+          Edit
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[525px]" id="new-question-dialog">

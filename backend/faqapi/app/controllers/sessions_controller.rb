@@ -22,6 +22,15 @@ class SessionsController < ApplicationController
         render json: session, include: [:faqs], status: 201 
     end
 
+    def add_faq_to_session
+        # take in faq_id and add to session
+        # an array of faq_ids
+        for faq_id in params[:faq_ids]
+            FaqSession.create!(session_id: params[:id], faq_id: faq_id)
+        end
+        session = Session.find(params[:id])
+        render json: session, include: [:faqs], status: 201
+    end
 
     private
     def session_params
