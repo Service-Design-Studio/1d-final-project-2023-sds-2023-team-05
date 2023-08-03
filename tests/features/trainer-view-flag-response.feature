@@ -1,4 +1,4 @@
-Feature: Chatbot 
+Feature: Flag Chatbot Response 
 
     Narrative
         As a: trainer who is reviewing the chatbot prompts and answers
