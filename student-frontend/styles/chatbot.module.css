@@ -46,12 +46,14 @@
 .bot .avatar {
   width: 55px;
   height: 55px;
+  min-width: 55px;
   border-radius: 50%;
   margin-right: 10px;
   background-image: url('../assets/Icon6.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: auto;
+  margin-left: -10px;
 }
 
 .botName {
@@ -221,6 +223,7 @@
   margin-top: 15px;
   opacity: 0.8;
   background-repeat: no-repeat;
+  opacity:50% ;
 }
 
 .flaggingIconFlagged {
