@@ -140,6 +140,7 @@ function ChatBotPage() {
 			};
 
 			setMessages((prevMessages) => [...prevMessages, botResponse]);
+			setInputValue('')
 
 			// generate id to send into backend
 			// const id = Date.now()
