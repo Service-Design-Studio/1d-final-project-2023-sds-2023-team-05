@@ -9,8 +9,6 @@ function ThxModal({
     setIsModalOpen,
 }) {
     const closeModal = () => {
-        setSelectedReason('');
-        setOthersResponse('');
         onClose();
     };
 
