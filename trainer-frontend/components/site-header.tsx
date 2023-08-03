@@ -1,15 +1,7 @@
 "use client"
 
-import Link from "next/link"
-import { signOut } from "next-auth/react"
-
 import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
-
-import { UserNav } from "./user-nav"
 
 export function SiteHeader() {
   return (
@@ -17,10 +9,10 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
+          {/* <nav className="flex items-center space-x-1">
             <ThemeToggle />
             <UserNav />
-          </nav>
+          </nav> */}
         </div>
       </div>
     </header>

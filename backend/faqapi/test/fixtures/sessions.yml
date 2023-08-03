@@ -2,6 +2,10 @@
 
 one:
   title: MyString
+  author: test
+  classcode: 123456
 
 two:
   title: MyString
+  author: test
+  classcode: 123456

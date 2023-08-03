@@ -78,6 +78,12 @@ Then(
 			By.className('promptAnswer')
 		);
 
+<<<<<<< HEAD
+=======
+    const promptAnswerWebElement = chatbotAnswers.pop();
+    const promptAnswer = await promptAnswerWebElement.getText();
+<<<<<<< Updated upstream
+>>>>>>> f0dcb10e462b3a572f9355d7d3fa7b40f697a9e1
 		const promptAnswerWebElement = chatbotAnswers.pop();
 		const promptAnswer = await promptAnswerWebElement.getText();
 

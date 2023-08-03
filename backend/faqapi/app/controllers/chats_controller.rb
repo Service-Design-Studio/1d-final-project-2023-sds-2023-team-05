@@ -43,6 +43,26 @@ class ChatsController < ApplicationController
     render json: @chats
   end
 
+  def unflag
+    @chat = Chat.find(params[:id])
+    @chat.update(flagged: false)
+    render json: @chat
+  end
+
+  def train
+    @chat = Chat.find(params[:id])
+    # if flagged
+    if @chat.flagged
+      @chat.update(trained_response: params[:trained_response])
+    end
+    render json: @chat
+  end
+
+  def trained
+    @chats = Chat.where.not(trained_response: nil)
+    render json: @chats
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_chat
@@ -51,6 +71,6 @@ class ChatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chat_params
-      params.require(:chat).permit(:flagged, :question, :answer, :id, :reason, :comment)
+      params.require(:chat).permit(:flagged, :question, :answer, :id, :reason, :comment, :trained_response, :learner)
     end
 end

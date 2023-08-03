@@ -1,22 +1,24 @@
 "use client"
 
-import { Table, isRowSelected } from "@tanstack/react-table"
-import { Plus, X } from "lucide-react"
+import { Table } from "@tanstack/react-table"
+import { X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-import AddSession from "../add-session"
+import AddToSession from "../add-to-session"
 import { DataTableFacetedFilter } from "./data-table-faceted-filter"
 import { DataTableViewOptions } from "./data-table-view-options"
-import { authors, priorities, statuses, tags } from "./data/data"
+import { authors, tags } from "./data/data"
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>
+  sessions?: any
 }
 
 export function DataTableToolbar<TData>({
   table,
+  sessions,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
   const isAnyRowSelected = table.getSelectedRowModel().flatRows.length > 0
@@ -68,7 +70,7 @@ export function DataTableToolbar<TData>({
           //   Create New Session
           //   <Plus className="ml-2 h-4 w-4" />
           // </Button>
-          <AddSession table={table} />
+          <AddToSession table={table} sessions={sessions} />
         )}
       </div>
       <DataTableViewOptions table={table} />
