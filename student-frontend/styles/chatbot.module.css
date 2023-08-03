@@ -118,7 +118,7 @@
   width: 100%;
   color: #333333;
   background-color: #EEE;
-  font-family: 'Averia Serif Libre', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 26px 16px;
   /* Adjust padding for a more balanced look */
   text-align: center;
@@ -137,25 +137,25 @@
 
 .user-input textarea{
   flex-grow: 1;
-  height: 50px;
+  min-height: 50px;
+  max-height: 200px;
   padding-top: 8px;
   padding-left: 18px;
+  padding-right:18px;
   margin-right: 10px;
-  border: none;
   border-radius: 35px;
   font-size: 18px;
   text-align:left;
   border: 0.5vw solid rgb(230, 230, 230);
   background-color: #ffffff;
+  resize: vertical;
 }
 
 .user-input button {
   height: 50px;
   padding: 0 16px;
   margin-left: auto;
-  /* Adjust margin to auto */
   margin-right:0px;
-  /* Adjust margin for a more balanced look */
   border: none;
   border-radius: 20px;
   background-color: #C14D54;
@@ -167,6 +167,14 @@
   font-family: 'Averia Serif Libre', sans-serif;
 }
 
+.processing {
+  color: #333;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+
 /* Chat bot header */
 .header {
   position: sticky;
@@ -175,7 +183,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Center the content horizontally */
   padding: 16px;
   background-color: #EEE;
   color: #000000;
