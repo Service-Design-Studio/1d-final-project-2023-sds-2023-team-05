@@ -167,6 +167,14 @@
   font-family: 'Averia Serif Libre', sans-serif;
 }
 
+.processing {
+  color: #333;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+
 /* Chat bot header */
 .header {
   position: sticky;
