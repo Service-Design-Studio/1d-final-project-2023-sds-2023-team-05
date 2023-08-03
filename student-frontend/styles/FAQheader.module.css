@@ -13,13 +13,13 @@
   justify-content: space-between;
   padding-top: 2vh;
   padding-bottom: 2vh;
-  background-color: #EEE#ffffff;
+  background-color: #EEE
 }
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
