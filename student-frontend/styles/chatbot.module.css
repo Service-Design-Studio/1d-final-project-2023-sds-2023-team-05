@@ -46,12 +46,14 @@
 .bot .avatar {
   width: 55px;
   height: 55px;
+  min-width: 55px;
   border-radius: 50%;
   margin-right: 10px;
   background-image: url('../assets/Icon6.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: auto;
+  margin-left: -10px;
 }
 
 .botName {
@@ -111,17 +113,16 @@
 .user-input {
   display: flex;
   margin-top: 16px;
-  margin-left: -5px;
+  margin-left: 0px;
   border: 0vw solid #d1a8a8;
   width: 100%;
-  color: rgb(30, 30, 30);
+  color: #333333;
   background-color: #EEE;
   font-family: 'Averia Serif Libre', sans-serif;
-  padding: 16px 16px;
+  padding: 26px 16px;
   /* Adjust padding for a more balanced look */
   text-align: center;
   align-items: center;
-  border-radius: 20px;
   /* Use a fixed value for border radius */
   font-size: 16px;
   /* Use a fixed font size suitable for mobile */
@@ -134,31 +135,33 @@
   left: 0;
 }
 
-.user-input input[type='text'] {
+.user-input textarea{
   flex-grow: 1;
-  height: 60px;
-  padding: 20px;
-  /* Adjust padding for a more balanced look */
+  height: 50px;
+  padding-top: 8px;
+  padding-left: 18px;
+  margin-right: 10px;
   border: none;
-  border-radius: 30px;
-  font-size: 20px;
+  border-radius: 35px;
+  font-size: 18px;
+  text-align:left;
   border: 0.5vw solid rgb(230, 230, 230);
   background-color: #ffffff;
 }
 
 .user-input button {
-  height: 60px;
+  height: 50px;
   padding: 0 16px;
   margin-left: auto;
   /* Adjust margin to auto */
-  margin-left: 10px;
+  margin-right:0px;
   /* Adjust margin for a more balanced look */
   border: none;
   border-radius: 20px;
   background-color: #C14D54;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   color: #EEE;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   font-family: 'Averia Serif Libre', sans-serif;
@@ -180,8 +183,8 @@
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 45px;
-  height: 45px;
+  width: 38px;
+  height: 38px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
@@ -190,8 +193,8 @@
 }
 
 .headerText {
-  font-size: min(10vw, 75px);
-  font-weight: bold;
+  font-size: 35px;
+  color:#555555;
   margin: 0;
   display: flex;
   align-items: center;
@@ -222,6 +225,7 @@
   margin-top: 15px;
   opacity: 0.8;
   background-repeat: no-repeat;
+  opacity:50% ;
 }
 
 .flaggingIconFlagged {

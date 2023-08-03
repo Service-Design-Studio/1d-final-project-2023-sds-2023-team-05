@@ -81,7 +81,10 @@ function ChatbotTable({ chats, flagmode }: ChatProps) {
                     {chat.comment ? chat.comment : chat.reason}
                     {chat.learner && (
                       <>
-                        <span>{chat.learner}</span>
+                        <span className="font-light italic">
+                          {" "}
+                          ({chat.learner})
+                        </span>
                       </>
                     )}
                   </TableCell>

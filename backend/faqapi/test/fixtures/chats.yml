@@ -8,4 +8,9 @@ one:
 two:
   question: MyString
   answer: MyString
-  flagged: false
+  flagged: true
+
+flagged:
+  question: MyString
+  answer: MyString
+  flagged: true

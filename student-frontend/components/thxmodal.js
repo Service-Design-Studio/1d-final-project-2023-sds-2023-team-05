@@ -32,7 +32,7 @@ function ThxModal({
                             </div>
                             <button
                                 id="flag-question"
-                                className={`${styles.flagButton}`}
+                                className={`${styles.textcloseButton}`}
                                 onClick={() => onClose()}
                             >
                                 Close

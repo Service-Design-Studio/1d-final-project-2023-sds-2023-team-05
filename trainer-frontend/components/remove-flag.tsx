@@ -39,7 +39,7 @@ export default function RemoveFlag({ id }: { id: string }) {
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="link" className="text-red-500" size={"icon"}>
-          Delete
+          Unflag
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
