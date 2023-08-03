@@ -78,6 +78,9 @@ Then(
 			By.className('promptAnswer')
 		);
 
+    const promptAnswerWebElement = chatbotAnswers.pop();
+    const promptAnswer = await promptAnswerWebElement.getText();
+<<<<<<< Updated upstream
 		const promptAnswerWebElement = chatbotAnswers.pop();
 		const promptAnswer = await promptAnswerWebElement.getText();
 

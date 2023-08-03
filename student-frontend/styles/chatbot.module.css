@@ -32,6 +32,7 @@
   font-weight: 500;
   word-break: break-word;
   padding-bottom: 3vw;
+  position: relative; /* Add this line to enable positioning */
 }
 
 .user {
@@ -50,6 +51,7 @@
   background-image: url('../assets/Icon6.jpg');
   background-size: contain;
   background-repeat: no-repeat;
+  margin-top: auto;
 }
 
 .botName {
@@ -134,7 +136,7 @@
 
 .user-input input[type='text'] {
   flex-grow: 1;
-  height: 70px;
+  height: 60px;
   padding: 20px;
   /* Adjust padding for a more balanced look */
   border: none;
@@ -178,8 +180,8 @@
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   background-size: contain;
   margin-left: 5px;
   margin-bottom: 0px;
@@ -188,8 +190,8 @@
 }
 
 .headerText {
-  font-size: min(10vw, 75px);
-  font-weight: bold;
+  font-size: 35px;
+  color:#555555;
   margin: 0;
   display: flex;
   align-items: center;

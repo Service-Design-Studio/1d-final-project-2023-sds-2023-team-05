@@ -6,6 +6,8 @@ interface Response {
   id: string
   question: string
   answer: string
+  reason?: string
+  comment?: string
   flagged: boolean
   created_at: string
   updated_at: string
@@ -39,21 +41,30 @@ export default async function FaqPage() {
               <TabsTrigger value="flagged" id="flaggedresponses">
                 Flagged{" "}
               </TabsTrigger>
+              <TabsTrigger value="edited" id="editedresponses">
+                Edited Responses
+              </TabsTrigger>
               <TabsTrigger value="all" id="allresponses">
                 All{" "}
               </TabsTrigger>
             </TabsList>
             <TabsContent value="flagged">
               <h2 id="flagged-tab-sentence">
-                View <b>flagged</b> responses from the chatbot.{" "}
+                Responses students have <b>flagged</b>.
               </h2>
-              <ChatbotTable sessions={responses} flagmode={true} />
+              <ChatbotTable chats={responses} flagmode={"flagged"} />
+            </TabsContent>
+            <TabsContent value="edited">
+              <h2 id="flagged-tab-sentence">
+                Responses you have <b>edited</b>.{" "}
+              </h2>
+              <ChatbotTable chats={responses} flagmode={"edited"} />
             </TabsContent>
             <TabsContent value="all">
               <h2 id="all-tab-sentence">
                 View <b>all</b> responses from the chatbot.{" "}
               </h2>
-              <ChatbotTable sessions={responses} flagmode={false} />
+              <ChatbotTable chats={responses} flagmode={"all"} />
             </TabsContent>
           </Tabs>
         </div>

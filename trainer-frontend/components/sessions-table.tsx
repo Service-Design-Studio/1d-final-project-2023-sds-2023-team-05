@@ -1,23 +1,21 @@
 "use client"
 
-import React from "react"
 import { useRouter } from "next/navigation"
 
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
 
-interface SessionProps {
+export interface SessionProps {
   sessions: Session[]
 }
 
-interface Session {
+export interface Session {
   id: string
   classcode: string
   author: string
