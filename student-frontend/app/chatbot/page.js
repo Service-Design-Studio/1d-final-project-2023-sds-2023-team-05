@@ -183,7 +183,7 @@ function ChatBotPage() {
 			</div>
 	  
 			<div className={styles['user-input']}>
-			  {isProcessing && <div className={styles.processing}>Processing...</div>}
+			  {isProcessing ? <div className={styles.spinner}></div> : null}
 			  <textarea
 				ref={inputRef}
 				type='text'
