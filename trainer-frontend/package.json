@@ -5,6 +5,7 @@
   "scripts": {
     "test:cucumber": "npx cucumber-js",
     "dev": "next dev -p 3001",
+    "cypress": "cypress open --component --browser chrome",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
