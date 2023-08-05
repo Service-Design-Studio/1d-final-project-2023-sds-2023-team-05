@@ -24,17 +24,17 @@
 #         When I click create new session button 
 #         Then I will see Add Session pop up
 
-#     @TRAINER
-#     Scenario: Trainer creates a new session
-#         Given I am on the Add Session pop up
-#         When I input 'Lesson1' as title into the form
-#         Then I click the submit button 
+    @TRAINER
+    Scenario: Trainer creates a new session from Add Session pop up
+        Given I am on the Add Session pop up
+        When I input 'Lesson 1' as title into the form
+        Then I click the submit button 
 
-#     @TRAINER
-#     Scenario: Trainer sees the newly created session
-#         Given I am on the questions page
-#         When I click into the sessions page
-#         Then I will see the session 'Lesson1' in the sessions table
+    @TRAINER
+    Scenario: Trainer sees the newly created session from Add Session pop up
+        Given I am on the questions page
+        When I click into the sessions page
+        Then I will see the session 'Lesson 1' in the sessions table
 
 #     @TRAINER
 #     Scenario: Trainer fails to create a new session

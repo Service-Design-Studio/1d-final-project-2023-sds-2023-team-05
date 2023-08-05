@@ -35,18 +35,6 @@ export default async function FaqPage() {
           </div>
           <Tabs defaultValue="flagged">
             <TabsList>
-<<<<<<< HEAD
-              <TabsTrigger value="flagged" id="flaggedresponses">Flagged </TabsTrigger>
-              <TabsTrigger value="all" id="allresponses">All </TabsTrigger>
-            </TabsList>
-            <TabsContent value="flagged">
-              <h2>View <b>flagged</b> responses from the chatbot. </h2>
-              <ChatbotTable sessions={responses} flagmode={true} />
-            </TabsContent>
-            <TabsContent value="all">
-              <h2>View <b>all</b> responses from the chatbot. </h2>
-              <ChatbotTable sessions={responses} flagmode={false} />
-=======
               <TabsTrigger value="flagged" id="flaggedresponses">
                 Flagged{" "}
               </TabsTrigger>
@@ -74,7 +62,6 @@ export default async function FaqPage() {
                 View <b>all</b> responses from the chatbot.{" "}
               </h2>
               <ChatbotTable chats={responses} flagmode={"all"} />
->>>>>>> f0dcb10e462b3a572f9355d7d3fa7b40f697a9e1
             </TabsContent>
           </Tabs>
         </div>
