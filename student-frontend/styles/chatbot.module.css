@@ -137,6 +137,7 @@
 
 .user-input textarea{
   flex-grow: 1;
+  height: 50px;
   min-height: 50px;
   max-height: 200px;
   padding-top: 8px;
