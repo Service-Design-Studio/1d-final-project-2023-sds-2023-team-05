@@ -71,9 +71,6 @@ export default function SessionCode({ idAndClassCode }) {
 
 			<div className={styles.loginContainer}>
 				<div className={styles.title}>
-					<span className={styles.titleLine1}>Kampung</span>
-					<br />
-					<span className={styles.titleLine2}>Klass</span>
 				</div>
 
 				<div className={styles.subtitle}>Enter your Klass code!</div>
