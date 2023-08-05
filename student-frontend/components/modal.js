@@ -47,18 +47,18 @@ function Modal({
     }
   }
 
-  const handleReasonClick = (reason) => {
-    setSelectedReason(reason);
-    if (reason !== 'Others') {
-      setOthersResponse('');
-    }
-  };
+	const handleReasonClick = (reason) => {
+		setSelectedReason(reason);
+		if (reason !== 'Others') {
+			setOthersResponse('');
+		}
+	};
 
-  const closeModal = () => {
-    setSelectedReason('');
-    setOthersResponse('');
-    onClose();
-  };
+	const closeModal = () => {
+		setSelectedReason('');
+		setOthersResponse('');
+		onClose();
+	};
 
   return (
     <>

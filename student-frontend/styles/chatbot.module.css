@@ -75,7 +75,7 @@
 
 .user .messageContent {
   background-color: #C14D54;
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   margin-right: -10px;
   /* Set text color for user messages */
@@ -181,8 +181,6 @@
   animation: spin 1s linear infinite;
 }
 
-
-
 /* Chat bot header */
 .header {
   position: sticky;
@@ -237,7 +235,7 @@
   height: 20px;
   background-size: contain;
   margin-left: 5px;
-  margin-top: 15px;
+  margin-top: auto;
   opacity: 0.8;
   background-repeat: no-repeat;
   opacity:50% ;
