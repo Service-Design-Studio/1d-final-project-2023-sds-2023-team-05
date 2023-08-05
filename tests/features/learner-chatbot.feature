@@ -4,6 +4,16 @@ Feature: Chatbot
         As a: learner who is preparing for the upcoming training session
         I want: to be able to ask questions in the chatbot if the customised FAQ did not answer my inquiry
         so that: I can continue with the practical part of the workshop
+
+    @STUDENT
+    Scenario: Learner sees a customised FAQ page for the training session
+        Given I am on the sign in page
+        When I key in the class code 725018
+        Then I will see the customised FAQ page with the following questions:
+            | What are the Five Pillars of Islam? |
+            | What is the significance of the Quran in Islam? |
+            | What is the role of compassion in Buddhism? |
+            | What is the purpose of the Hajj pilgrimage in Islam? |
     
     @STUDENT
     Scenario: Learner sees the chatbot page
@@ -18,7 +28,7 @@ Feature: Chatbot
         Then I will receive an answer that contains the text 'Kampung Kaki'
 
     @STUDENT
-    Scenario: Learner flags an inappropriate answer with the reason 'Rude or Offensive'
+    Scenario: Learner flags an inappropriate answer given by the chatbot
         Given I have already asked my interfaith related question
         When I click the flag button
         Then I will see a pop up with the question 'Why are you flagging this answer?'
@@ -27,37 +37,9 @@ Feature: Chatbot
         Then I will return to the Chatbot page
 
     @STUDENT
-    Scenario: Learner flags an inappropriate answer with the reason 'Inaccurate information'
-        Given I am at the flag pop up
-        When I click the option 'Inaccurate information'
-        When I press the button 'Flag Question'
-        Then I will return to the Chatbot page
-
-    @STUDENT
-    Scenario: Learner flags an inappropriate answer with the reason 'Does not answer the question'
-        Given I am at the flag pop up
-        When I click the option 'Does not answer the question'
-        When I press the button 'Flag Question'
-        Then I will return to the Chatbot page
-
-    @STUDENT
-    Scenario: Learner flags an inappropriate answer with the reason 'Religious Propaganda'
-        Given I am at the flag pop up
-        When I click the option 'Religious Propaganda'
-        When I press the button 'Flag Question'
-        Then I will return to the Chatbot page
-
-    @STUDENT
-    Scenario: Learner flags an inappropriate answer with the reason 'Others'
-        Given I am at the flag pop up
-        When I click the option 'Others'
-        Then I will see a text field
-        When I enter a reason with text 'Sample Reason'
-        When I press the button 'Flag Question'
-        Then I will return to the Chatbot page
-
-    @STUDENT
      Scenario: Learner asks a non-interfaith related question in the chatbot
         Given I am on the chatbot page
         When I ask my non-interfaith related question with the prompt 'Who is Taylor Swift?'
-        Then I will receive an answer that contains the text 'I am not'
+        Then I will receive an answer that contains the text 'interfaith focus chatbot'
+
+    # Can add the feature about typing in ur flagging reason

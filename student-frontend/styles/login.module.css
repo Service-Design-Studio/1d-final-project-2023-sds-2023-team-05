@@ -11,30 +11,29 @@
     height: 100vh;
     background-color:#EEE;
     width: 100%;
-}
-
-.loginContainer {
-    background-color: #EEE;
-    text-align: center;
+    background-image: url('../assets/login.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .title {
     color: #333333;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     font-size: 40px;
     margin-top: 20px;
+    margin-left: 175px;
     font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .subtitle {
-    color: rgb(195, 87, 87);
+    color: #a4a4a4;
     font-size: 20px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 60px;
     font-family: 'Roboto', sans-serif;
 
 }
