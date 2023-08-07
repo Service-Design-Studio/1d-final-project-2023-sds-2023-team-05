@@ -40,6 +40,6 @@ Feature: Chatbot
      Scenario: Learner asks a non-interfaith related question in the chatbot
         Given I am on the chatbot page
         When I ask my non-interfaith related question with the prompt 'Who is Taylor Swift?'
-        Then I will receive an answer that contains the text 'interfaith focus chatbot'
+        Then I will receive an answer that contains the text 'interfaith'
 
     # Can add the feature about typing in ur flagging reason

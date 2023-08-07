@@ -72,6 +72,7 @@ function Stoopidtable({ classCode }) {
         onChange={handleSearchChange}
         placeholder="Search"
         className={styles.searchInput}
+        id="search-bar"
       />
       <div className={styles.tag_holder}>
         <button
@@ -114,7 +115,9 @@ function Stoopidtable({ classCode }) {
             {filteredData.map((row, index) => (
               <React.Fragment key={index}>
                 <tr
-                  className={activeRow === index ? styles.active : ''}
+                  className={
+                    activeRow === index ? styles.active : '' + ' question'
+                  }
                   onClick={() => handleRowClick(index)}
                 >
                   <td className={styles.table_maincell}>
@@ -131,7 +134,9 @@ function Stoopidtable({ classCode }) {
                 {activeRow === index && (
                   <tr>
                     <td colSpan={theadData.length}>
-                      <div className={styles.table_answer}>{row.answer}</div>
+                      <div className={styles.table_answer + ' table_answer'}>
+                        {row.answer}
+                      </div>
                     </td>
                   </tr>
                 )}
