@@ -31,7 +31,7 @@ Feature: Trainer Creating Sessions
         When I click into the sessions page
         Then I will see the session 'Lesson 1' in the sessions table
 
-    @TRAINER
+    @TESTING
     Scenario: Trainer fails to create a new session
         Given I am on the Add Session pop up
         When I click the submit button
