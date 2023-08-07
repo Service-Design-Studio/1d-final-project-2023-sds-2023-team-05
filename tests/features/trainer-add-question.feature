@@ -20,14 +20,14 @@
 #         When I click the Add Question button
 #         Then I see the Add Question pop up
 
-#     @TRAINER
-#     Scenario: Trainer adds a question and answer
-#         Given I see the Add Question pop up
-#         When I enter the question with text 'SX Testing Question'
-#         When I choose the tag with text 'Buddhism'
-#         When I enter the answer with text 'SX Testing Answer'
-#         When I click the 'Submit' button
-#         Then I will be on the question page
+    # @TRAINER
+    # Scenario: Trainer adds a question and answer
+    #     Given I am at the Add Question pop up
+    #     When I enter the question with text 'SX Testing Question'
+    #     When I choose the tag with text 'Buddhism'
+    #     When I enter the answer with text 'SX Testing Answer'
+    #     When I click the 'Submit' button
+    #     Then I will be on the question page
 
 #     @TRAINER
 #     Scenario: Trainer sees the newly created question and answer
