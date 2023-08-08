@@ -53,7 +53,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: auto;
-  margin-bottom: -3px;
   margin-left: -15px;
 }
 
@@ -65,51 +64,27 @@
 }
 
 .messageContent {
-  position: relative;
   display: inline-block;
   padding: 0.8rem;
   border-radius: 1rem;
   font-family: 'Roboto', sans-serif;
   max-width: 230px;
-  font-size: 15px;
-  filter: drop-shadow(2px 3px 2px rgba(53, 53, 53, 0.25));
+  font-size: 16px;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .user .messageContent {
   background-color: #C14D54;
-  text-align: left;
+  text-align: center;
   color: #ffffff;
   margin-right: -10px;
   /* Set text color for user messages */
 }
 
-.user .messageContent::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  right: -3px;
-  border-width: 0 18px 18px 0;
-  border-style: solid;
-  border-color: transparent transparent #C14D54 transparent;
-}
-
-
 .bot .messageContent {
   background-color: #ffffff;
   color: #333333;
   /* Set text color for bot messages */
-}
-
-.bot .messageContent::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: -3px;
-  border-width: 0 0 18px 18px;
-  border-style: solid;
-  border-color: transparent transparent #ffffff transparent;
-  /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25); */
-  /* z-index: -1; */
 }
 
 .user .avatar {
@@ -145,21 +120,27 @@
   background-color: #EEE;
   font-family: 'Roboto', sans-serif;
   padding: 26px 16px;
+  /* Adjust padding for a more balanced look */
   text-align: center;
   align-items: center;
+  /* Use a fixed value for border radius */
   font-size: 16px;
+  /* Use a fixed font size suitable for mobile */
   position: fixed;
+  /* Make it fixed for mobile */
   bottom: 0;
+  /* Stick it to the bottom */
   z-index: 1;
+  /* Ensure it's above the messages */
   left: 0;
 }
 
 .user-input textarea{
   flex-grow: 1;
-  height:50px;
+  height: 50px;
   min-height: 50px;
   max-height: 200px;
-  padding-top: 10px;
+  padding-top: 8px;
   padding-left: 18px;
   padding-right:18px;
   margin-right: 10px;
@@ -178,7 +159,7 @@
   margin-right:0px;
   border: none;
   border-radius: 20px;
-  background-color: #ef636c;
+  background-color: #C14D54;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   color: #EEE;
   font-size: 20px;
@@ -186,7 +167,6 @@
   cursor: pointer;
   font-family: 'Averia Serif Libre', sans-serif;
 }
-
 
 @keyframes spin {
   0% { transform: rotate(0deg); }

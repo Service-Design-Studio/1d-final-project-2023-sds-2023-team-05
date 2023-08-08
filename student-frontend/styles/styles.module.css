@@ -1,7 +1,7 @@
 @font-face {
 
-  font-family: 'Averia Serif Libre';
-  src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
 }
 
 .mainbody {
@@ -66,7 +66,7 @@
   padding-bottom: 2%;
   padding-left: 7%;
   padding-right:7%;
-  font-family: 'Averia Serif Libre', sans-serif;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   font-size: min(4vw, 25px);
   color: rgb(72, 72, 72);
@@ -83,16 +83,14 @@
   padding-top: 3%;
   padding-bottom: 3%;
   text-align: left;
-  border-radius: 4.5vw;
+  border-radius: 6vw;
   font-size: min(4vw, 100);
   margin-bottom: 3.5vh;
   margin-top: 2vh;
-  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .searchInput::placeholder {
   color:rgba(0, 0, 0, 0.25);
-  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .active {
@@ -130,7 +128,7 @@
     padding-right: 7%;
     padding-top: 3vw;
     padding-bottom: 3vw;
-    font-family: 'Averia Serif Libre', sans-serif;
+    
   }
 
   .table_maincell {
@@ -141,8 +139,8 @@
     border-bottom: 0.3vw solid #E2E2E2; width: 95%;
     margin:auto ;
     padding-bottom: 6vw;
-    padding-top: 4.5W;
-    font-family: 'Averia Serif Libre', sans-serif;
+    padding-top: 4.5vw;
+    font-family: 'Roboto', sans-serif;
   }
 }
 
@@ -168,13 +166,13 @@
   font-size: min(4vw, 20px);
   font-weight: bold;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
-  font-family: 'Averia Serif Libre', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .active_tag {
   background-color: #C14D54;
   color: white;
-  font-family: 'Averia Serif Libre', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .emptyMessage {
