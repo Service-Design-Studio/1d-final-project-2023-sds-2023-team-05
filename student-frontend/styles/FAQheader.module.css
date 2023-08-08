@@ -1,18 +1,20 @@
 @font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
   font-family: 'Averia Serif Libre';
   src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
 }
 
 .header {
-  width: 96vw;
+  width: 90%;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  padding-top: 5%;
+  padding-bottom: 3.5%;
   background-color: #EEE
 }
 
@@ -21,7 +23,7 @@
   width: 38px;
   height: 38px;
   background-size: contain;
-  margin-left: 5px;
+  margin-left: 0px;
   margin-bottom: 0px;
   opacity: 0.8;
   background-repeat: no-repeat
