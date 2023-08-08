@@ -17,6 +17,23 @@ Given('I am on the questions page', async function () {
   assert.strictEqual(pageTitle, 'FAQs');
 });
 
+Given('I am on the {string} page', async function (string) {
+  const currentURL = await driver.getCurrentUrl();
+  const baseUrl = currentURL.split('/').slice(0, 3).join('/');
+  await driver.get(`${baseUrl}/${string.toLowerCase()}`);
+  await driver.sleep(500);
+  const bodyText = await driver.findElement(By.tagName('body')).getText();
+  if (string === 'Sessions') {
+    expect(bodyText).to.contain('Sessions');
+  }
+});
+
+When("I click 'Create New Session' button", async function () {
+  await driver.sleep(500);
+  const button = await driver.findElement(By.id('create-new-session-button'));
+  await button.click();
+});
+
 Then(
   'I will see the customised FAQ page with the following first five questions:',
   function (dataTable) {
@@ -36,45 +53,76 @@ When(
 );
 
 Then('I will see a create new session button', async function () {
-  return true;
+  const button = await driver.findElement(By.id('create-new-session-button'));
+  expect(button).to.exist;
 });
 
 When('I click create new session button', async function () {
-  return true;
+  const button = await driver.findElement(By.id('create-new-session-button'));
+  await button.click();
 });
 
 Then('I will see Add Session pop up', async function () {
-  return true;
+  await driver.sleep(500);
+  const dialog = await driver.findElement(By.id('new-session-dialog'));
+  // check that it exists
+  assert.exists(dialog);
 });
 
 ///// Trainer creates a new session
 Given('I am on the Add Session pop up', async function () {
-  return true;
+  const dialog = await driver.findElement(By.id('new-session-dialog'));
+  // check that it exists
+  assert.exists(dialog);
 });
 
 When(/^I input '(.*)' as title into the form/, async function (sessionTitle) {
-  return true;
+  const titleInput = await driver.findElement(By.id('add-session-title'));
+  await titleInput.sendKeys(sessionTitle);
 });
 
 Then('I click the submit button', async function () {
-  return true;
+  await driver.sleep(500);
+  const submitButton = await driver.findElement(
+    By.id('add-session-submit-button')
+  );
+  await submitButton.click();
 });
 
 ///// Trainer sees the newly created session
 When('I click into the sessions page', async function () {
-  return true;
+  const currentURL = await driver.getCurrentUrl();
+  const baseUrl = currentURL.split('/').slice(0, 3).join('/');
+  await driver.get(`${baseUrl}/sessions`);
+  await driver.sleep(500);
 });
 
 Then(
   /^I will see the session '(.*)' in the sessions table/,
   async function (sessionTitle) {
-    return true;
+    const bodyText = await driver.findElement(By.tagName('body')).getText();
+    expect(bodyText).to.contain(sessionTitle);
   }
 );
 
+Then('I am on {string} session page', async function (string) {
+  const bodyText = await driver.findElement(By.tagName('body')).getText();
+  expect(bodyText).to.contain(string);
+});
+
 ///// Trainer fails to create a new session
-Then("I should expect an alert with text 'Input Title!'", async function () {
-  return true;
+Then('I should expect an alert with text {string}', async function (string) {
+  await driver.sleep(1000);
+  // Store the alert in a variable
+  let alert = await driver.switchTo().alert();
+
+  //Store the alert text in a variable
+  let alertText = await alert.getText();
+
+  expect(alertText).to.contain(string);
+
+  //Press the OK button
+  await alert.accept();
 });
 
 // // Working Code (Archived First)

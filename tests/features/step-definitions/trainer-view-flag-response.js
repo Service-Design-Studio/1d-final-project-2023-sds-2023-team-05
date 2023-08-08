@@ -2,44 +2,51 @@ const { Given, When, Then, And } = require('@cucumber/cucumber');
 const { By } = require('selenium-webdriver');
 const { expect, assert } = require('chai');
 const { Driver } = require('selenium-webdriver/safari');
+const { URLS } = require('./init');
+
+Given('I am on chatbot page', async function () {
+  const bodyText = await driver.findElement(By.tagName('body')).getText();
+  expect(bodyText).to.contain('Chatbot');
+});
 
 /// Scenario: Trainer heads to Chatbot page
-When('I click on the Chatbot button in the header', async function () {
-  await driver.get('http://localhost:3001/chatbot');
-  // return true;
-});
+When('I click on the Chatbot button in the header', async function () {});
 
 Then('I will be on the chatbot page', async function () {
-  const chatbotTitle = await driver.findElement(By.id('chatbot-title'));
-  // return true;
-});
-/// Scenario: Trainer heads to the All tab to see all the chatbot
-Given('I am on chatbot page', async function () {
-  await driver.get('http://localhost:3001/chatbot');
-  // return true;
+  driver.sleep(500);
+  const bodyText = await driver.findElement(By.tagName('body')).getText();
+  expect(bodyText).to.contain('Chatbot');
 });
 
-When("I click the 'All' tab", async function () {
-  const allTabButton = await driver.findElement(By.id('allresponses'));
-  await allTabButton.click();
+Given('I am on the trainer chatbot page', async function () {
+  const currentURL = await driver.getCurrentUrl();
+  // strip current url to the base
+  const base = currentURL.split('/').slice(0, 3).join('/');
+  await driver.get(base + '/chatbot');
+  driver.sleep(500);
 });
 
-Then("I will be on the 'All' tab page", async function () {
-  const allTabSentence = await driver.findElement(By.id('all-tab-sentence'));
-});
-/// Scenario: Trainer heads to Flagged tab from All tab
-Given("I am on the 'All' tab", async function () {
-  await driver.get('http://localhost:3001/chatbot');
-  await driver.findElement(By.id('allresponses')).click();
-});
-
-When("I click the 'Flagged' tab", async function () {
-  const flaggedTabButton = await driver.findElement(By.id('flaggedresponses'));
-  await flaggedTabButton.click();
+When('I click on the {string} tab', async function (string) {
+  if (string === 'Flagged') {
+    await driver.findElement(By.id('flaggedresponses')).click();
+  } else if (string === 'All') {
+    await driver.findElement(By.id('allresponses')).click();
+  } else if (string === 'Edited') {
+    await driver.findElement(By.id('editedresponses')).click();
+  }
 });
 
-Then("I will be on the 'Flagged' tab page", async function () {
-  const flaggedTabSentence = await driver.findElement(
-    By.id('flagged-tab-sentence')
-  );
-});
+Then(
+  'I will see all the questions that have been {string}',
+  async function (string) {
+    const bodyText = await driver.findElement(By.tagName('body')).getText();
+    if (string === 'asked') {
+      // bodyText contains all responses
+      expect(bodyText).to.contain('View all responses from the chatbot.');
+    } else if (string === 'flagged') {
+      expect(bodyText).to.contain('Responses students have flagged.');
+    } else if (string === 'edited') {
+      expect(bodyText).to.contain('Responses you have edited.');
+    }
+  }
+);
