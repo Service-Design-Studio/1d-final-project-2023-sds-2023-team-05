@@ -45,27 +45,16 @@ function ChatbotTable({ chats, flagmode }: ChatProps) {
     }
   })
 
-  return (
-    <div>
+  function FlaggedTable() {
+    return (
       <Table id="chatbot-table">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[200px]">Question</TableHead>
             <TableHead className="w-[600px]">Answer</TableHead>
-            {flagmode != "all" && (
-              <TableHead className="w-[200px]">Flagged Reason</TableHead>
-            )}
-            {flagmode == "edited" && (
-              <TableHead className="w-[200px]">Edited Response</TableHead>
-            )}
-            {flagmode != "all" && <TableHead className="w-[50px]"></TableHead>}
-            {flagmode == "flagged" && (
-              <TableHead className="w-[50px]"></TableHead>
-            )}
-
-            {flagmode == "all" && (
-              <TableHead className="w-[200px]">Flagged</TableHead>
-            )}
+            <TableHead className="w-[200px]">Flagged Reason</TableHead>
+            <TableHead className="w-[50px]"></TableHead>
+            <TableHead className="w-[50px]"></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -75,44 +64,94 @@ function ChatbotTable({ chats, flagmode }: ChatProps) {
                 {chat.question}
               </TableCell>
               <TableCell className="sessionTitle">{chat.answer}</TableCell>
-              {(flagmode == "edited" || flagmode == "flagged") && (
-                <>
-                  <TableCell>
-                    {chat.comment ? chat.comment : chat.reason}
-                    {chat.learner && (
-                      <>
-                        <span className="font-light italic">
-                          {" "}
-                          ({chat.learner})
-                        </span>
-                      </>
-                    )}
-                  </TableCell>
-                  {flagmode == "edited" && (
-                    <TableCell>{chat.trained_response}</TableCell>
-                  )}
-                  <TableCell>
-                    <EditChatbotResponse {...chat} />
-                  </TableCell>
-                  {flagmode == "flagged" && (
-                    <>
-                      <TableCell className="w-10">
-                        <RemoveFlag id={chat.id} />
-                      </TableCell>
-                    </>
-                  )}
-                </>
-              )}
-
-              {flagmode == "all" && (
-                <TableCell>
-                  {chat.flagged ? "Flagged" : "Not Flagged"}
-                </TableCell>
-              )}
+              <TableCell>
+                {chat.comment ? chat.comment : chat.reason}
+                {chat.learner && (
+                  <>
+                    <span className="font-light italic"> ({chat.learner})</span>
+                  </>
+                )}
+              </TableCell>
+              <TableCell>{chat.trained_response}</TableCell>
+              <TableCell>
+                <EditChatbotResponse {...chat} />
+              </TableCell>
+              <TableCell className="w-10">
+                <RemoveFlag id={chat.id} />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+    )
+  }
+
+  function EditedTable() {
+    return (
+      <Table id="chatbot-table">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[200px]">Question</TableHead>
+            <TableHead className="w-[600px]">Answer</TableHead>
+            <TableHead className="w-[200px]">Flagged Reason</TableHead>
+            <TableHead className="w-[200px]">Edited Response</TableHead>
+            <TableHead className="w-[50px]"></TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {filteredQuestions.map((chat) => (
+            <TableRow>
+              <TableCell className="font-medium sessionClasscodes">
+                {chat.question}
+              </TableCell>
+              <TableCell className="sessionTitle">{chat.answer}</TableCell>
+              <TableCell>
+                {chat.comment ? chat.comment : chat.reason}
+                {chat.learner && (
+                  <span className="font-light italic"> ({chat.learner})</span>
+                )}
+              </TableCell>
+              <TableCell>{chat.trained_response}</TableCell>
+              <TableCell>
+                <EditChatbotResponse {...chat} />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    )
+  }
+
+  function AllTable() {
+    return (
+      <Table id="chatbot-table">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[200px]">Question</TableHead>
+            <TableHead className="w-[600px]">Answer</TableHead>
+            <TableHead className="w-[200px]">Flagged</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {filteredQuestions.map((chat) => (
+            <TableRow>
+              <TableCell className="font-medium sessionClasscodes">
+                {chat.question}
+              </TableCell>
+              <TableCell className="sessionTitle">{chat.answer}</TableCell>
+              <TableCell>{chat.flagged ? "Flagged" : "Not Flagged"}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    )
+  }
+
+  return (
+    <div>
+      {flagmode == "flagged" && <FlaggedTable />}
+      {flagmode == "edited" && <EditedTable />}
+      {flagmode == "all" && <AllTable />}
     </div>
   )
 }

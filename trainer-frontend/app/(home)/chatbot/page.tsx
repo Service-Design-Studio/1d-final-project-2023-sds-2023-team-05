@@ -1,8 +1,6 @@
 import { API_PROD_URL } from "@/config/site"
-import ChatbotTable from "@/components/chatbot-table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-
+import ChatbotTable from "@/components/chatbot-table"
 
 interface Response {
   id: string
@@ -59,7 +57,7 @@ export default async function FaqPage() {
             </TabsContent>
             <TabsContent value="all">
               <h2 id="all-tab-sentence">
-                View <b>all</b> responses from the chatbot.{" "}
+                View <b>all</b> responses from the chatbot.
               </h2>
               <ChatbotTable chats={responses} flagmode={"all"} />
             </TabsContent>
