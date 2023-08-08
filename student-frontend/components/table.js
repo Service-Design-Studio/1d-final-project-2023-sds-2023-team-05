@@ -12,17 +12,11 @@ async function getTasks(ClassCode) {
   return data.faqs;
 }
 
-function mapClassCodeToId(classCode) {
-  const lastDigit = classCode.slice(-1);
-  return lastDigit;
-}
-
 function Stoopidtable({ classCode }) {
   const [theadData, setTheadData] = useState([]);
   const [tbodyData, setTbodyData] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [activeTag, setActiveTag] = useState('all'); // Default active tag is "all"
-  const ClassCode = mapClassCodeToId(classCode);
   const [activeRow, setActiveRow] = useState(null);
   const [activeMainCell, setActiveMainCell] = useState(null);
 
@@ -38,7 +32,7 @@ function Stoopidtable({ classCode }) {
   };
 
   useEffect(() => {
-    getTasks(ClassCode).then((faqs) => {
+    getTasks(classCode).then((faqs) => {
       const tableHeadings = Object.keys(faqs[0]);
       setTheadData(tableHeadings);
       setTbodyData(faqs);
