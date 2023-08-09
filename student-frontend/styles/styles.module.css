@@ -43,11 +43,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  font-size: 20px;
+  font-size: 4vw;
   padding-top: 2vh;
   padding-bottom: 2vh;
   font-family: 'Roboto', sans-serif;
-  font-weight: bolder;
   color: #333333;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .table_text {
-  font-size: min(1, 25px);
+  font-size: min(4vw, 25px);
   width: 75%;
 }
 
@@ -67,40 +66,32 @@
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 7%;
-  padding-right: 7%;
+  padding-right:7%;
   width: 100%;
-  font-size: 20px;
+  font-size: min(4vw, 25px);
   color: rgb(72, 72, 72);
   background-color: #e7e7e7;
 }
 
 .searchInput {
-  width: 94%;
-  font-size: clamp(16px, 4vw, 25px);
+  width: 92%;
   color: rgb(30, 30, 30);
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 4px 4px 0px rgba(89, 89, 89, 0.25);
-  padding-left: min(35px, 5vw);
+  padding-left: 5%;
   padding-right: 43%;
-  padding-top: min(25px, 3vw);
-  padding-bottom: min(25px, 2.7vw);
+  padding-top: 3%;
+  padding-bottom: 3%;
   text-align: left;
   border-radius: 6vw;
-  margin-bottom: 8%;
-  margin-top: 20px;
-  border-width: 0px;
-  max-height: 60px;
+  font-size: min(4vw, 100);
+  margin-bottom: 10%;
+  margin-top: 5%;
+  border-width:1px;
 }
 
 .searchInput::placeholder {
-  color: rgba(0, 0, 0, 0.25);
-  font-size: clamp(16px, 4.5vw, 25px);
-  background-size: 25px;
-  background-image: url('/assets/search.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-left: min(50px, 7.5vw);
-
+  color:rgba(0, 0, 0, 0.25);
 }
 
 .active {
@@ -129,12 +120,11 @@
   float: right;
   margin-top: auto;
   margin-bottom: auto;
-  margin-right: -10px;
 }
 
 @media (max-width: 767px) {
   .table_answer {
-    font-size: 3.5vw;
+    font-size: 4vw;
     padding-left: 9%;
     padding-right: 7%;
     padding-top: 3vw;
@@ -147,14 +137,12 @@
     flex-direction: row;
     justify-content: space-evenly;
     font-size: 4vw;
-    border-bottom: 0.3vw solid #E2E2E2;
-    width: 100%;
-    margin: auto;
-    padding-bottom: 5vw;
-    padding-top: 8vw;
+    border-bottom: 0.3vw solid #E2E2E2; width: 100%;
+    margin:auto ;
+    padding-bottom: 7vw;
+    padding-top: 7vw;
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    color: #3b3b3b;
+    color: #333333;
   }
 }
 
@@ -167,27 +155,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
 }
 
 .tag {
   display: inline-block;
-  padding: 8px 14px;
-  background-color: #D9D9D9;
-  color: #5c5c5c;
+  padding: 5px 14px;
+  background-color: #D9D9D9 ;
+  color: #333;
   cursor: pointer;
   border-radius: 4vw;
-  font-size: min(3.5vw, 20px);
+  font-size: min(4vw, 20px);
   font-weight: bold;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
-  /* font-family: 'Averia Serif Libre', sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .active_tag {
   background-color: #C14D54;
   color: white;
-  /* font-family: 'Averia Serif Libre', sans-serif; */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .emptyMessage {

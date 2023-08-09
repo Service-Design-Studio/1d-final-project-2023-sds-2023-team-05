@@ -33,8 +33,7 @@
   font-weight: 500;
   word-break: break-word;
   padding-bottom: 3vw;
-  position: relative;
-  /* Add this line to enable positioning */
+  position: relative; /* Add this line to enable positioning */
 }
 
 .user {
@@ -46,20 +45,17 @@
 }
 
 .bot .avatar {
-  display: none;
-  /* width: 50px;
+  width: 50px;
   height: 50px;
   min-width: 50px;
   border-radius: 50%;
   margin-right: 10px;
-  background-image: url('../assets/notgif.png');
+  background-image: url('../assets/Icon6.jpg');
   background-size: contain;
-  background-size: 120%;
-  background-position: center;
   background-repeat: no-repeat;
   margin-top: auto;
   margin-bottom: -3px;
-  margin-left: -15px; */
+  margin-left: -15px;
 }
 
 .botName {
@@ -102,7 +98,6 @@
 .bot .messageContent {
   background-color: #ffffff;
   color: #333333;
-  left: -10px;
   /* Set text color for bot messages */
 }
 
@@ -143,7 +138,7 @@
 /* User input */
 .user-input {
   display: flex;
-  margin-top: 10px;
+  margin-top: 16px;
   margin-left: 0px;
   border: 0vw solid #d1a8a8;
   width: 100%;
@@ -160,55 +155,43 @@
   left: 0;
 }
 
-.user-input textarea {
+.user-input textarea{
   flex-grow: 1;
-  height: 50px;
+  height:50px;
   min-height: 50px;
   max-height: 200px;
   padding-top: 10px;
   padding-left: 18px;
-  padding-right: 18px;
+  padding-right:18px;
   margin-right: 10px;
-  border-radius: 20px;
+  border-radius: 35px;
   font-size: 18px;
-  text-align: left;
-  border: 0.3vw solid rgb(230, 230, 230);
+  text-align:left;
+  border: 0.5vw solid rgb(230, 230, 230);
   background-color: #ffffff;
   resize: vertical;
 }
 
 .user-input button {
   height: 50px;
-  width: 50px;
   padding: 0 16px;
   margin-left: auto;
-  margin-right: 2px;
+  margin-right:0px;
   border: none;
   border-radius: 20px;
+  background-color: #ef636c;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
-  background-color: #df5c64;
-  color: transparent;
+  color: #EEE;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  background-image: url('/assets/send1.png');
-  background-size: contain;
-  background-size: 60%;
-  background-position: center;
-  background-position-x: 12px;
-  background-repeat: no-repeat;
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .spinner {
@@ -225,69 +208,46 @@
   position: sticky;
   z-index: 10;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #EEE;
-  padding-top: 25px;
-  padding-bottom: 50px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .backButton {
   background-image: url("../assets/back2.png");
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   background-size: contain;
-  margin-left: 10px;
-  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 0px;
   opacity: 0.8;
   background-repeat: no-repeat
 }
 
-.iconAndText {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .headerText {
-  font-size: 20px;
-  color: rgb(128, 128, 128);
-  margin-top: 150px;
-  justify-content: center;
-  flex-grow: 1;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+  font-size: 35px;
+  color:#555555;
+  margin: 0;
   display: flex;
   align-items: center;
-  /* Vertical center alignment */
-  margin-right: auto;
-  /* Pushes the icon to the center */
-  margin-left: auto;
-  margin-bottom: 20px;
-  margin-left: -5px;
+  /* Align the text vertically within the header */
+  justify-content: center;
+  /* Center the text horizontally within the header */
+  flex-grow: 1;
+  /* Allow the text to grow and occupy remaining space */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
 
 .placeholderIcon {
+  font-size: min(10vw, 75px);
+  padding-right: 6vw;
+  background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-image: url('/assets/gif.gif');
-  background-size: contain;
-  background-size: 120%;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: -75px;
-  margin-bottom: 1px;
-  display: flex;
-  align-items: center;
-  /* Vertical center alignment */
-  margin-right: auto;
-  /* Pushes the icon to the center */
-  margin-left: auto;
-  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   /* Add your icon styles here */
 }
 
@@ -296,11 +256,11 @@
   width: 20px;
   height: 20px;
   background-size: contain;
-  margin-left: 0px;
+  margin-left: 5px;
   margin-top: auto;
   opacity: 0.8;
   background-repeat: no-repeat;
-  opacity: 50%;
+  opacity:50% ;
 }
 
 .flaggingIconFlagged {
@@ -308,7 +268,7 @@
   width: 20px;
   height: 20px;
   background-size: contain;
-  margin-left: px;
+  margin-left: 5px;
   margin-top: 15px;
   opacity: 0.8;
   background-repeat: no-repeat;
