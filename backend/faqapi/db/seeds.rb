@@ -125,7 +125,7 @@ chats = [
   {
     "question": "Who is considered the founder of Buddhism?",
     "answer": "Siddhartha Gautama, also known as Buddha, is considered the founder of Buddhism.",
-    "flagged": false
+    "flagged": true
   },
   {
     "question": "What are the Five Pillars of Islam?",

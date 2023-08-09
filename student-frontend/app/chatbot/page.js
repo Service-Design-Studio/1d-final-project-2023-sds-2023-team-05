@@ -10,7 +10,6 @@ async function fetchBotResponse(question) {
 	const res = await fetch(`${CHATBOT_URL}/chatbot/query`, {
 		body: JSON.stringify({
 			question: question,
-			// session_id: '123456789',
 			session_id: Date.now(),
 		}),
 		headers: {
@@ -26,7 +25,6 @@ async function fetchBotResponse(question) {
 	const data = await res.json();
 
 	return data.ai_response;
-	// return ('Dummy Response!')
 }
 
 async function sendChatToBackend(question, answer, id) {
@@ -54,6 +52,7 @@ function ChatBotPage() {
 	const [isModalOpen2, setIsModalOpen2] = useState(false);
 	const [messageId, setMessageId] = useState('');
 	const [flaggedQuestions, setFlaggedQuestions] = useState([]);
+	const inputRef = useRef(null);
 
 	const handleOpenModal = (id) => {
 		setIsModalOpen(true);
@@ -77,15 +76,21 @@ function ChatBotPage() {
 		}
 	};
 
+	const [isProcessing, setIsProcessing] = useState(false);
+
+	useEffect(() => {
+		if (!isProcessing) {
+			inputRef.current.focus();
+		}
+	}, [isProcessing]);
+
 	const chatContainerRef = useRef(null);
 
-	// Scroll to the bottom of the chat container when new messages are received
 	useEffect(() => {
 		chatContainerRef.current.scrollIntoView({ behavior: 'smooth' });
 	}, [messages]);
 
 	useEffect(() => {
-		// Simulate delay for the first default message
 		const initialMessage = {
 			content: 'Ask me anything!',
 			sender: 'bot',
@@ -117,19 +122,12 @@ function ChatBotPage() {
 				sender: 'user',
 			};
 
-			// yy add here
 			setMessages((prevMessages) => [...prevMessages, newMessage]);
 			setInputValue('');
-			//
+			setIsProcessing(true);
 
 			const content = await fetchBotResponse(inputValue.trim());
-
-			// Send the message to the server or process it locally
-			// You can simulate a response from the chat bot for testing purposes
-			//   const botResponse = {
-			//     content: 'This is a bot response.',
-			//     sender: 'bot',
-			//   };
+			setIsProcessing(false);
 
 			const id = Date.now();
 
@@ -140,11 +138,9 @@ function ChatBotPage() {
 			};
 
 			setMessages((prevMessages) => [...prevMessages, botResponse]);
-			setInputValue('')
-
-			// generate id to send into backend
-			// const id = Date.now()
+			setInputValue('');
 			sendChatToBackend(inputValue.trim(), content, id);
+			inputRef.current.focus();
 		}
 	};
 
@@ -183,11 +179,13 @@ function ChatBotPage() {
 							)}
 						</div>
 					))}
-					<div ref={chatContainerRef}	></div>
+					<div ref={chatContainerRef}></div>
 				</div>
 
 				<div className={styles['user-input']}>
+					{isProcessing ? <div className={styles.spinner}></div> : null}
 					<textarea
+						ref={inputRef}
 						type='text'
 						id='chatbot-prompt'
 						value={inputValue}
@@ -195,11 +193,14 @@ function ChatBotPage() {
 						placeholder='Type your message...'
 						className={styles.input}
 						onKeyDown={handleKeyDown}
+						disabled={isProcessing}
 					/>
 					<button
 						id='send-button'
 						onClick={handleSendMessage}
-						className={styles.button}>
+						className={styles.button}
+						disabled={isProcessing}
+					>
 						Send
 					</button>
 				</div>

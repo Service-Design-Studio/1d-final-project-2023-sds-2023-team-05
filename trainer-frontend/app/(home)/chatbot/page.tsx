@@ -28,12 +28,7 @@ export default async function FaqPage() {
         <div className="h-full flex-1 flex-col space-y-8 p-8 md:flex">
           <div className="flex items-center justify-between space-y-2">
             <div>
-              <h2
-                id="chatbot-title"
-                className="text-2xl font-bold tracking-tight"
-              >
-                Chatbot
-              </h2>
+              <h2 className="text-2xl font-bold tracking-tight">Chatbot</h2>
             </div>
           </div>
           <Tabs defaultValue="flagged">
@@ -62,7 +57,7 @@ export default async function FaqPage() {
             </TabsContent>
             <TabsContent value="all">
               <h2 id="all-tab-sentence">
-                View <b>all</b> responses from the chatbot.{" "}
+                View <b>all</b> responses from the chatbot.
               </h2>
               <ChatbotTable chats={responses} flagmode={"all"} />
             </TabsContent>

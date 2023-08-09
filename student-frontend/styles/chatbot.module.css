@@ -1,6 +1,7 @@
 /* Chat container */
 @font-face {
-
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
   font-family: 'Averia Serif Libre';
   src: url('../assets/fonts/AveriaSerifLibre-Regular.ttf') format('truetype');
 }
@@ -54,6 +55,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: auto;
+  margin-bottom: -3px;
   margin-left: -15px;
 }
 
@@ -65,13 +67,14 @@
 }
 
 .messageContent {
+  position: relative;
   display: inline-block;
   padding: 0.8rem;
   border-radius: 1rem;
   font-family: 'Roboto', sans-serif;
   max-width: 230px;
-  font-size: 16px;
-  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+  filter: drop-shadow(2px 3px 2px rgba(53, 53, 53, 0.25));
 }
 
 .user .messageContent {
@@ -80,12 +83,37 @@
   color: #ffffff;
   margin-right: -10px;
   /* Set text color for user messages */
+  font-family: 'Averia Serif Libre', sans-serif;
 }
+
+
+.user .messageContent::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  right: -3px;
+  border-width: 0 18px 18px 0;
+  border-style: solid;
+  border-color: transparent transparent #C14D54 transparent;
+}
+
 
 .bot .messageContent {
   background-color: #ffffff;
   color: #333333;
   /* Set text color for bot messages */
+}
+
+.bot .messageContent::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: -3px;
+  border-width: 0 0 18px 18px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent;
+  /* box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.25); */
+  /* z-index: -1; */
 }
 
 .user .avatar {
@@ -119,53 +147,68 @@
   width: 100%;
   color: #333333;
   background-color: #EEE;
-  font-family: 'Averia Serif Libre', sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 26px 16px;
-  /* Adjust padding for a more balanced look */
   text-align: center;
   align-items: center;
-  /* Use a fixed value for border radius */
   font-size: 16px;
-  /* Use a fixed font size suitable for mobile */
   position: fixed;
-  /* Make it fixed for mobile */
   bottom: 0;
-  /* Stick it to the bottom */
   z-index: 1;
-  /* Ensure it's above the messages */
   left: 0;
 }
 
 .user-input textarea {
   flex-grow: 1;
   height: 50px;
-  padding-top: 8px;
+  min-height: 50px;
+  max-height: 200px;
+  padding-top: 10px;
   padding-left: 18px;
+  padding-right: 18px;
   margin-right: 10px;
-  border: none;
   border-radius: 35px;
   font-size: 18px;
   text-align: left;
   border: 0.5vw solid rgb(230, 230, 230);
   background-color: #ffffff;
+  resize: vertical;
 }
 
 .user-input button {
   height: 50px;
   padding: 0 16px;
   margin-left: auto;
-  /* Adjust margin to auto */
   margin-right: 0px;
-  /* Adjust margin for a more balanced look */
   border: none;
   border-radius: 20px;
-  background-color: #C14D54;
+  background-color: #ef636c;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   color: #EEE;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   font-family: 'Averia Serif Libre', sans-serif;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
 }
 
 /* Chat bot header */
@@ -176,10 +219,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Center the content horizontally */
-  padding: 16px;
   background-color: #EEE;
-  color: #000000;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .backButton {
@@ -187,7 +229,7 @@
   width: 38px;
   height: 38px;
   background-size: contain;
-  margin-left: 5px;
+  margin-left: 20px;
   margin-bottom: 0px;
   opacity: 0.8;
   background-repeat: no-repeat
@@ -223,7 +265,7 @@
   height: 20px;
   background-size: contain;
   margin-left: 5px;
-  margin-top: 15px;
+  margin-top: auto;
   opacity: 0.8;
   background-repeat: no-repeat;
   opacity: 50%;

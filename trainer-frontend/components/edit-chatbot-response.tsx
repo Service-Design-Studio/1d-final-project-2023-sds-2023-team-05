@@ -53,13 +53,13 @@ export default function EditChatbotResponse(chat: Chat) {
         <Button
           variant="link"
           id="add-question-button"
-          className="text-blue-600"
+          className="text-blue-600 editButton"
           size={"icon"}
         >
           Edit
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[525px]" id="new-question-dialog">
+      <DialogContent className="sm:max-w-[525px]" id="edit-chatbot-dialog">
         <DialogHeader>
           <DialogTitle>Edit Chatbot Response</DialogTitle>
           <DialogDescription>
@@ -101,6 +101,7 @@ export default function EditChatbotResponse(chat: Chat) {
               placeholder="It is believed that..."
               className="col-span-3 h-60"
               onChange={(e) => setAnswer(e.target.value)}
+              id="answer-input"
             />
           </div>
         </div>

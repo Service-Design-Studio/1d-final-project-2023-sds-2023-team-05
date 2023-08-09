@@ -12,17 +12,11 @@ async function getTasks(ClassCode) {
   return data.faqs;
 }
 
-function mapClassCodeToId(classCode) {
-  const lastDigit = classCode.slice(-1);
-  return lastDigit;
-}
-
 function Stoopidtable({ classCode }) {
   const [theadData, setTheadData] = useState([]);
   const [tbodyData, setTbodyData] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [activeTag, setActiveTag] = useState('all'); // Default active tag is "all"
-  const ClassCode = mapClassCodeToId(classCode);
   const [activeRow, setActiveRow] = useState(null);
   const [activeMainCell, setActiveMainCell] = useState(null);
 
@@ -38,7 +32,7 @@ function Stoopidtable({ classCode }) {
   };
 
   useEffect(() => {
-    getTasks(ClassCode).then((faqs) => {
+    getTasks(classCode).then((faqs) => {
       const tableHeadings = Object.keys(faqs[0]);
       setTheadData(tableHeadings);
       setTbodyData(faqs);
@@ -71,8 +65,8 @@ function Stoopidtable({ classCode }) {
         value={searchText}
         onChange={handleSearchChange}
         placeholder="Search"
-        id="searchInput"
         className={styles.searchInput}
+        id="search-bar"
       />
       <div className={styles.tag_holder}>
         <button
@@ -115,7 +109,9 @@ function Stoopidtable({ classCode }) {
             {filteredData.map((row, index) => (
               <React.Fragment key={index}>
                 <tr
-                  className={activeRow === index ? styles.active : ''}
+                  className={
+                    activeRow === index ? styles.active : '' + ' question'
+                  }
                   onClick={() => handleRowClick(index)}
                 >
                   <td className={styles.table_maincell}>
@@ -132,7 +128,7 @@ function Stoopidtable({ classCode }) {
                 {activeRow === index && (
                   <tr>
                     <td colSpan={theadData.length}>
-                      <div className={styles.table_answer + ' answer'}>
+                      <div className={styles.table_answer + ' table_answer'}>
                         {row.answer}
                       </div>
                     </td>
@@ -143,7 +139,7 @@ function Stoopidtable({ classCode }) {
           </tbody>
         </table>
       ) : (
-        <div className={styles.emptyMessage + ' noQuestion'}>
+        <div className={styles.emptyMessage}>
           Don't have your question? Try our Chatbot!
         </div>
       )}
