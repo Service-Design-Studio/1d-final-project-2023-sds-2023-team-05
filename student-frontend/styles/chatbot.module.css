@@ -309,7 +309,7 @@
   height: 20px;
   background-size: contain;
   margin-left: px;
-  margin-top: 15px;
+  margin-top: auto;
   opacity: 0.8;
   background-repeat: no-repeat;
 }
