@@ -14,12 +14,16 @@ const FAQheader = () => {
 
 	return (
 		<div id='faq-header' className={styles.header}>
-			<button className={styles.backButton} onClick={handleBackButtonClick}></button>
-			<h1 className={styles.headerText}>FAQ</h1>
+			<div className={styles.backButton} onClick={handleBackButtonClick}></div>
+			<div className={styles.textContainer}>
+				<div className={styles.botText}>Don't have your question? Ask me!</div>
+				<div className={styles.headerText}>FAQs</div>
+			</div>
 			<div
 				id='chatbot-icon'
 				className={styles.chatbotIcon}
-				onClick={handleChatButtonClick}></div>
+				onClick={handleChatButtonClick}>
+			</div>
 		</div>
 	);
 };
