@@ -80,9 +80,9 @@ function ChatBotPage() {
 
 	useEffect(() => {
 		if (!isProcessing) {
-			inputRef.current.focus();
+		  inputRef.current.focus();
 		}
-	}, [isProcessing]);
+	  }, [isProcessing]);
 
 	const chatContainerRef = useRef(null);
 
@@ -146,82 +146,82 @@ function ChatBotPage() {
 
 	return (
 		<div>
-			<Chatbotheader />
-
-			<div className={styles['chat-container']}>
-				<div className={styles.messages}>
-					{messages.map((message, index) => (
-						<div
-							key={index}
-							className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
-								}`}>
-							{message.sender === 'bot' && (
-								<>
-									<div className={styles.avatar}></div>
-								</>
-							)}
-							<div className={`${styles.messageContent} promptAnswer`}>
-								{message.content}
-							</div>
-							{message.id && (
-								<>
-									<button
-										className={`${isMessageFlagged(message.id)
-											? styles.flaggingIconFlagged
-											: styles.flaggingIcon + ' flagButton'
-											}`}
-										onClick={
-											flaggedQuestions.includes(message.id)
-												? null
-												: () => handleOpenModal(message.id)
-										}></button>
-								</>
-							)}
-						</div>
-					))}
-					<div ref={chatContainerRef}></div>
+		  <Chatbotheader />
+	  
+		  <div className={styles['chat-container']}>
+			<div className={styles.messages}>
+			  {messages.map((message, index) => (
+				<div
+				  key={index}
+				  className={`${styles.message} ${styles[message.sender]} ${index === messages.length - 1 ? styles.fadeIn : ''
+					}`}>
+				  {message.sender === 'bot' && (
+					<>
+					  <div className={styles.avatar}></div>
+					</>
+				  )}
+				  <div className={`${styles.messageContent} promptAnswer`}>
+					{message.content}
+				  </div>
+				  {message.id && (
+					<>
+					  <button
+						className={`${isMessageFlagged(message.id)
+						  ? styles.flaggingIconFlagged
+						  : styles.flaggingIcon + ' flagButton'
+						  }`}
+						onClick={
+						  flaggedQuestions.includes(message.id)
+							? null
+							: () => handleOpenModal(message.id)
+						}></button>
+					</>
+				  )}
 				</div>
-
-				<div className={styles['user-input']}>
-					{isProcessing ? <div className={styles.spinner}></div> : null}
-					<textarea
-						ref={inputRef}
-						type='text'
-						id='chatbot-prompt'
-						value={inputValue}
-						onChange={handleInputChange}
-						placeholder='Type your message...'
-						className={styles.input}
-						onKeyDown={handleKeyDown}
-						disabled={isProcessing}
-					/>
-					<button
-						id='send-button'
-						onClick={handleSendMessage}
-						className={styles.button}
-						disabled={isProcessing}
-					>
-						Send
-					</button>
-				</div>
-				<Modal
-					isOpen={isModalOpen}
-					onClose={handleCloseModal}
-					messageId={messageId}
-					setIsModalOpen={setIsModalOpen}
-					API_URL={API_URL}
-					setFlaggedQuestions={setFlaggedQuestions}
-					setIsModalOpen2={setIsModalOpen2}
-				/>
-				<ThxModal
-					isOpen={isModalOpen2}
-					onClose={handleCloseModal2}
-					messageId={messageId}
-					setIsModalOpen={setIsModalOpen2}
-				/>
+			  ))}
+			  <div ref={chatContainerRef}></div>
 			</div>
+	  
+			<div className={styles['user-input']}>
+			  {isProcessing ? <div className={styles.spinner}></div> : null}
+			  <textarea
+				ref={inputRef}
+				type='text'
+				id='chatbot-prompt'
+				value={inputValue}
+				onChange={handleInputChange}
+				placeholder='Type your message...'
+				className={styles.input}
+				onKeyDown={handleKeyDown}
+				disabled={isProcessing}
+			  />
+			  <button
+				id='send-button'
+				onClick={handleSendMessage}
+				className={styles.button}
+				disabled={isProcessing}
+			  >
+				Send
+			  </button>
+			</div>
+			<Modal
+			  isOpen={isModalOpen}
+			  onClose={handleCloseModal}
+			  messageId={messageId}
+			  setIsModalOpen={setIsModalOpen}
+			  API_URL={API_URL}
+			  setFlaggedQuestions={setFlaggedQuestions}
+			  setIsModalOpen2={setIsModalOpen2}
+			/>
+			<ThxModal
+			  isOpen={isModalOpen2}
+			  onClose={handleCloseModal2}
+			  messageId={messageId}
+			  setIsModalOpen={setIsModalOpen2}
+			/>
+		  </div>
 		</div>
-	);
+	  );	  
 }
 
 export default ChatBotPage;

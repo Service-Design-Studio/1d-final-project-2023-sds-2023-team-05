@@ -6,14 +6,13 @@ const Chatbotheader = () => {
 
 	const handleBackButtonClick = () => {
 		window.history.back();
-	};
+	  };
 
 	return (
 		<div id='chatbot-header' className={styles.header}>
 			<button className={styles.backButton} onClick={handleBackButtonClick}></button>
-			<div className={styles.iconAndText}></div>
+			<h1 className={styles.headerText}>Chatbot</h1>
 			<div className={styles.placeholderIcon}>
-				<h1 className={styles.headerText}>TrainerBot</h1>
 			</div>
 		</div>
 	);
