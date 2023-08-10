@@ -6,13 +6,18 @@
 .mainbody {
   background-color: #EEE;
   background: #EEE;
+  border-radius: 30px;
 }
 
 .main_Component_styler {
   max-width: 700px;
-  width: 96vw;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  background-color: #EEE;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0px -3px 6px 0px rgba(78, 78, 78, 0.2);
 }
 
 .main_flex {
@@ -22,8 +27,14 @@
   flex-direction: column;
   text-align: center;
   color: rgb(30, 30, 30);
-  background-color: #EEE;
+  background-color: #E6747B;
   font-size: 1.3em;
+  background-image: url("../assets/faqheader.png");
+  background-size:cover;
+  background-size: 120%;
+  background-position: center;
+  background-position-y: -70px;
+  background-repeat: no-repeat;
 }
 
 /* CSS class for the FAQ header */
@@ -75,20 +86,22 @@
 }
 
 .searchInput {
-  width: 94%;
+  width: 90%;
   font-size: clamp(16px, 4vw, 25px);
-  color: rgb(30, 30, 30);
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 4px 4px 0px rgba(89, 89, 89, 0.25);
+  color: rgb(56, 56, 56);
+  background-color:#F6F6F6;
+  font-family: 'Roboto', sans-serif;
+  /* box-shadow: 0px 4px 4px 0px rgba(89, 89, 89, 0.25); */
   padding-left: min(35px, 5vw);
   padding-right: 43%;
   padding-top: min(25px, 3vw);
   padding-bottom: min(25px, 2.7vw);
   text-align: left;
   border-radius: 6vw;
+  border-color: rgba(0, 0, 0, 0.20);;
   margin-bottom: 8%;
   margin-top: 20px;
-  border-width: 0px;
+  border-width: 2px;
   max-height: 60px;
 }
 
@@ -168,6 +181,8 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin-bottom: 1vh;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .tag {
