@@ -268,8 +268,8 @@
   width: 20px;
   height: 20px;
   background-size: contain;
+  margin-top: auto;
   margin-left: 5px;
-  margin-top: 15px;
   opacity: 0.8;
   background-repeat: no-repeat;
 }
