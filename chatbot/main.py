@@ -23,6 +23,20 @@ CORS(app)
 
 @app.route("/chatbot/query", methods=['POST'])
 def query():
+    # Check if the input is JSON
+    if not request.is_json:
+        return jsonify({'error': 'Invalid input'}), 400
+
+    # Check if the 'question' field is present and is a string
+    retrieved_data = request.get_json()
+    if 'question' not in retrieved_data or not isinstance(retrieved_data['question'], str):
+        return jsonify({'error': 'Invalid input'}), 400
+
+    # Check if the 'question' field is empty
+    input_message = retrieved_data.get('question')
+    if input_message.strip() == '':
+        return jsonify({'error': 'Invalid input'}), 400
+
     retrieved_data = request.get_json()
     input_message = retrieved_data.get('question')
 
